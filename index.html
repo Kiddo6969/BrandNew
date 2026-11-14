@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="pl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BRAND NEW | Serwis Układów Chłodzenia – Laptopy &amp; GPU</title>
+  <meta name="description" content="BRAND NEW – profesjonalny serwis układów chłodzenia w laptopach i kartach graficznych. Honeywell PTM7950, Thermal Putty oraz Arctic MX-7. Darmowa diagnostyka i promocja na start -15% do -25%." />
+
+  <!-- Czcionka Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          boxShadow: {
+            crimson: '0 10px 35px -5px rgba(220, 38, 38, 0.22)',
+          },
+        },
+      },
+    };
+  </script>
+</head>
+<body class="bg-[#08080a] text-[#f4f4f6] font-sans antialiased overflow-x-hidden selection:bg-[#dc2626] selection:text-white">
+
+  <!-- =====================================================================
+       1. STICKY HEADER (LOGO SVG + NAWIGACJA + SZYBKIE CTA)
+       ===================================================================== -->
+  <header class="sticky top-0 z-50 bg-[#08080a]/90 backdrop-blur-md border-b border-[#24242e]">
+    <div class="max-w-[1340px] mx-auto px-4 sm:px-6 lg:px-10">
+      <div class="flex items-center justify-between py-3.5 lg:py-4">
+
+        <!-- Emblemat SVG + Nazwa marki BRAND NEW -->
+        <a href="#" class="flex items-center gap-3.5 group focus:outline-none">
+          <div class="w-12 h-10 sm:w-13 sm:h-11 flex items-center justify-center bg-[#111115] border border-[#24242e] group-hover:border-[#dc2626]/70 rounded-xl p-1.5 transition-colors">
+            <!-- Minimalistyczne geometryczne logo: ostre brwi i oczy sowy + precyzyjny bit 4mm -->
+            <svg viewBox="0 0 120 84" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <!-- Lewa brew -->
+              <polygon points="4,12 56,35 53,42 15,25" fill="#dc2626" />
+              <polygon points="21,22 53,37 51,40 24,28" fill="#ffffff" />
+              <!-- Prawa brew -->
+              <polygon points="116,12 64,35 67,42 105,25" fill="#dc2626" />
+              <polygon points="99,22 67,37 69,40 96,28" fill="#ffffff" />
+              <!-- Lewe oko -->
+              <polygon points="21,32 50,44 43,56 24,52" fill="#dc2626" />
+              <polygon points="29,39 44,45 40,51 30,48" fill="#ffffff" />
+              <!-- Prawe oko -->
+              <polygon points="99,32 70,44 77,56 96,52" fill="#dc2626" />
+              <polygon points="91,39 76,45 80,51 90,48" fill="#ffffff" />
+              <!-- Precyzyjny bit 4mm jako dziób -->
+              <polygon points="56,43 60,40 60,57 56,57" fill="#dc2626" />
+              <polygon points="60,40 64,43 64,57 60,57" fill="#ffffff" />
+              <polygon points="56.5,57 60,57 60,74 58,74" fill="#991b1b" />
+              <polygon points="60,57 63.5,57 62,74 60,74" fill="#dc2626" />
+              <polygon points="60,57 61.4,57 60.7,74 60,74" fill="#ffffff" />
+            </svg>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-black tracking-wider text-base sm:text-lg lg:text-xl leading-none text-white">
+              BRAND <span class="text-[#dc2626]">NEW</span>
+            </span>
+            <span class="text-[11px] font-medium tracking-wide text-[#a1a1aa] mt-1">
+              Cooling &amp; Hardware Service
+            </span>
+          </div>
+        </a>
+
+        <!-- Linki nawigacyjne (Desktop) -->
+        <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-[#a1a1aa]">
+          <a href="#materialy" class="hover:text-white transition-colors">Materiały</a>
+          <a href="#cennik" class="hover:text-white transition-colors">Cennik &amp; Kalkulator</a>
+          <a href="#jak-spakowac" class="hover:text-white transition-colors">Jak spakować</a>
+          <a href="#proces" class="hover:text-white transition-colors">Proces</a>
+          <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
+          <a href="#kontakt" class="hover:text-white transition-colors">Kontakt</a>
+        </nav>
+
+        <!-- Szybkie CTA (Desktop) + Hamburger (Mobile) -->
+        <div class="flex items-center gap-3">
+          <a
+            href="#cennik"
+            class="hidden sm:inline-flex items-center gap-2 bg-[#dc2626] hover:bg-[#991b1b] text-white text-sm font-bold px-4 py-2.5 rounded-xl shadow-crimson transition-colors"
+          >
+            <span>Wyceń z rabatem</span>
+          </a>
+
+          <button
+            id="mobile-menu-btn"
+            type="button"
+            class="lg:hidden p-2.5 rounded-xl bg-[#111115] border border-[#24242e] text-zinc-300 hover:text-white hover:border-zinc-600 focus:outline-none"
+            aria-label="Otwórz menu nawigacji"
+            aria-expanded="false"
+          >
+            <svg id="icon-menu" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Menu mobilne -->
+      <div id="mobile-menu" class="hidden lg:hidden pb-4 border-t border-[#24242e] pt-3">
+        <div class="flex flex-col space-y-1.5 text-sm font-medium">
+          <a href="#materialy" class="mobile-link px-3 py-2.5 rounded-xl text-zinc-300 hover:bg-[#18181f] hover:text-white">Materiały</a>
+          <a href="#cennik" class="mobile-link px-3 py-2.5 rounded-xl text-zinc-300 hover:bg-[#18181f] hover:text-white">Cennik &amp; Kalkulator</a>
+          <a href="#jak-spakowac" class="mobile-link px-3 py-2.5 rounded-xl text-zinc-300 hover:bg-[#18181f] hover:text-white">Jak spakować</a>
+          <a href="#proces" class="mobile-link px-3 py-2.5 rounded-xl text-zinc-300 hover:bg-[#18181f] hover:text-white">Proces</a>
+          <a href="#faq" class="mobile-link px-3 py-2.5 rounded-xl text-zinc-300 hover:bg-[#18181f] hover:text-white">FAQ</a>
+          <a href="#kontakt" class="mobile-link mt-2 text-center bg-[#dc2626] hover:bg-[#991b1b] text-white font-bold px-4 py-3 rounded-xl">
+            Umów darmową diagnostykę
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- =====================================================================
+         2. HERO SECTION (SZEROKI UKŁAD DESKTOP + EMBLEMAT SVG + 2 CTA)
+         ===================================================================== -->
+    <section class="relative pt-12 pb-16 sm:pt-16 sm:pb-24 lg:pt-20 lg:pb-28 border-b border-[#24242e] overflow-hidden">
+      <!-- Czerwona poświata w tle -->
+      <div class="pointer-events-none absolute -top-28 left-1/2 -translate-x-1/2 w-[900px] h-[420px] bg-[#dc2626]/15 blur-[140px] rounded-full"></div>
+
+      <div class="relative max-w-[1340px] mx-auto px-4 sm:px-6 lg:px-10 text-center">
+        <!-- Duży emblemat SVG w Hero -->
+        <div class="mx-auto w-24 h-20 sm:w-28 sm:h-22 bg-[#111115] border border-[#24242e] rounded-2xl p-3.5 mb-7 shadow-2xl shadow-black/60 flex items-center justify-center">
+          <svg viewBox="0 0 120 84" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <polygon points="4,12 56,35 53,42 15,25" fill="#dc2626" />
+            <polygon points="21,22 53,37 51,40 24,28" fill="#ffffff" />
+            <polygon points="116,12 64,35 67,42 105,25" fill="#dc2626" />
+            <polygon points="99,22 67,37 69,40 96,28" fill="#ffffff" />
+            <polygon points="21,32 50,44 43,56 24,52" fill="#dc2626" />
+            <polygon points="29,39 44,45 40,51 30,48" fill="#ffffff" />
+            <polygon points="99,32 70,44 77,56 96,52" fill="#dc2626" />
+            <polygon points="91,39 76,45 80,51 90,48" fill="#ffffff" />
+            <polygon points="56,43 60,40 60,57 56,57" fill="#dc2626" />
+            <polygon points="60,40 64,43 64,57 60,57" fill="#ffffff" />
+            <polygon points="56.5,57 60,57 60,74 58,74" fill="#991b1b" />
+            <polygon points="60,57 63.5,57 62,74 60,74" fill="#dc2626" />
+            <polygon points="60,57 61.4,57 60.7,74 60,74" fill="#ffffff" />
+          </svg>
+        </div>
+
+        <!-- Top Badge -->
+        <div class="inline-flex items-center gap-2.5 bg-[#111115] border border-[#dc2626]/60 text-white text-xs sm:text-sm font-extrabold tracking-wide px-4 sm:px-5 py-2 rounded-full mb-7 shadow-crimson">
+          <span class="w-2 h-2 rounded-full bg-[#dc2626] animate-pulse"></span>
+          <span>DARMOWA DIAGNOSTYKA • PROMOCJA NA START: -15% DO -25%</span>
+        </div>
+
+        <!-- Nagłówek główny -->
+        <h1 class="max-w-4xl mx-auto text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.12] mb-6 text-white">
+          Twój sprzęt znów działa jak <span class="text-[#dc2626]">BRAND NEW</span>.
+        </h1>
+
+        <!-- Podtytuł -->
+        <p class="max-w-3xl mx-auto text-base sm:text-lg lg:text-xl text-[#a1a1aa] leading-relaxed mb-10">
+          Profesjonalny serwis układów chłodzenia w laptopach i kartach graficznych. Przywracamy fabryczne temperatury i ciszę dzięki materiałom zmiennofazowym
+          <strong class="text-white font-semibold">Honeywell PTM7950</strong>,
+          <strong class="text-white font-semibold">Thermal Putty</strong> oraz
+          <strong class="text-white font-semibold">Arctic MX-7</strong>.
+        </p>
+
+        <!-- Dwa przyciski CTA -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            href="#cennik"
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#dc2626] hover:bg-[#991b1b] text-white font-bold text-base px-8 py-4 rounded-2xl shadow-crimson transition-all hover:-translate-y-0.5"
+          >
+            <span>Oblicz wycenę z rabatem</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </a>
+          <a
+            href="#kontakt"
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#111115] hover:bg-[#18181f] text-white border border-[#24242e] hover:border-zinc-500 font-bold text-base px-8 py-4 rounded-2xl transition-all"
+          >
+            <span>Umów darmową diagnostykę</span>
+          </a>
+        </div>
+
+        <!-- Szeroki pasek atutów na duże ekrany -->
+        <div class="mt-14 pt-8 border-t border-[#24242e] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-sm text-[#a1a1aa]">
+          <div class="bg-[#111115]/60 border border-[#24242e] rounded-xl px-4 py-3 flex items-center justify-center gap-2">
+            <span class="text-[#dc2626] font-black">✓</span>
+            <span>Diagnostyka chłodzenia: <strong class="text-white">0 zł</strong></span>
+          </div>
+          <div class="bg-[#111115]/60 border border-[#24242e] rounded-xl px-4 py-3 flex items-center justify-center gap-2">
+            <span class="text-[#dc2626] font-black">✓</span>
+            <span>Rabat na start: <strong class="text-white">-15% do -25%</strong></span>
+          </div>
+          <div class="bg-[#111115]/60 border border-[#24242e] rounded-xl px-4 py-3 flex items-center justify-center gap-2">
+            <span class="text-[#dc2626] font-black">✓</span>
+            <span>Raport <strong class="text-white">HWiNFO64 / OCCT</strong></span>
+          </div>
+          <div class="bg-[#111115]/60 border border-[#24242e] rounded-xl px-4 py-3 flex items-center justify-center gap-2">
+            <span class="text-[#dc2626] font-black">✓</span>
+            <span>Myślenice &amp; <strong class="text-white">Wysyłkowo PL</strong></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         3. MATERIALS & STANDARDS ("Dlaczego sprzęt wraca jak nowy?") – 4 KOLUMNY
+         ===================================================================== -->
+    <section id="materialy" class="py-16 sm:py-24 border-b border-[#24242e]">
+      <div class="max-w-[1340px] mx-auto px-4 sm:px-6 lg:px-10">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4 mb-12">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-widest text-[#dc2626]">Standardy &amp; Materiały</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mt-2 text-white">
+              Dlaczego sprzęt wraca jak nowy?
+            </h2>
+          </div>
+          <p class="max-w-xl text-[#a1a1aa] text-sm sm:text-base">
+            Dobieramy chemię i materiały termoprzewodzące pod konkretny układ chłodzenia — od lekkich laptopów biurowych po flagowe karty graficzne.
+          </p>
+        </div>
+
+        <!-- 4 karty w 4-kolumnowej siatce na desktopie -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Karta 1: Honeywell PTM7950 -->
+          <article class="bg-[#111115] hover:bg-[#18181f] border border-[#24242e] hover:border-[#dc2626]/60 rounded-2xl p-6 sm:p-7 transition-all flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-[#dc2626]/10 border border-[#dc2626]/30 text-[#dc2626] flex items-center justify-center mb-5">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                </svg>
+              </div>
+              <span class="text-xs font-bold uppercase tracking-wider text-[#dc2626]">Gaming &amp; GPU</span>
+              <h3 class="text-xl font-bold text-white mt-1 mb-3">Honeywell PTM7950</h3>
+              <p class="text-[#a1a1aa] text-sm leading-relaxed">
+                Materiał zmiennofazowy odporny na efekt <strong class="text-zinc-200">pump-out</strong> na gołych rdzeniach. Nie wypływa spod radiatora i skutecznie zbija temperaturę <strong class="text-zinc-200">Hotspotu</strong>.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-[#24242e] text-xs font-semibold text-zinc-300">
+              Maksymalna stabilność pod obciążeniem
+            </div>
+          </article>
+
+          <!-- Karta 2: Thermal Putty -->
+          <article class="bg-[#111115] hover:bg-[#18181f] border border-[#24242e] hover:border-[#dc2626]/60 rounded-2xl p-6 sm:p-7 transition-all flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-[#dc2626]/10 border border-[#dc2626]/30 text-[#dc2626] flex items-center justify-center mb-5">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4" />
+                </svg>
+              </div>
+              <span class="text-xs font-bold uppercase tracking-wider text-[#dc2626]">Pamięci VRAM &amp; VRM</span>
+              <h3 class="text-xl font-bold text-white mt-1 mb-3">Thermal Putty</h3>
+              <p class="text-[#a1a1aa] text-sm leading-relaxed">
+                Plastyczny kit termoprzewodzący dopasowujący się co do ułamka milimetra. Zero ryzyka źle dobranej grubości termopadów i <strong class="text-zinc-200">utraty docisku rdzenia</strong>.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-[#24242e] text-xs font-semibold text-zinc-300">
+              Idealny kontakt z każdą kością pamięci
+            </div>
+          </article>
+
+          <!-- Karta 3: Arctic MX-7 -->
+          <article class="bg-[#111115] hover:bg-[#18181f] border border-[#24242e] hover:border-[#dc2626]/60 rounded-2xl p-6 sm:p-7 transition-all flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-[#dc2626]/10 border border-[#dc2626]/30 text-[#dc2626] flex items-center justify-center mb-5">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <span class="text-xs font-bold uppercase tracking-wider text-[#dc2626]">Laptopy biurowe &amp; CPU</span>
+              <h3 class="text-xl font-bold text-white mt-1 mb-3">Arctic MX-7</h3>
+              <p class="text-[#a1a1aa] text-sm leading-relaxed">
+                Wysoka gęstość <strong class="text-zinc-200">2,9 g/cm³</strong> i świetna kultura pracy w budżetowym serwisie. Brak przewodności elektrycznej gwarantuje pełne bezpieczeństwo elektroniki.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-[#24242e] text-xs font-semibold text-zinc-300">
+              Rozsądna cena i wysoka kultura pracy
+            </div>
+          </article>
+
+          <!-- Karta 4: Raport "Przed i Po" -->
+          <article class="bg-[#111115] hover:bg-[#18181f] border border-[#24242e] hover:border-[#dc2626]/60 rounded-2xl p-6 sm:p-7 transition-all flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-[#dc2626]/10 border border-[#dc2626]/30 text-[#dc2626] flex items-center justify-center mb-5">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+              </div>
+              <span class="text-xs font-bold uppercase tracking-wider text-[#dc2626]">Pełna przejrzystość</span>
+              <h3 class="text-xl font-bold text-white mt-1 mb-3">Raport „Przed i Po”</h3>
+              <p class="text-[#a1a1aa] text-sm leading-relaxed">
+                Otrzymujesz zdjęcia wyczyszczonego chłodzenia oraz zrzuty ekranu z <strong class="text-zinc-200">HWiNFO64 / OCCT</strong> przed i po usłudze, potwierdzające realny spadek temperatur.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-[#24242e] text-xs font-semibold text-zinc-300">
+              Pełna dokumentacja z każdego zlecenia
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         4. PRICING & INTERACTIVE TIERED DISCOUNT CALCULATOR (#cennik)
+         ===================================================================== -->
+    <section id="cennik" class="py-16 sm:py-24 border-b border-[#24242e]">
+      <div class="max-w-[1340px] mx-auto px-4 sm:px-6 lg:px-10">
+        <div class="max-w-3xl mb-8">
+          <span class="text-xs font-bold uppercase tracking-widest text-[#dc2626]">Oferta &amp; Konfigurator</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mt-2 mb-3 text-white">
+            Cennik &amp; Kalkulator Wyceny
+          </h2>
+          <p class="text-[#a1a1aa] text-base">
+            Wybierz pakiet dopasowany do swojego sprzętu i sprawdź cenę po naliczeniu progresywnego rabatu na start.
+          </p>
+        </div>
+
+        <!-- Wyróżniony baner promocji na start -->
+        <div class="bg-gradient-to-r from-[#dc2626]/20 via-[#111115] to-[#111115] border border-[#dc2626]/60 rounded-2xl p-5 sm:p-6 mb-10 flex flex-col lg:flex-row lg:items-center justify-between gap-4 shadow-crimson">
+          <div class="flex items-start gap-3.5">
+            <div class="w-10 h-10 rounded-xl bg-[#dc2626] text-white font-black flex items-center justify-center shrink-0 text-sm">
+              %
+            </div>
+            <p class="text-sm sm:text-base text-zinc-100 leading-relaxed">
+              <strong class="text-white font-extrabold">PROMOCJA NA START (pierwsze 2 miesiące):</strong> Zgarnij od <strong class="text-[#dc2626] font-extrabold">-15% do -25% rabatu</strong> na dowolny pakiet! Wysokość zniżki rośnie automatycznie wraz z wartością usługi (im bardziej zaawansowany serwis, tym większy rabat).
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-2 shrink-0 text-xs font-bold">
+            <span class="bg-[#08080a] border border-[#24242e] text-zinc-300 px-3 py-1.5 rounded-lg">do 150 zł: <strong class="text-white">-15%</strong></span>
+            <span class="bg-[#08080a] border border-[#24242e] text-zinc-300 px-3 py-1.5 rounded-lg">151–260 zł: <strong class="text-white">-20%</strong></span>
+            <span class="bg-[#dc2626]/20 border border-[#dc2626]/50 text-white px-3 py-1.5 rounded-lg">pow. 260 zł: <strong>-25%</strong></span>
+          </div>
+        </div>
+
+        <!-- 3 Karty Cennika -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch mb-14">
+          <!-- Card 1: Diagnostyka Chłodzenia -->
+          <div class="bg-[#111115] hover:bg-[#18181f] border border-[#24242e] rounded-2xl p-7 flex flex-col justify-between transition-colors">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="text-xs font-bold uppercase tracking-wider text-[#a1a1aa]">Weryfikacja przed serwisem</span>
+                <span class="text-xs font-extrabold uppercase bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 px-2.5 py-1 rounded-lg">
+                  Zawsze darmowa
+                </span>
+              </div>
+              <h3 class="text-xl font-bold text-white">Diagnostyka Chłodzenia</h3>
+              <div class="my-5 flex items-baseline gap-2">
+                <span class="text-4xl font-black text-white">0 zł</span>
+              </div>
+              <ul class="space-y-3 text-sm text-zinc-300 border-t border-[#24242e] pt-5">
+                <li class="flex items-start gap-2.5">
+                  <span class="text-[#dc2626] font-bold">✓</span>
+                  <span>Pomiar temperatur CPU, GPU i Hotspot pod obciążeniem</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-[#dc2626] font-bold">✓</span>
+                  <span>Weryfikacja throttlingu i krzywej wentylatorów</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-[#dc2626] font-bold">✓</span>
+                  <span>Kontrola kondycji dysku (SMART)</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-[#dc2626] font-bold">✓</span>
+                  <span>Oględziny układu chłodzenia i dokładna wycena przed otwarciem</span>
+                </li>
+              </ul>
+            </div>
+            <button
+              type="button"
+              data-select-pkg="diag"
+              class="card-pkg-trigger mt-8 w-full text-center bg-[#08080a] hover:bg-[#18181f] border border-[#24242e] hover:border-zinc-500 text-white font-bold py-3.5 px-4 rounded-xl transition-colors cursor-pointer"
+            >
+              Wybierz w kalkulatorze
+            </button>
+          </div>
+
+          <!-- Card 2: Pakiet Standard (Arctic MX-7) -->
+          <div class="bg-[#111115] hover:bg-[#18181f] border border-[#24242e] rounded-2xl p-7 flex flex-col justify-between transition-colors">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="text-xs font-bold uppercase tracking-wider text-[#a1a1aa]">Laptopy biurowe &amp; CPU</span>
+                <span class="text-xs font-extrabold uppercase bg-[#dc2626]/15 text-[#dc2626] border border-[#dc2626]/30 px-2.5 py-1 rounded-lg">
+                  Rabat na start: -15%
+                </span>
+              </div>
+              <h3 class="text-xl font-bold text-white">Pakiet Standard (Arctic MX-7)</h3>
+              <div class="my-5 flex items-baseline gap-2">
+                <span class="text-4xl font-black text-white">od 110 zł</span>
+                <span class="text-xs text-[#a1a1aa]">(od 94 zł po rabacie)</span>
+              </div>
+              <ul class="space-y-3 text-sm text-zinc-300 border-t border-[#24242e] pt-5">
+                <li class="flex items-start gap-2.5">
+                  <span class="text-[#dc2626] font-bold">✓</span>
+                  <span>Czyszczenie radiatorów i wentylatorów z kurzu</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-[#dc2626] font-bold">✓</span>
+                  <span>Aplikacja świeżej pasty <strong class="text-white">Arctic MX-7</strong></span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-[#dc2626] font-bold">✓</span>
+                  <span>Kontrola stanu termopadów</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-[#dc2626] font-bold">✓</span>
+                  <span>Testy stabilności po złożeniu</span>
+                </li>
+              </ul>
+            </div>
+            <button
+              type="button"
+              data-select-pkg="standard"
+              class="card-pkg-trigger mt-8 w-full text-center bg-[#08080a] hover:bg-[#18181f] border border-[#24242e] hover:border-zinc-500 text-white font-bold py-3.5 px-4 rounded-xl transition-colors cursor-pointer"
+            >
+              Wyceń Pakiet Standard
+            </button>
+          </div>
+
+          <!-- Card 3: Pakiet Pro (PTM7950 + Thermal Putty) – Featured -->
+          <div class="relative bg-[#111115] border-2 border-[#dc2626] rounded-2xl p-7 flex flex-col justify-between shadow-crimson">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="text-xs font-bold uppercase tracking-wider text-[#dc2626]">Gaming &amp; GPU</span>
+                <span class="text-xs font-extrabold uppercase bg-[#dc2626] text-white px-2.5 py-1 rounded-lg">
+                  Rabat na start: -20% do -25%
+                </span>
+              </div>
+              <h3 class="text-xl font-bold text-white">Pakiet Pro (PTM7950 + Thermal Putty)</h3>
+              <div class="my-5 flex items-baseline gap-2 flex-wrap">
+                <span class="text-4xl font-black text-white">od 170 zł</span>
+                <span class="text-xs text-[#a1a1aa]">(od 136 zł po rabacie)</span>
+              </div>
+              <ul class="space-y-3 text-sm text-zinc-200 border-t border-[#24242e] pt-5">
+                <li class="flex items-start gap-2.5">
+                  <span class="text-[#dc2626] font-bold">✓</span>
+                  <span>Pełne czyszczenie układu chłodzenia</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-[#dc2626] font-bold">✓</span>
+                  <span>Aplikacja <strong class="text-white">Honeywell PTM7950</strong> na rdzeń</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-[#dc2626] font-bold">✓</span>
+                  <span>Wymiana fabrycznych padów na <strong class="text-white">Thermal Putty</strong></span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-[#dc2626] font-bold">✓</span>
+                  <span>Komplet zdjęć z prac + raport temperatur</span>
+                </li>
+              </ul>
+            </div>
+            <button
+              type="button"
+              data-select-pkg="pro"
+              class="card-pkg-trigger mt-8 w-full text-center bg-[#dc2626] hover:bg-[#991b1b] text-white font-bold py-3.5 px-4 rounded-xl transition-colors shadow-crimson cursor-pointer"
+            >
+              Wyceń Pakiet Pro
+            </button>
+          </div>
+        </div>
+
+        <!-- =================================================================
+             INTERAKTYWNY KALKULATOR WYCENY I RABATÓW (SZEROKI UKŁAD 2-KOLUMNOWY)
+             ================================================================= -->
+        <div id="kalkulator-box" class="bg-[#111115] border border-[#24242e] rounded-3xl p-6 sm:p-8 lg:p-10 shadow-2xl">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-[#24242e] pb-6 mb-8">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-widest text-[#dc2626]">Kalkulator wyceny na żywo</span>
+              <h3 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">
+                Dobierz sprzęt i sprawdź swój próg rabatu
+              </h3>
+            </div>
+            <span class="text-xs font-semibold text-[#a1a1aa] bg-[#08080a] border border-[#24242e] px-4 py-2 rounded-xl self-start md:self-auto">
+              Ostateczną kwotę potwierdzam przed otwarciem sprzętu
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-start">
+            <!-- LEWA KOLUMNA: Kontrolki wyboru -->
+            <div class="space-y-6">
+              <!-- 1. Wybór sprzętu -->
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-zinc-300 mb-3">
+                  1. Wybierz urządzenie
+                </label>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="device-options">
+                  <button
+                    type="button"
+                    data-device="office"
+                    data-label="Laptop biurowy / domowy"
+                    data-std="110"
+                    data-pro="170"
+                    class="device-btn text-left p-4 rounded-xl border border-[#24242e] bg-[#08080a] hover:bg-[#18181f] transition-all cursor-pointer"
+                  >
+                    <div class="font-bold text-sm text-white">Laptop biurowy / domowy</div>
+                    <div class="text-xs text-[#a1a1aa] mt-1">Standard: 110 zł • Pro: 170 zł</div>
+                  </button>
+
+                  <button
+                    type="button"
+                    data-device="gaming"
+                    data-label="Laptop gamingowy / stacja robocza"
+                    data-std="140"
+                    data-pro="220"
+                    class="device-btn text-left p-4 rounded-xl border border-[#24242e] bg-[#08080a] hover:bg-[#18181f] transition-all cursor-pointer"
+                  >
+                    <div class="font-bold text-sm text-white">Laptop gamingowy / stacja robocza</div>
+                    <div class="text-xs text-[#a1a1aa] mt-1">Standard: 140 zł • Pro: 220 zł</div>
+                  </button>
+
+                  <button
+                    type="button"
+                    data-device="gpu-mid"
+                    data-label="Karta graficzna (Średni / Wysoki segment, np. RTX 3070 / 4070 / RX 6700 XT–7800 XT)"
+                    data-std="130"
+                    data-pro="210"
+                    class="device-btn text-left p-4 rounded-xl border border-[#24242e] bg-[#08080a] hover:bg-[#18181f] transition-all cursor-pointer"
+                  >
+                    <div class="font-bold text-sm text-white">Karta graficzna (Średni / Wysoki segment)</div>
+                    <div class="text-xs text-[#a1a1aa] mt-1">np. RTX 3070/4070, RX 6700 XT–7800 XT</div>
+                  </button>
+
+                  <button
+                    type="button"
+                    data-device="gpu-flagship"
+                    data-label="Flagowa karta graficzna (High-End, np. RTX 3090 / 4090 / 5080 / 5090)"
+                    data-std="160"
+                    data-pro="360"
+                    class="device-btn text-left p-4 rounded-xl border-2 border-[#dc2626] bg-[#dc2626]/10 transition-all cursor-pointer"
+                  >
+                    <div class="font-bold text-sm text-white">Flagowa karta graficzna (High-End)</div>
+                    <div class="text-xs text-zinc-300 mt-1">np. RTX 3090 / 4090 / 5080 / 5090</div>
+                  </button>
+                </div>
+
+                <!-- Opcjonalny checkbox VRAM/VRM (+80 zł) -->
+                <label class="mt-3 flex items-start gap-3 bg-[#08080a] hover:bg-[#18181f] border border-[#24242e] rounded-xl p-3.5 cursor-pointer transition-colors">
+                  <input
+                    type="checkbox"
+                    id="vram-extra-checkbox"
+                    class="mt-0.5 w-4 h-4 accent-[#dc2626] rounded cursor-pointer shrink-0"
+                  />
+                  <div class="text-xs sm:text-sm">
+                    <span class="font-bold text-white">+ Rozbudowana sekcja VRAM/VRM (duże zużycie Thermal Putty)</span>
+                    <span class="ml-1.5 inline-block text-xs font-extrabold text-[#dc2626] bg-[#dc2626]/15 px-2 py-0.5 rounded">+80 zł</span>
+                    <p class="text-xs text-[#a1a1aa] mt-0.5">
+                      Dotyczy rozbudowanych układów chłodzenia (np. GDDR6X / flagowe GPU w Pakiecie Pro).
+                    </p>
+                  </div>
+                </label>
+              </div>
+
+              <!-- 2. Wybór pakietu -->
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-zinc-300 mb-3">
+                  2. Wybierz pakiet usługi
+                </label>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3" id="package-options">
+                  <button
+                    type="button"
+                    data-pkg="diag"
+                    data-pkg-name="Diagnostyka Chłodzenia (0 zł)"
+                    class="pkg-btn text-left p-3.5 rounded-xl border border-[#24242e] bg-[#08080a] hover:bg-[#18181f] transition-all cursor-pointer"
+                  >
+                    <div class="font-bold text-sm text-white">Diagnostyka (0 zł)</div>
+                    <div class="text-xs text-[#a1a1aa] mt-1">Pomiary i wycena</div>
+                  </button>
+
+                  <button
+                    type="button"
+                    data-pkg="standard"
+                    data-pkg-name="Pakiet Standard (Arctic MX-7)"
+                    class="pkg-btn text-left p-3.5 rounded-xl border border-[#24242e] bg-[#08080a] hover:bg-[#18181f] transition-all cursor-pointer"
+                  >
+                    <div class="font-bold text-sm text-white">Pakiet Standard</div>
+                    <div class="text-xs text-[#a1a1aa] mt-1">Arctic MX-7</div>
+                  </button>
+
+                  <button
+                    type="button"
+                    data-pkg="pro"
+                    data-pkg-name="Pakiet Pro (PTM7950 + Thermal Putty)"
+                    class="pkg-btn text-left p-3.5 rounded-xl border-2 border-[#dc2626] bg-[#dc2626]/10 transition-all cursor-pointer"
+                  >
+                    <div class="font-bold text-sm text-white">Pakiet Pro</div>
+                    <div class="text-xs text-zinc-300 mt-1">PTM7950 + Putty</div>
+                  </button>
+                </div>
+              </div>
+
+              <!-- 3. Przełącznik promocji (zaznaczony domyślnie) -->
+              <div class="bg-[#08080a] border border-[#24242e] rounded-xl p-4 flex items-center justify-between gap-4">
+                <div>
+                  <div class="font-bold text-sm text-white">
+                    Promocja na start (pierwsze 2 miesiące): rabat -15% do -25%
+                  </div>
+                  <p class="text-xs text-[#a1a1aa] mt-1">
+                    Rabat dobiera się automatycznie do kwoty bazowej usługi.
+                  </p>
+                </div>
+                <label class="relative inline-flex items-center cursor-pointer shrink-0">
+                  <input type="checkbox" id="promo-toggle" class="sr-only peer" checked />
+                  <div class="w-12 h-7 bg-zinc-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-[#dc2626]"></div>
+                </label>
+              </div>
+
+              <!-- 4. Forma przekazania -->
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-zinc-300 mb-3">
+                  3. Forma przekazania sprzętu
+                </label>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="handover-options">
+                  <button
+                    type="button"
+                    data-handover="local"
+                    data-handover-text="Odbiór osobisty (Myślenice i okolice – 0 zł)"
+                    class="handover-btn text-left p-3.5 rounded-xl border-2 border-[#dc2626] bg-[#dc2626]/10 transition-all cursor-pointer"
+                  >
+                    <div class="font-bold text-sm text-white">Odbiór osobisty</div>
+                    <div class="text-xs text-zinc-300 mt-1">Myślenice i okolice – 0 zł</div>
+                  </button>
+
+                  <button
+                    type="button"
+                    data-handover="shipping"
+                    data-handover-text="Wysyłka Paczkomat / Kurier (diagnostyka 0 zł, pokrywasz koszt przesyłki)"
+                    class="handover-btn text-left p-3.5 rounded-xl border border-[#24242e] bg-[#08080a] hover:bg-[#18181f] transition-all cursor-pointer"
+                  >
+                    <div class="font-bold text-sm text-white">Wysyłka Paczkomat / Kurier</div>
+                    <div class="text-xs text-[#a1a1aa] mt-1">Diagnostyka 0 zł, pokrywasz koszt przesyłki</div>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- PRAWA KOLUMNA: Podsumowanie wyceny i generator wiadomości -->
+            <div class="bg-[#08080a] border border-[#dc2626]/50 rounded-2xl p-6 sm:p-7 flex flex-col justify-between space-y-6">
+              <div>
+                <div class="flex flex-wrap items-center justify-between gap-2 border-b border-[#24242e] pb-4 mb-5">
+                  <span class="text-xs font-bold uppercase tracking-widest text-[#a1a1aa]">Podsumowanie kalkulacji</span>
+                  <span id="active-discount-badge" class="text-xs font-extrabold uppercase bg-[#dc2626] text-white px-3 py-1 rounded-lg">
+                    Aktywny próg rabatu: -25%
+                  </span>
+                </div>
+
+                <!-- Wizualny wskaźnik 3 progów rabatowych -->
+                <div class="grid grid-cols-3 gap-2 mb-6 text-center text-xs">
+                  <div id="tier-pill-15" class="rounded-xl border border-[#24242e] bg-[#111115] p-2.5 transition-all">
+                    <div class="font-extrabold text-zinc-400">do 150 zł</div>
+                    <div class="font-black text-sm text-zinc-300 mt-0.5">-15%</div>
+                  </div>
+                  <div id="tier-pill-20" class="rounded-xl border border-[#24242e] bg-[#111115] p-2.5 transition-all">
+                    <div class="font-extrabold text-zinc-400">151–260 zł</div>
+                    <div class="font-black text-sm text-zinc-300 mt-0.5">-20%</div>
+                  </div>
+                  <div id="tier-pill-25" class="rounded-xl border-2 border-[#dc2626] bg-[#dc2626]/15 p-2.5 transition-all">
+                    <div class="font-extrabold text-zinc-200">powyżej 260 zł</div>
+                    <div class="font-black text-sm text-white mt-0.5">-25%</div>
+                  </div>
+                </div>
+
+                <!-- Tabela kwot -->
+                <div class="bg-[#111115] border border-[#24242e] rounded-2xl p-5 space-y-3">
+                  <div class="flex items-center justify-between text-sm">
+                    <span class="text-[#a1a1aa]">Cena standardowa:</span>
+                    <span id="summary-base-price" class="font-semibold text-zinc-400 line-through">360 zł</span>
+                  </div>
+                  <div class="flex items-center justify-between text-sm">
+                    <span class="text-[#a1a1aa]">Aktywny próg rabatu:</span>
+                    <span id="summary-discount-rate" class="font-extrabold text-[#dc2626]">-25%</span>
+                  </div>
+                  <div class="flex items-center justify-between text-sm">
+                    <span class="text-[#a1a1aa]">Oszczędzasz:</span>
+                    <span id="summary-saved-amount" class="font-extrabold text-emerald-400">90 zł</span>
+                  </div>
+                  <div class="pt-3 border-t border-[#24242e] flex items-baseline justify-between gap-2">
+                    <span class="text-sm font-bold text-white">Szacowana cena końcowa po rabacie:</span>
+                    <span id="summary-final-price" class="text-3xl sm:text-4xl font-black text-white">270 zł</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Podgląd wygenerowanej wiadomości i przycisk kopiowania -->
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <label for="generated-message" class="text-xs font-bold uppercase tracking-wider text-[#a1a1aa]">
+                    Gotowa wiadomość na Instagram DM lub SMS:
+                  </label>
+                  <span id="copy-feedback" class="hidden text-xs font-extrabold text-emerald-400">
+                    ✓ Skopiowano!
+                  </span>
+                </div>
+                <textarea
+                  id="generated-message"
+                  rows="5"
+                  readonly
+                  class="w-full bg-[#111115] border border-[#24242e] rounded-xl p-3.5 text-xs sm:text-sm text-zinc-200 leading-relaxed focus:outline-none resize-none mb-3"
+                ></textarea>
+
+                <button
+                  type="button"
+                  id="copy-message-btn"
+                  class="w-full bg-[#dc2626] hover:bg-[#991b1b] text-white font-bold py-4 px-5 rounded-xl transition-all flex items-center justify-center gap-2.5 cursor-pointer shadow-crimson"
+                >
+                  <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                  </svg>
+                  <span id="copy-btn-label">Kopiuj gotową wiadomość</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         5. SAFE PACKAGING GUIDE ("Jak bezpiecznie zapakować paczkę do wysyłki?")
+         ===================================================================== -->
+    <section id="jak-spakowac" class="py-16 sm:py-24 border-b border-[#24242e]">
+      <div class="max-w-[1340px] mx-auto px-4 sm:px-6 lg:px-10">
+        <div class="max-w-3xl mb-10">
+          <span class="text-xs font-bold uppercase tracking-widest text-[#dc2626]">Bezpieczny transport</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mt-2 mb-3 text-white">
+            Jak bezpiecznie zapakować paczkę do wysyłki?
+          </h2>
+          <p class="text-[#a1a1aa] text-base sm:text-lg leading-relaxed">
+            Najlepszy jest <strong class="text-white">oryginalny karton producenta</strong>. Jeśli go nie masz, zastosuj poniższe zasady:
+          </p>
+        </div>
+
+        <!-- 2-kolumnowa siatka: GPU + Laptop -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+          <!-- Card 1: Pakowanie Karty Graficznej (GPU) -->
+          <article class="bg-[#111115] hover:bg-[#18181f] border border-[#24242e] rounded-2xl p-6 sm:p-8 transition-colors">
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="text-xs font-extrabold uppercase tracking-wider text-[#dc2626] bg-[#dc2626]/10 border border-[#dc2626]/30 px-3 py-1 rounded-lg">
+                Wysyłka Paczkomat / Kurier
+              </span>
+              <span class="text-xs font-semibold text-[#a1a1aa]">Karta graficzna</span>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-bold text-white mb-4">Pakowanie Karty Graficznej (GPU)</h3>
+            <p class="text-sm sm:text-base text-zinc-300 leading-relaxed">
+              Nigdy nie owijaj gołej karty bezpośrednio w zwykłą folię bąbelkową (ryzyko wyładowań ESD). Najpierw włóż kartę w <strong class="text-white">woreczek antystatyczny ESD</strong> lub owiń czystym papierem/kartonikiem, następnie zabezpiecz <strong class="text-white">minimum 4–5 warstwami folii bąbelkowej</strong>. Włóż do sztywnego kartonu i wypełnij puste przestrzenie tak, aby karta oraz śledź PCIe nie miały żadnego luzu.
+            </p>
+          </article>
+
+          <!-- Card 2: Pakowanie Laptopa -->
+          <article class="bg-[#111115] hover:bg-[#18181f] border border-[#24242e] rounded-2xl p-6 sm:p-8 transition-colors">
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="text-xs font-extrabold uppercase tracking-wider text-[#dc2626] bg-[#dc2626]/10 border border-[#dc2626]/30 px-3 py-1 rounded-lg">
+                Wysyłka Paczkomat / Kurier
+              </span>
+              <span class="text-xs font-semibold text-[#a1a1aa]">Notebook / Gaming</span>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-bold text-white mb-4">Pakowanie Laptopa</h3>
+            <p class="text-sm sm:text-base text-zinc-300 leading-relaxed">
+              <strong class="text-white">Całkowicie wyłącz system</strong> (nie wybieraj trybu uśpienia!). Połóż cienką przekładkę (np. ściereczkę z mikrofibry lub kartkę papieru) między klawiaturą a ekranem. Owiń laptopa grubą warstwą folii bąbelkowej (<strong class="text-white">minimum 5 cm amortyzacji z każdej strony</strong>) i umieść w sztywnym pudełku. Zasilacz zapakuj osobno, aby nie obijał obudowy w transporcie.
+            </p>
+          </article>
+        </div>
+
+        <!-- Full-width crimson warning callout box -->
+        <div class="bg-[#dc2626]/10 border-2 border-[#dc2626] rounded-2xl p-6 sm:p-8 shadow-crimson">
+          <div class="flex flex-col sm:flex-row sm:items-start gap-4">
+            <div class="w-11 h-11 rounded-xl bg-[#dc2626] text-white flex items-center justify-center shrink-0">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg sm:text-xl font-extrabold text-white mb-2">
+                Ważna zasada – Komputery stacjonarne (PC)
+              </h3>
+              <p class="text-sm sm:text-base text-zinc-200 leading-relaxed">
+                Całych komputerów PC <strong class="text-white">nie przyjmujemy wysyłkowo</strong> (ani przez Paczkomat, ani kurierem) ze względu na wysokie ryzyko uszkodzenia ciężkiego chłodzenia i karty graficznej podczas transportu. Serwis całych jednostek PC realizujemy <strong class="text-white">wyłącznie lokalnie w Myślenicach i okolicach po wcześniejszym uzgodnieniu</strong>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         6. HOW IT WORKS ("Jak wygląda realizacja?") – 4 KOLUMNY
+         ===================================================================== -->
+    <section id="proces" class="py-16 sm:py-24 border-b border-[#24242e]">
+      <div class="max-w-[1340px] mx-auto px-4 sm:px-6 lg:px-10">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-widest text-[#dc2626]">Krok po kroku</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mt-2 text-white">
+              Jak wygląda realizacja?
+            </h2>
+          </div>
+          <div class="inline-flex items-center gap-2 bg-[#111115] border border-[#24242e] px-4 py-2.5 rounded-xl text-sm font-semibold text-zinc-300">
+            <span class="text-[#dc2626]">⏱</span>
+            <span>Standardowy czas realizacji: <strong class="text-white">2–3 dni robocze</strong></span>
+          </div>
+        </div>
+
+        <!-- 4-kolumnowa siatka desktop -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-[#111115] hover:bg-[#18181f] border border-[#24242e] rounded-2xl p-6 sm:p-7 transition-colors">
+            <div class="w-10 h-10 rounded-xl bg-[#dc2626] text-white font-black flex items-center justify-center text-base mb-5">
+              1
+            </div>
+            <h3 class="font-bold text-lg text-white mb-2">Krótka wiadomość</h3>
+            <p class="text-sm text-[#a1a1aa] leading-relaxed">
+              SMS lub DM na IG z modelem sprzętu oraz wybranym pakietem z kalkulatora.
+            </p>
+          </div>
+
+          <div class="bg-[#111115] hover:bg-[#18181f] border border-[#24242e] rounded-2xl p-6 sm:p-7 transition-colors">
+            <div class="w-10 h-10 rounded-xl bg-[#dc2626] text-white font-black flex items-center justify-center text-base mb-5">
+              2
+            </div>
+            <h3 class="font-bold text-lg text-white mb-2">Darmowa diagnostyka 0 zł</h3>
+            <p class="text-sm text-[#a1a1aa] leading-relaxed">
+              Pomiary temperatur pod obciążeniem i potwierdzenie wyceny z rabatem przed otwarciem sprzętu.
+            </p>
+          </div>
+
+          <div class="bg-[#111115] hover:bg-[#18181f] border border-[#24242e] rounded-2xl p-6 sm:p-7 transition-colors">
+            <div class="w-10 h-10 rounded-xl bg-[#dc2626] text-white font-black flex items-center justify-center text-base mb-5">
+              3
+            </div>
+            <h3 class="font-bold text-lg text-white mb-2">Serwis i dokumentacja</h3>
+            <p class="text-sm text-[#a1a1aa] leading-relaxed">
+              Dokładne czyszczenie, aplikacja PTM7950 / MX-7 / Putty i komplet zdjęć wnętrza przed złożeniem.
+            </p>
+          </div>
+
+          <div class="bg-[#111115] hover:bg-[#18181f] border border-[#24242e] rounded-2xl p-6 sm:p-7 transition-colors">
+            <div class="w-10 h-10 rounded-xl bg-[#dc2626] text-white font-black flex items-center justify-center text-base mb-5">
+              4
+            </div>
+            <h3 class="font-bold text-lg text-white mb-2">Odbiór lub wysyłka zwrotna</h3>
+            <p class="text-sm text-[#a1a1aa] leading-relaxed">
+              Odbierasz cichy sprzęt + zrzuty ekranu z testów przed i po potwierdzające spadek temperatur.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         7. INTERACTIVE FAQ ACCORDION (5 PYTAŃ)
+         ===================================================================== -->
+    <section id="faq" class="py-16 sm:py-24 border-b border-[#24242e]">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-10">
+        <div class="text-center mb-10">
+          <span class="text-xs font-bold uppercase tracking-widest text-[#dc2626]">Pytania i odpowiedzi</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold mt-2 text-white">Najczęstsze pytania (FAQ)</h2>
+        </div>
+
+        <div class="space-y-3.5" id="faq-list">
+          <!-- Pytanie 1 -->
+          <div class="bg-[#111115] border border-[#24242e] rounded-2xl overflow-hidden">
+            <button
+              type="button"
+              class="faq-btn w-full text-left px-6 py-5 flex items-center justify-between gap-4 font-bold text-base sm:text-lg text-white hover:bg-[#18181f] transition-colors cursor-pointer"
+              aria-expanded="false"
+            >
+              <span>Jak działa promocja -15% do -25% przez pierwsze 2 miesiące?</span>
+              <svg class="faq-chevron w-5 h-5 text-[#dc2626] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="faq-panel hidden px-6 pb-5 pt-3.5 text-sm sm:text-base text-[#a1a1aa] leading-relaxed border-t border-[#24242e]">
+              Przez pierwsze 2 miesiące od startu serwisu każdy klient otrzymuje automatyczny rabat naliczany od kwoty bazowej usługi: <strong class="text-white">-15%</strong> dla usług do 150 zł (np. Pakiet Standard w laptopie biurowym), <strong class="text-white">-20%</strong> dla usług w przedziale 151–260 zł (np. Pakiet Pro w laptopie gamingowym lub karcie RTX 3070/4070) oraz <strong class="text-white">-25%</strong> dla usług powyżej 260 zł (np. flagowe karty graficzne z rozbudowanym chłodzeniem VRAM/VRM).
+            </div>
+          </div>
+
+          <!-- Pytanie 2 -->
+          <div class="bg-[#111115] border border-[#24242e] rounded-2xl overflow-hidden">
+            <button
+              type="button"
+              class="faq-btn w-full text-left px-6 py-5 flex items-center justify-between gap-4 font-bold text-base sm:text-lg text-white hover:bg-[#18181f] transition-colors cursor-pointer"
+              aria-expanded="false"
+            >
+              <span>Czy diagnostyka naprawdę jest w 100% darmowa?</span>
+              <svg class="faq-chevron w-5 h-5 text-[#dc2626] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="faq-panel hidden px-6 pb-5 pt-3.5 text-sm sm:text-base text-[#a1a1aa] leading-relaxed border-t border-[#24242e]">
+              Tak. Diagnostyka obejmuje pomiary temperatur CPU, GPU i Hotspot pod obciążeniem, weryfikację throttlingu, sprawdzenie kondycji dysku (SMART) oraz oględziny układu chłodzenia i podanie finalnej wyceny przed rozpoczęciem prac. Nawet jeśli po wycenie zrezygnujesz z serwisu, za diagnostykę płacisz <strong class="text-white">0 zł</strong> (w przypadku zlecenia wysyłkowego pokrywasz wyłącznie koszt przesyłki w obie strony).
+            </div>
+          </div>
+
+          <!-- Pytanie 3 -->
+          <div class="bg-[#111115] border border-[#24242e] rounded-2xl overflow-hidden">
+            <button
+              type="button"
+              class="faq-btn w-full text-left px-6 py-5 flex items-center justify-between gap-4 font-bold text-base sm:text-lg text-white hover:bg-[#18181f] transition-colors cursor-pointer"
+              aria-expanded="false"
+            >
+              <span>Ile trwa standardowy serwis?</span>
+              <svg class="faq-chevron w-5 h-5 text-[#dc2626] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="faq-panel hidden px-6 pb-5 pt-3.5 text-sm sm:text-base text-[#a1a1aa] leading-relaxed border-t border-[#24242e]">
+              Standardowy czas realizacji wynosi <strong class="text-white">2–3 dni robocze</strong> od dostarczenia sprzętu. Pozwala to bez pośpiechu wykonać testy obciążeniowe przed otwarciem, dokładnie wyczyścić radiatory i laminat, precyzyjnie zaaplikować materiały termoprzewodzące oraz potwierdzić stabilność temperatur po złożeniu.
+            </div>
+          </div>
+
+          <!-- Pytanie 4 -->
+          <div class="bg-[#111115] border border-[#24242e] rounded-2xl overflow-hidden">
+            <button
+              type="button"
+              class="faq-btn w-full text-left px-6 py-5 flex items-center justify-between gap-4 font-bold text-base sm:text-lg text-white hover:bg-[#18181f] transition-colors cursor-pointer"
+              aria-expanded="false"
+            >
+              <span>Czym Honeywell PTM7950 różni się od zwykłej pasty?</span>
+              <svg class="faq-chevron w-5 h-5 text-[#dc2626] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="faq-panel hidden px-6 pb-5 pt-3.5 text-sm sm:text-base text-[#a1a1aa] leading-relaxed border-t border-[#24242e]">
+              Zwykłe pasty na gołych rdzeniach (<em>bare die</em>) w laptopach gamingowych i kartach graficznych podlegają zjawisku <strong class="text-white">pump-out</strong> — pod wpływem cykli nagrzewania i stygnięcia są wypychane na boki, przez co po kilku miesiącach rośnie Hotspot i wentylatory znów wyją. <strong class="text-white">Honeywell PTM7950</strong> jest materiałem zmiennofazowym: w temperaturze pracy idealnie wypełnia mikroszczeliny między rdzeniem a radiatorem, nie wysycha i utrzymuje niskie temperatury przez lata.
+            </div>
+          </div>
+
+          <!-- Pytanie 5 -->
+          <div class="bg-[#111115] border border-[#24242e] rounded-2xl overflow-hidden">
+            <button
+              type="button"
+              class="faq-btn w-full text-left px-6 py-5 flex items-center justify-between gap-4 font-bold text-base sm:text-lg text-white hover:bg-[#18181f] transition-colors cursor-pointer"
+              aria-expanded="false"
+            >
+              <span>Dlaczego nie przyjmujecie całych komputerów PC wysyłkowo?</span>
+              <svg class="faq-chevron w-5 h-5 text-[#dc2626] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="faq-panel hidden px-6 pb-5 pt-3.5 text-sm sm:text-base text-[#a1a1aa] leading-relaxed border-t border-[#24242e]">
+              W złożonym pececie ciężki radiator CPU i duża karta graficzna wiszą pionowo w gniazdach płyty głównej. Podczas transportu kurierskiego lub w Paczkomacie wstrząsy bardzo często kończą się wyrwaniem slotu PCIe lub pęknięciem laminatu. Dlatego wysyłkowo przyjmujemy same karty graficzne oraz laptopy, natomiast całe komputery stacjonarne serwisujemy wyłącznie lokalnie w Myślenicach i okolicach po wcześniejszym uzgodnieniu.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         8. CONTACT SECTION & FOOTER
+         ===================================================================== -->
+    <section id="kontakt" class="py-16 sm:py-24">
+      <div class="max-w-[1340px] mx-auto px-4 sm:px-6 lg:px-10">
+        <div class="bg-[#111115] border border-[#24242e] rounded-3xl p-8 sm:p-12 lg:p-14 text-center relative overflow-hidden">
+          <div class="pointer-events-none absolute -bottom-24 left-1/2 -translate-x-1/2 w-[680px] h-[260px] bg-[#dc2626]/15 blur-[110px] rounded-full"></div>
+
+          <div class="relative max-w-3xl mx-auto">
+            <span class="text-xs font-bold uppercase tracking-widest text-[#dc2626]">Kontakt &amp; Rezerwacja terminu</span>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mt-2 mb-4 text-white">
+              Gotowy przywrócić sprzęt do stanu BRAND NEW?
+            </h2>
+            <p class="text-[#a1a1aa] text-base sm:text-lg mb-9 leading-relaxed">
+              Skopiuj gotową wycenę z kalkulatora powyżej albo napisz bezpośrednio z modelem laptopa lub karty graficznej.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
+              <!-- Instagram -->
+              <a
+                href="https://instagram.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center justify-center gap-2.5 bg-[#dc2626] hover:bg-[#991b1b] text-white font-bold py-4 px-6 rounded-2xl shadow-crimson transition-all hover:-translate-y-0.5"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+                <span>Instagram</span>
+              </a>
+
+              <!-- SMS -->
+              <a
+                href="sms:+48000000000"
+                class="flex items-center justify-center gap-2.5 bg-[#08080a] hover:bg-[#18181f] border border-[#24242e] hover:border-zinc-500 text-white font-bold py-4 px-6 rounded-2xl transition-all"
+              >
+                <svg class="w-5 h-5 text-[#dc2626]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                </svg>
+                <span>SMS</span>
+              </a>
+
+              <!-- E-mail -->
+              <a
+                href="mailto:kontakt@brandnew-serwis.pl"
+                class="flex items-center justify-center gap-2.5 bg-[#08080a] hover:bg-[#18181f] border border-[#24242e] hover:border-zinc-500 text-white font-bold py-4 px-6 rounded-2xl transition-all"
+              >
+                <svg class="w-5 h-5 text-[#dc2626]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <span>E-mail</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =====================================================================
+       STOPKA STRONY
+       ===================================================================== -->
+  <footer class="border-t border-[#24242e] bg-[#08080a] py-8">
+    <div class="max-w-[1340px] mx-auto px-4 sm:px-6 lg:px-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-[#a1a1aa]">
+      <div>
+        © 2026 BRAND NEW • Serwis Układów Chłodzenia | Myślenice &amp; Cała Polska (Wysyłkowo)
+      </div>
+      <div class="text-zinc-500">
+        Honeywell PTM7950 • Thermal Putty • Arctic MX-7
+      </div>
+    </div>
+  </footer>
+
+  <!-- =====================================================================
+       SKRYPTY INTERAKTYWNE (MENU, KALKULATOR PROGRESYWNY, FAQ, SCHOWEK)
+       ===================================================================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Obsługa menu mobilnego
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const iconMenu = document.getElementById('icon-menu');
+      const iconClose = document.getElementById('icon-close');
+      const mobileLinks = document.querySelectorAll('.mobile-link');
+
+      mobileMenuBtn.addEventListener('click', () => {
+        const isHidden = mobileMenu.classList.toggle('hidden');
+        iconMenu.classList.toggle('hidden', !isHidden);
+        iconClose.classList.toggle('hidden', isHidden);
+        mobileMenuBtn.setAttribute('aria-expanded', String(!isHidden));
+      });
+
+      mobileLinks.forEach((link) => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          iconMenu.classList.remove('hidden');
+          iconClose.classList.add('hidden');
+          mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      // 2. Stan kalkulatora wyceny
+      const state = {
+        deviceKey: 'gpu-flagship',
+        deviceLabel: 'Flagowa karta graficzna (High-End, np. RTX 3090 / 4090 / 5080 / 5090)',
+        stdPrice: 160,
+        proPrice: 360,
+        vramExtra: false,
+        packageKey: 'pro',
+        packageName: 'Pakiet Pro (PTM7950 + Thermal Putty)',
+        promoActive: true,
+        handoverKey: 'local',
+        handoverText: 'Odbiór osobisty (Myślenice i okolice – 0 zł)',
+      };
+
+      const deviceBtns = document.querySelectorAll('.device-btn');
+      const pkgBtns = document.querySelectorAll('.pkg-btn');
+      const cardPkgTriggers = document.querySelectorAll('.card-pkg-trigger');
+      const handoverBtns = document.querySelectorAll('.handover-btn');
+      const vramExtraCheckbox = document.getElementById('vram-extra-checkbox');
+      const promoToggle = document.getElementById('promo-toggle');
+
+      const activeDiscountBadge = document.getElementById('active-discount-badge');
+      const tierPill15 = document.getElementById('tier-pill-15');
+      const tierPill20 = document.getElementById('tier-pill-20');
+      const tierPill25 = document.getElementById('tier-pill-25');
+
+      const summaryBasePrice = document.getElementById('summary-base-price');
+      const summaryDiscountRate = document.getElementById('summary-discount-rate');
+      const summarySavedAmount = document.getElementById('summary-saved-amount');
+      const summaryFinalPrice = document.getElementById('summary-final-price');
+
+      const generatedMessage = document.getElementById('generated-message');
+      const copyMessageBtn = document.getElementById('copy-message-btn');
+      const copyBtnLabel = document.getElementById('copy-btn-label');
+      const copyFeedback = document.getElementById('copy-feedback');
+
+      // Bezpieczne kopiowanie do schowka (kompatybilne z iFrame)
+      function copyTextSafe(text) {
+        const helper = document.createElement('textarea');
+        helper.value = text;
+        helper.setAttribute('readonly', '');
+        helper.style.position = 'absolute';
+        helper.style.left = '-9999px';
+        document.body.appendChild(helper);
+        helper.select();
+        helper.setSelectionRange(0, 99999);
+
+        try {
+          document.execCommand('copy');
+          copyFeedback.classList.remove('hidden');
+          copyBtnLabel.textContent = 'Skopiowano!';
+          setTimeout(() => {
+            copyFeedback.classList.add('hidden');
+            copyBtnLabel.textContent = 'Kopiuj gotową wiadomość';
+          }, 3000);
+        } catch (err) {
+          // Cicha obsługa błędu bez alert()
+        } finally {
+          document.body.removeChild(helper);
+        }
+      }
+
+      // Podświetlanie aktywnego progu rabatowego (-15% / -20% / -25%)
+      function updateTierPills(activePercent) {
+        const pills = [
+          { el: tierPill15, rate: 15 },
+          { el: tierPill20, rate: 20 },
+          { el: tierPill25, rate: 25 },
+        ];
+
+        pills.forEach(({ el, rate }) => {
+          const isMatch = state.promoActive && activePercent === rate;
+          el.className = isMatch
+            ? 'rounded-xl border-2 border-[#dc2626] bg-[#dc2626]/15 p-2.5 transition-all'
+            : 'rounded-xl border border-[#24242e] bg-[#111115] p-2.5 transition-all opacity-65';
+
+          const titleEl = el.children[0];
+          const valEl = el.children[1];
+          titleEl.className = isMatch ? 'font-extrabold text-zinc-200' : 'font-extrabold text-zinc-400';
+          valEl.className = isMatch ? 'font-black text-sm text-white mt-0.5' : 'font-black text-sm text-zinc-400 mt-0.5';
+        });
+      }
+
+      // Przeliczenie cen, progów rabatowych i treści wiadomości
+      function updateCalculator() {
+        let basePrice = 0;
+
+        if (state.packageKey === 'diag') {
+          basePrice = 0;
+        } else if (state.packageKey === 'standard') {
+          basePrice = state.stdPrice + (state.vramExtra ? 80 : 0);
+        } else {
+          basePrice = state.proPrice + (state.vramExtra ? 80 : 0);
+        }
+
+        // Progresywna logika rabatu:
+        // 0 zł -> 0%
+        // <= 150 zł -> 15%
+        // 151–260 zł -> 20%
+        // > 260 zł -> 25%
+        let discountPercent = 0;
+        if (basePrice === 0) {
+          discountPercent = 0;
+        } else if (basePrice <= 150) {
+          discountPercent = 15;
+        } else if (basePrice <= 260) {
+          discountPercent = 20;
+        } else {
+          discountPercent = 25;
+        }
+
+        const effectivePercent = state.promoActive ? discountPercent : 0;
+        const savedAmount = effectivePercent > 0 ? Math.round(basePrice * (effectivePercent / 100)) : 0;
+        const finalPrice = basePrice - savedAmount;
+
+        updateTierPills(discountPercent);
+
+        if (basePrice === 0) {
+          activeDiscountBadge.textContent = 'Diagnostyka zawsze 0 zł';
+          activeDiscountBadge.className = 'text-xs font-extrabold uppercase bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 px-3 py-1 rounded-lg';
+
+          summaryBasePrice.textContent = '0 zł';
+          summaryBasePrice.classList.remove('line-through');
+          summaryDiscountRate.textContent = '0 zł (bezpłatnie)';
+          summarySavedAmount.textContent = '0 zł';
+          summaryFinalPrice.textContent = '0 zł';
+        } else if (effectivePercent > 0) {
+          activeDiscountBadge.textContent = `Aktywny próg rabatu: -${effectivePercent}%`;
+          activeDiscountBadge.className = 'text-xs font-extrabold uppercase bg-[#dc2626] text-white px-3 py-1 rounded-lg';
+
+          summaryBasePrice.textContent = `${basePrice} zł`;
+          summaryBasePrice.classList.add('line-through');
+          summaryDiscountRate.textContent = `-${effectivePercent}%`;
+          summarySavedAmount.textContent = `${savedAmount} zł`;
+          summaryFinalPrice.textContent = `${finalPrice} zł`;
+        } else {
+          activeDiscountBadge.textContent = 'Cena bez rabatu promocyjnego';
+          activeDiscountBadge.className = 'text-xs font-extrabold uppercase bg-zinc-800 text-zinc-300 px-3 py-1 rounded-lg';
+
+          summaryBasePrice.textContent = `${basePrice} zł`;
+          summaryBasePrice.classList.remove('line-through');
+          summaryDiscountRate.textContent = '0%';
+          summarySavedAmount.textContent = '0 zł';
+          summaryFinalPrice.textContent = `${finalPrice} zł`;
+        }
+
+        const extraNote = state.vramExtra && basePrice > 0 ? ' + rozbudowana sekcja VRAM/VRM' : '';
+        const discountLine =
+          basePrice === 0
+            ? '• Wycena z kalkulatora: 0 zł (Darmowa diagnostyka)'
+            : effectivePercent > 0
+            ? `• Wycena z kalkulatora: ${finalPrice} zł (cena standardowa ${basePrice} zł, rabat na start -${effectivePercent}%, oszczędność ${savedAmount} zł)`
+            : `• Wycena z kalkulatora: ${finalPrice} zł (cena standardowa)`;
+
+        generatedMessage.value =
+          `Cześć BRAND NEW! Chciałbym zgłosić sprzęt na darmową diagnostykę i serwis chłodzenia:\n` +
+          `• Sprzęt: ${state.deviceLabel} [wpisz dokładny model]\n` +
+          `• Pakiet: ${state.packageName}${extraNote}\n` +
+          `${discountLine}\n` +
+          `• Przekazanie: ${state.handoverText}`;
+      }
+
+      // Wybór urządzenia
+      deviceBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          deviceBtns.forEach((b) => {
+            b.classList.remove('border-2', 'border-[#dc2626]', 'bg-[#dc2626]/10');
+            b.classList.add('border', 'border-[#24242e]', 'bg-[#08080a]');
+          });
+          btn.classList.remove('border', 'border-[#24242e]', 'bg-[#08080a]');
+          btn.classList.add('border-2', 'border-[#dc2626]', 'bg-[#dc2626]/10');
+
+          state.deviceKey = btn.dataset.device;
+          state.deviceLabel = btn.dataset.label;
+          state.stdPrice = Number(btn.dataset.std);
+          state.proPrice = Number(btn.dataset.pro);
+          updateCalculator();
+        });
+      });
+
+      // Wybór pakietu
+      function setActivePackage(pkgKey) {
+        pkgBtns.forEach((b) => {
+          const active = b.dataset.pkg === pkgKey;
+          b.classList.toggle('border-2', active);
+          b.classList.toggle('border-[#dc2626]', active);
+          b.classList.toggle('bg-[#dc2626]/10', active);
+          b.classList.toggle('border', !active);
+          b.classList.toggle('border-[#24242e]', !active);
+          b.classList.toggle('bg-[#08080a]', !active);
+
+          if (active) {
+            state.packageKey = b.dataset.pkg;
+            state.packageName = b.dataset.pkgName;
+          }
+        });
+        updateCalculator();
+      }
+
+      pkgBtns.forEach((btn) => {
+        btn.addEventListener('click', () => setActivePackage(btn.dataset.pkg));
+      });
+
+      // Przyciski na kartach cennika powyżej -> przewijają do kalkulatora i ustawiają pakiet
+      cardPkgTriggers.forEach((trigger) => {
+        trigger.addEventListener('click', () => {
+          setActivePackage(trigger.dataset.selectPkg);
+          document.getElementById('kalkulator-box').scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+
+      // Checkbox rozbudowanego VRAM/VRM (+80 zł)
+      vramExtraCheckbox.addEventListener('change', (e) => {
+        state.vramExtra = e.target.checked;
+        updateCalculator();
+      });
+
+      // Przełącznik promocji -15% do -25%
+      promoToggle.addEventListener('change', (e) => {
+        state.promoActive = e.target.checked;
+        updateCalculator();
+      });
+
+      // Wybór formy przekazania
+      handoverBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          handoverBtns.forEach((b) => {
+            b.classList.remove('border-2', 'border-[#dc2626]', 'bg-[#dc2626]/10');
+            b.classList.add('border', 'border-[#24242e]', 'bg-[#08080a]');
+          });
+          btn.classList.remove('border', 'border-[#24242e]', 'bg-[#08080a]');
+          btn.classList.add('border-2', 'border-[#dc2626]', 'bg-[#dc2626]/10');
+
+          state.handoverKey = btn.dataset.handover;
+          state.handoverText = btn.dataset.handoverText;
+          updateCalculator();
+        });
+      });
+
+      // Kopiowanie gotowej wiadomości
+      copyMessageBtn.addEventListener('click', () => {
+        copyTextSafe(generatedMessage.value);
+      });
+
+      // 3. Akordeon FAQ
+      const faqBtns = document.querySelectorAll('.faq-btn');
+      faqBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const panel = btn.nextElementSibling;
+          const chevron = btn.querySelector('.faq-chevron');
+          const isCurrentlyOpen = !panel.classList.contains('hidden');
+
+          document.querySelectorAll('.faq-panel').forEach((p) => p.classList.add('hidden'));
+          document.querySelectorAll('.faq-chevron').forEach((c) => c.classList.remove('rotate-180'));
+          document.querySelectorAll('.faq-btn').forEach((b) => b.setAttribute('aria-expanded', 'false'));
+
+          if (!isCurrentlyOpen) {
+            panel.classList.remove('hidden');
+            chevron.classList.add('rotate-180');
+            btn.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+
+      // Inicjalny stan kalkulatora
+      updateCalculator();
+    });
+  </script>
+</body>
+</html>
