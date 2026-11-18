@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BRAND NEW — Serwis Chłodzenia Laptopów, GPU, PC i Handheldów</title>
-  <meta name="description" content="Żeby Twój sprzęt znów poczuł się jak BRAND NEW. Serwis chłodzenia GPU, laptopów, PC oraz handheldów PC (Steam Deck, ROG Ally, Legion Go). Myślenice odbiór 0 zł i wysyłka cała Polska." />
+  <title>BRAND NEW — Serwis Chłodzenia Laptopów, GPU, PC i Handheldów | Myślenice</title>
+  <meta name="description" content="Żeby Twój sprzęt znów poczuł się jak BRAND NEW. Serwis chłodzenia GPU, laptopów, PC oraz handheldów PC (Steam Deck, ROG Ally, Legion Go). Partner lokalny w Myślenicach: Perfect-Phone." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet" />
@@ -22,6 +22,8 @@
       --accent: #ef233c;
       --accent-hover: #d90429;
       --accent-glow: rgba(239, 35, 60, 0.35);
+      --partner-accent: #3b82f6;
+      --partner-glow: rgba(59, 130, 246, 0.25);
       --radius-lg: 16px;
       --radius-md: 12px;
       --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -79,14 +81,14 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(9, 9, 11, 0.88);
+      background: rgba(9, 9, 11, 0.9);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
     }
 
     .header-inner {
-      height: 62px;
+      height: 64px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -95,7 +97,7 @@
 
     @media (min-width: 640px) {
       .header-inner {
-        height: 68px;
+        height: 70px;
       }
     }
 
@@ -106,6 +108,7 @@
       text-decoration: none;
       color: var(--text-primary);
       flex-shrink: 0;
+      cursor: pointer;
     }
 
     .brand-logo {
@@ -139,16 +142,80 @@
       color: var(--accent);
     }
 
+    /* Top View Switcher (Separate Tabs: Serwis vs Partner Perfect-Phone) */
+    .view-switcher {
+      display: flex;
+      align-items: center;
+      background: var(--bg-card);
+      border: 1px solid var(--border-strong);
+      border-radius: 11px;
+      padding: 3px;
+      gap: 4px;
+    }
+
+    .view-tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 7px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    @media (min-width: 640px) {
+      .view-tab-btn {
+        font-size: 13px;
+        padding: 8px 14px;
+      }
+    }
+
+    .view-tab-btn:hover {
+      color: var(--text-primary);
+    }
+
+    .view-tab-btn.active[data-view="service"] {
+      background: var(--accent);
+      color: #ffffff;
+      box-shadow: 0 2px 10px var(--accent-glow);
+    }
+
+    .view-tab-btn.active[data-view="partner"] {
+      background: var(--partner-accent);
+      color: #ffffff;
+      box-shadow: 0 2px 12px var(--partner-glow);
+    }
+
+    .partner-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--partner-accent);
+      flex-shrink: 0;
+    }
+
+    .view-tab-btn.active .partner-dot {
+      background: #ffffff;
+    }
+
     .nav-links {
       display: none;
       align-items: center;
-      gap: 24px;
+      gap: 20px;
     }
 
     .nav-links a {
       color: var(--text-secondary);
       text-decoration: none;
-      font-size: 14px;
+      font-size: 13.5px;
       font-weight: 500;
       transition: color 0.2s ease;
     }
@@ -193,6 +260,31 @@
 
     .btn-primary:hover {
       background: var(--accent-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-partner {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--partner-accent);
+      color: #ffffff;
+      border: none;
+      border-radius: 10px;
+      padding: 12px 18px;
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      white-space: nowrap;
+      box-shadow: 0 4px 18px var(--partner-glow);
+      transition: filter 0.2s ease, transform 0.15s ease;
+    }
+
+    .btn-partner:hover {
+      filter: brightness(1.1);
       transform: translateY(-1px);
     }
 
@@ -246,22 +338,36 @@
       display: flex;
     }
 
-    .mobile-menu a {
+    .mobile-menu a,
+    .mobile-menu button {
+      background: none;
+      border: none;
+      text-align: left;
+      font-family: var(--font-sans);
       color: var(--text-secondary);
       text-decoration: none;
       font-size: 15px;
       font-weight: 500;
       padding: 11px 4px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      cursor: pointer;
     }
 
-    .mobile-menu a:last-child {
+    .mobile-menu a:last-child,
+    .mobile-menu button:last-child {
       border-bottom: none;
     }
 
-    @media (min-width: 880px) {
+    .desktop-only-cta {
+      display: none;
+    }
+
+    @media (min-width: 980px) {
       .nav-links {
         display: flex;
+      }
+      .desktop-only-cta {
+        display: inline-flex;
       }
       .menu-toggle {
         display: none;
@@ -269,6 +375,21 @@
       .mobile-menu {
         display: none !important;
       }
+    }
+
+    /* Page Views Visibility */
+    .page-view {
+      display: none;
+      animation: fadeView 0.25s ease;
+    }
+
+    .page-view.active {
+      display: block;
+    }
+
+    @keyframes fadeView {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     /* Hero */
@@ -300,6 +421,12 @@
       max-width: 100%;
     }
 
+    .hero-eyebrow.partner-badge {
+      color: #93c5fd;
+      background: rgba(59, 130, 246, 0.12);
+      border-color: rgba(59, 130, 246, 0.32);
+    }
+
     @media (min-width: 640px) {
       .hero-eyebrow {
         font-size: 11px;
@@ -318,6 +445,11 @@
       flex-shrink: 0;
     }
 
+    .hero-dot.blue {
+      background: var(--partner-accent);
+      box-shadow: 0 0 8px var(--partner-accent);
+    }
+
     .hero h1 {
       font-size: clamp(28px, 7vw, 52px);
       font-weight: 800;
@@ -330,6 +462,10 @@
     .hero h1 span {
       color: var(--accent);
       white-space: nowrap;
+    }
+
+    .hero h1 span.blue {
+      color: var(--partner-accent);
     }
 
     .hero-subline {
@@ -371,7 +507,8 @@
     }
 
     .hero-cta-row .btn-primary,
-    .hero-cta-row .btn-secondary {
+    .hero-cta-row .btn-secondary,
+    .hero-cta-row .btn-partner {
       width: 100%;
       padding: 13px 20px;
       font-size: 14px;
@@ -379,7 +516,8 @@
 
     @media (min-width: 540px) {
       .hero-cta-row .btn-primary,
-      .hero-cta-row .btn-secondary {
+      .hero-cta-row .btn-secondary,
+      .hero-cta-row .btn-partner {
         width: auto;
       }
     }
@@ -420,6 +558,11 @@
       margin-top: 6px;
       flex-shrink: 0;
       box-shadow: 0 0 8px var(--accent);
+    }
+
+    .perk-icon.blue {
+      background: var(--partner-accent);
+      box-shadow: 0 0 8px var(--partner-accent);
     }
 
     .perk-chip strong {
@@ -773,7 +916,6 @@
       margin-bottom: 7px;
     }
 
-    /* 16px prevents iOS Safari auto-zoom on focus */
     .form-input, .form-select {
       width: 100%;
       background: var(--bg-main);
@@ -944,6 +1086,11 @@
       display: block;
     }
 
+    .material-tag.blue,
+    .step-num.blue {
+      color: var(--partner-accent);
+    }
+
     .material-card h3,
     .step-card h3 {
       font-size: 16.5px;
@@ -1050,6 +1197,10 @@
       transform: translateY(-2px);
     }
 
+    .contact-card.partner-theme:hover {
+      border-color: var(--partner-accent);
+    }
+
     .contact-card-top {
       display: flex;
       align-items: center;
@@ -1070,6 +1221,12 @@
       flex-shrink: 0;
     }
 
+    .contact-icon-box.blue {
+      background: rgba(59, 130, 246, 0.12);
+      border-color: rgba(59, 130, 246, 0.28);
+      color: var(--partner-accent);
+    }
+
     .contact-arrow {
       color: var(--text-muted);
       font-family: var(--font-mono);
@@ -1078,6 +1235,10 @@
 
     .contact-card:hover .contact-arrow {
       color: var(--accent);
+    }
+
+    .contact-card.partner-theme:hover .contact-arrow {
+      color: var(--partner-accent);
     }
 
     .contact-label {
@@ -1095,6 +1256,39 @@
       font-weight: 700;
       color: var(--text-primary);
       word-break: break-word;
+    }
+
+    /* Partner Cooperation Banner */
+    .partner-coop-box {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.12) 0%, rgba(239, 35, 60, 0.08) 100%);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 12px;
+    }
+
+    @media (min-width: 768px) {
+      .partner-coop-box {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 28px;
+      }
+    }
+
+    .partner-coop-box h3 {
+      font-size: 19px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .partner-coop-box p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      max-width: 640px;
     }
 
     /* Footer */
@@ -1143,7 +1337,7 @@
   <!-- HEADER -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="#" class="brand">
+      <a href="#serwis" class="brand" onclick="switchPageView('service'); return false;">
         <svg class="brand-logo" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M8 18L26 27L32 23L38 27L56 18L44 33L32 28L20 33L8 18Z" fill="#FFFFFF"/>
           <path d="M14 29L24 34L22 41L13 37L14 29Z" stroke="#EF233C" stroke-width="2.4" fill="rgba(239,35,60,0.16)"/>
@@ -1155,15 +1349,26 @@
         <span class="brand-name">BRAND <span>NEW</span></span>
       </a>
 
-      <nav class="nav-links" aria-label="Nawigacja główna">
-        <a href="#kalkulator">Cennik i kalkulator</a>
+      <!-- Separate Top Tabs Switcher -->
+      <div class="view-switcher" role="tablist" aria-label="Wybór widoku strony">
+        <button type="button" class="view-tab-btn active" data-view="service" role="tab" aria-selected="true" onclick="switchPageView('service')">
+          Serwis PC / GPU
+        </button>
+        <button type="button" class="view-tab-btn" data-view="partner" role="tab" aria-selected="false" onclick="switchPageView('partner')">
+          <span class="partner-dot"></span>
+          Perfect-Phone
+        </button>
+      </div>
+
+      <nav class="nav-links" aria-label="Nawigacja sekcji" id="serviceSectionNav">
+        <a href="#kalkulator">Cennik</a>
         <a href="#materialy">Materiały</a>
-        <a href="#proces">Jak to działa</a>
+        <a href="#proces">Proces</a>
         <a href="#kontakt">Kontakt</a>
       </nav>
 
       <div class="header-actions">
-        <a href="#kalkulator" class="btn-primary">Oblicz wycenę</a>
+        <a href="#kalkulator" class="btn-primary desktop-only-cta" onclick="switchPageView('service')">Oblicz wycenę</a>
         <button type="button" class="menu-toggle" id="menuToggle" aria-label="Otwórz menu" aria-expanded="false">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
             <line x1="3" y1="7" x2="21" y2="7"></line>
@@ -1175,272 +1380,438 @@
     </div>
 
     <div class="mobile-menu" id="mobileMenu">
-      <a href="#kalkulator">Cennik i kalkulator</a>
-      <a href="#materialy">Materiały</a>
-      <a href="#proces">Jak to działa</a>
-      <a href="#faq">FAQ</a>
-      <a href="#kontakt">Kontakt (Telefon, IG, FB, E-mail)</a>
+      <button type="button" onclick="switchPageView('service')">Strona główna — Serwis BRAND NEW</button>
+      <button type="button" onclick="switchPageView('partner')" style="color:#93c5fd; font-weight:700;">Partner lokalny — Perfect-Phone GSM</button>
+      <a href="#kalkulator" onclick="switchPageView('service')">Cennik i kalkulator rabatów</a>
+      <a href="#materialy" onclick="switchPageView('service')">Stosowane materiały</a>
+      <a href="#kontakt" onclick="switchPageView('service')">Kontakt (Telefon, IG, FB, E-mail)</a>
     </div>
   </header>
 
-  <!-- HERO -->
-  <main>
-    <section class="hero">
-      <div class="container">
-        <div class="hero-eyebrow">
-          <span class="hero-dot"></span>
-          MYŚLENICE ODBIÓR 0 ZŁ • WYSYŁKA CAŁA PL
-        </div>
-
-        <h1>Żeby Twój sprzęt znów poczuł się jak <span>BRAND NEW</span>.</h1>
-        <p class="hero-subline">
-          Profesjonalny serwis układów chłodzenia Laptopów, GPU, PC i Handheldów PC.
-        </p>
-        <p class="hero-desc">
-          Koniec z przegrzewaniem, wyciem wentylatorów i spadkami FPS. Zamiast fabrycznych kompromisów aplikujemy zmiennofazowy <strong>Thermal Grizzly PhaseSheet PTM (PTM7950)</strong>, kit <strong>Putty Basic</strong> oraz pastę <strong>Arctic MX-7</strong> — zawsze z raportem temperatur PRZED i PO.
-        </p>
-
-        <div class="hero-cta-row">
-          <a href="#kalkulator" class="btn-primary">Oblicz cenę po rabacie -15% do -25%</a>
-          <a href="#kontakt" class="btn-secondary">Szybki kontakt (Tel / IG / FB / Mail)</a>
-        </div>
-
-        <div class="perks-strip">
-          <div class="perk-chip">
-            <span class="perk-icon"></span>
-            <div>
-              <strong>Diagnoza i wycena 0 zł</strong>
-              <span>Pomiar temperatur przed pracą bez zobowiązań</span>
-            </div>
+  <!-- ======================================================================= -->
+  <!-- VIEW 1: GŁÓWNA STRONA SERWISU BRAND NEW                                 -->
+  <!-- ======================================================================= -->
+  <div id="view-service" class="page-view active">
+    <main>
+      <section class="hero">
+        <div class="container">
+          <div class="hero-eyebrow">
+            <span class="hero-dot"></span>
+            MYŚLENICE ODBIÓR 0 ZŁ • WYSYŁKA CAŁA PL
           </div>
-          <div class="perk-chip">
-            <span class="perk-icon"></span>
-            <div>
-              <strong>Myślenice: odbiór 0 zł</strong>
-              <span>Darmowy odbiór i zwrot sprzętu spod drzwi</span>
-            </div>
-          </div>
-          <div class="perk-chip">
-            <span class="perk-icon"></span>
-            <div>
-              <strong>Raport PRZED i PO</strong>
-              <span>Zrzuty HWiNFO64 / FurMark + zdjęcia wnętrza</span>
-            </div>
-          </div>
-          <div class="perk-chip">
-            <span class="perk-icon"></span>
-            <div>
-              <strong>Zabezpieczenie ESD</strong>
-              <span>Bezpieczny transport lokalny oraz Paczkomat InPost</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- CALCULATOR & SERVICES -->
-    <section id="kalkulator">
-      <div class="container">
-        <div class="section-header">
-          <h2>Wybierz sprzęt i sprawdź cenę po rabacie</h2>
-          <p>
-            Przełącz kategorię sprzętu poniżej. Kalkulator automatycznie przelicza zniżkę na start (<strong>-15%</strong> do 150 zł, <strong>-20%</strong> w przedziale 151–260 zł, <strong>-25%</strong> powyżej 260 zł) oraz generuje gotową wiadomość do wysłania jednym kliknięciem.
+          <h1>Żeby Twój sprzęt znów poczuł się jak <span>BRAND NEW</span>.</h1>
+          <p class="hero-subline">
+            Profesjonalny serwis układów chłodzenia Laptopów, GPU, PC i Handheldów PC.
           </p>
-        </div>
+          <p class="hero-desc">
+            Koniec z przegrzewaniem, wyciem wentylatorów i spadkami FPS. Zamiast fabrycznych kompromisów aplikujemy zmiennofazowy <strong>Thermal Grizzly PhaseSheet PTM (PTM7950)</strong>, kit <strong>Putty Basic</strong> oraz pastę <strong>Arctic MX-7</strong> — zawsze z raportem temperatur PRZED i PO.
+          </p>
 
-        <!-- Smooth Category Tabs -->
-        <div class="bn-tabs-wrapper">
-          <div class="bn-tabs" role="tablist" aria-label="Kategoria sprzętu">
-            <button type="button" class="bn-tab active" role="tab" aria-selected="true" data-category="laptops">
-              <span class="bn-tab-label">Laptopy</span>
-            </button>
-            <button type="button" class="bn-tab" role="tab" aria-selected="false" data-category="gpu">
-              <span class="bn-tab-label">GPU</span>
-            </button>
-            <button type="button" class="bn-tab" role="tab" aria-selected="false" data-category="handheld">
-              <span class="bn-tab-label">Handheld</span>
-            </button>
+          <div class="hero-cta-row">
+            <a href="#kalkulator" class="btn-primary">Oblicz cenę po rabacie -15% do -25%</a>
+            <a href="#kontakt" class="btn-secondary">Szybki kontakt (Tel / IG / FB / Mail)</a>
           </div>
-        </div>
 
-        <!-- Handheld PC only clarification -->
-        <div class="category-notice" id="handheldNotice">
-          Obsługujemy wyłącznie <strong>handheldy PC</strong> (Steam Deck, ASUS ROG Ally, Lenovo Legion Go, MSI Claw). <strong>Nie serwisujemy</strong> konsol Nintendo Switch ani podobnych urządzeń.
-        </div>
-
-        <!-- Dynamic Service Cards -->
-        <div class="cards-grid" id="cardsGrid"></div>
-
-        <!-- Summary & Message Generator -->
-        <div class="summary-panel">
-          <div>
-            <div class="form-group">
-              <label class="form-label" for="deviceModelInput">Model urządzenia (opcjonalnie)</label>
-              <input type="text" id="deviceModelInput" class="form-input" placeholder="np. Lenovo Legion 5 / RTX 3070 / Steam Deck" />
+          <div class="perks-strip">
+            <div class="perk-chip">
+              <span class="perk-icon"></span>
+              <div>
+                <strong>Diagnoza i wycena 0 zł</strong>
+                <span>Pomiar temperatur przed pracą bez zobowiązań</span>
+              </div>
             </div>
-
-            <div class="form-group">
-              <label class="form-label" for="logisticsSelect">Sposób przekazania sprzętu</label>
-              <select id="logisticsSelect" class="form-select">
-                <option value="Odbiór i zwrot spod drzwi — Myślenice (0 zł)">Odbiór i zwrot spod drzwi — Myślenice (0 zł)</option>
-                <option value="Wysyłka Paczkomat InPost — cała Polska">Wysyłka Paczkomat InPost — cała Polska</option>
-              </select>
+            <div class="perk-chip">
+              <span class="perk-icon"></span>
+              <div>
+                <strong>Myślenice: odbiór 0 zł</strong>
+                <span>Darmowy odbiór i zwrot sprzętu spod drzwi</span>
+              </div>
             </div>
-
-            <label class="addon-toggle" for="kryoAddon">
-              <span>Opcja: <strong>Thermal Grizzly KryoSheet</strong> (na indywidualne zamówienie, +40 zł)</span>
-              <input type="checkbox" id="kryoAddon" />
-            </label>
-
-            <div class="price-breakdown">
-              <div class="breakdown-line">
-                <span>Wybrana usługa:</span>
-                <strong id="summaryServiceName">—</strong>
+            <div class="perk-chip">
+              <span class="perk-icon"></span>
+              <div>
+                <strong>Raport PRZED i PO</strong>
+                <span>Zrzuty HWiNFO64 / FurMark + zdjęcia wnętrza</span>
               </div>
-              <div class="breakdown-line">
-                <span>Cena katalogowa:</span>
-                <span id="summaryBasePrice">0 zł</span>
-              </div>
-              <div class="breakdown-line discount">
-                <span id="summaryDiscountLabel">Rabat na start (0%):</span>
-                <span id="summaryDiscountValue">0 zł</span>
-              </div>
-              <div class="breakdown-total">
-                <span>Do zapłaty po rabacie:</span>
-                <span id="summaryFinalPrice">0 zł</span>
+            </div>
+            <div class="perk-chip">
+              <span class="perk-icon"></span>
+              <div>
+                <strong>Zabezpieczenie ESD</strong>
+                <span>Bezpieczny transport lokalny oraz Paczkomat InPost</span>
               </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div>
-            <label class="form-label" for="generatedMessage">Gotowa wiadomość do wysłania</label>
-            <textarea id="generatedMessage" class="message-box" readonly></textarea>
+      <!-- CALCULATOR & SERVICES -->
+      <section id="kalkulator">
+        <div class="container">
+          <div class="section-header">
+            <h2>Wybierz sprzęt i sprawdź cenę po rabacie</h2>
+            <p>
+              Przełącz kategorię sprzętu poniżej. Kalkulator automatycznie przelicza zniżkę na start (<strong>-15%</strong> do 150 zł, <strong>-20%</strong> w przedziale 151–260 zł, <strong>-25%</strong> powyżej 260 zł) oraz generuje gotową wiadomość do wysłania jednym kliknięciem.
+            </p>
+          </div>
 
-            <div class="summary-actions">
-              <button type="button" class="btn-primary btn-full" id="copyMsgBtn">1. Kopiuj gotową wiadomość</button>
-              <a href="#" target="_blank" rel="noopener" class="btn-secondary" id="igDirectBtn">Instagram DM</a>
-              <a href="#" target="_blank" rel="noopener" class="btn-secondary" id="fbDirectBtn">Facebook / Messenger</a>
-              <a href="#" class="btn-secondary" id="smsDirectBtn">Wyślij SMS</a>
-              <a href="#" class="btn-secondary" id="mailDirectBtn">Wyślij E-mail</a>
+          <div class="bn-tabs-wrapper">
+            <div class="bn-tabs" role="tablist" aria-label="Kategoria sprzętu">
+              <button type="button" class="bn-tab active" role="tab" aria-selected="true" data-category="laptops">
+                <span class="bn-tab-label">Laptopy</span>
+              </button>
+              <button type="button" class="bn-tab" role="tab" aria-selected="false" data-category="gpu">
+                <span class="bn-tab-label">GPU</span>
+              </button>
+              <button type="button" class="bn-tab" role="tab" aria-selected="false" data-category="handheld">
+                <span class="bn-tab-label">Handheld</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="category-notice" id="handheldNotice">
+            Obsługujemy wyłącznie <strong>handheldy PC</strong> (Steam Deck, ASUS ROG Ally, Lenovo Legion Go, MSI Claw). <strong>Nie serwisujemy</strong> konsol Nintendo Switch ani podobnych urządzeń.
+          </div>
+
+          <div class="cards-grid" id="cardsGrid"></div>
+
+          <div class="summary-panel">
+            <div>
+              <div class="form-group">
+                <label class="form-label" for="deviceModelInput">Model urządzenia (opcjonalnie)</label>
+                <input type="text" id="deviceModelInput" class="form-input" placeholder="np. Lenovo Legion 5 / RTX 3070 / Steam Deck" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="logisticsSelect">Sposób przekazania sprzętu</label>
+                <select id="logisticsSelect" class="form-select">
+                  <option value="Odbiór i zwrot spod drzwi — Myślenice (0 zł)">Odbiór i zwrot spod drzwi — Myślenice (0 zł)</option>
+                  <option value="Wysyłka Paczkomat InPost — cała Polska">Wysyłka Paczkomat InPost — cała Polska</option>
+                </select>
+              </div>
+
+              <label class="addon-toggle" for="kryoAddon">
+                <span>Opcja: <strong>Thermal Grizzly KryoSheet</strong> (na indywidualne zamówienie, +40 zł)</span>
+                <input type="checkbox" id="kryoAddon" />
+              </label>
+
+              <div class="price-breakdown">
+                <div class="breakdown-line">
+                  <span>Wybrana usługa:</span>
+                  <strong id="summaryServiceName">—</strong>
+                </div>
+                <div class="breakdown-line">
+                  <span>Cena katalogowa:</span>
+                  <span id="summaryBasePrice">0 zł</span>
+                </div>
+                <div class="breakdown-line discount">
+                  <span id="summaryDiscountLabel">Rabat na start (0%):</span>
+                  <span id="summaryDiscountValue">0 zł</span>
+                </div>
+                <div class="breakdown-total">
+                  <span>Do zapłaty po rabacie:</span>
+                  <span id="summaryFinalPrice">0 zł</span>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <label class="form-label" for="generatedMessage">Gotowa wiadomość do wysłania</label>
+              <textarea id="generatedMessage" class="message-box" readonly></textarea>
+
+              <div class="summary-actions">
+                <button type="button" class="btn-primary btn-full" id="copyMsgBtn">1. Kopiuj gotową wiadomość</button>
+                <a href="#" target="_blank" rel="noopener" class="btn-secondary" id="igDirectBtn">Instagram DM</a>
+                <a href="#" target="_blank" rel="noopener" class="btn-secondary" id="fbDirectBtn">Facebook / Messenger</a>
+                <a href="#" class="btn-secondary" id="smsDirectBtn">Wyślij SMS</a>
+                <a href="#" class="btn-secondary" id="mailDirectBtn">Wyślij E-mail</a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- MATERIALS -->
-    <section id="materialy">
-      <div class="container">
-        <div class="section-header">
-          <h2>Materiały, na których pracujemy</h2>
-          <p>Nie stosujemy tanich, wysychających past OEM. Każdy układ chłodzenia dobieramy pod specyfikę termiczną konkretnego rdzenia i sekcji zasilania.</p>
-        </div>
+      <!-- MATERIALS -->
+      <section id="materialy">
+        <div class="container">
+          <div class="section-header">
+            <h2>Materiały, na których pracujemy</h2>
+            <p>Nie stosujemy tanich, wysychających past OEM. Każdy układ chłodzenia dobieramy pod specyfikę termiczną konkretnego rdzenia i sekcji zasilania.</p>
+          </div>
 
-        <div class="materials-grid">
-          <div class="material-card">
-            <span class="material-tag">RDZEŃ CPU / GPU / APU</span>
-            <h3>Thermal Grizzly PhaseSheet PTM</h3>
-            <p>Materiał zmiennofazowy (klasy PTM7950), który w temperaturze pracy wypełnia mikroskopijne nierówności rdzenia. Brak zjawiska degradacji pump-out i wieloletnia stabilność temperatur.</p>
-          </div>
-          <div class="material-card">
-            <span class="material-tag">PAMIĘCI VRAM & SEKCJA VRM</span>
-            <h3>Thermal Grizzly Putty Basic</h3>
-            <p>Elastyczny kit termoprzewodzący zastępujący klasyczne termopady. Idealnie dopasowuje się do każdej szczeliny bez ryzyka niedociśnięcia radiatora do rdzenia GPU/CPU.</p>
-          </div>
-          <div class="material-card">
-            <span class="material-tag">BIUROWE & STANDARD PC</span>
-            <h3>Arctic MX-7</h3>
-            <p>Nowoczesna, nieprzewodząca prądu pasta termoprzewodząca o wysokiej wydajności, idealna do laptopów biurowych, ultrabooków oraz standardowych procesorów stacjonarnych.</p>
-          </div>
-          <div class="material-card">
-            <span class="material-tag">OPCJA NA ZAMÓWIENIE</span>
-            <h3>Thermal Grizzly KryoSheet</h3>
-            <p>Grafenowy pad termoprzewodzący o ekstremalnej przewodności cieplnej, dostępny na indywidualne zamówienie pod najmocniejsze układy.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROCESS -->
-    <section id="proces">
-      <div class="container">
-        <div class="section-header">
-          <h2>Jak wygląda realizacja krok po kroku</h2>
-          <p>Prosty i przejrzysty proces — lokalnie na terenie Myślenic oraz wysyłkowo w całej Polsce.</p>
-        </div>
-
-        <div class="steps-grid">
-          <div class="step-card">
-            <span class="step-num">01 / KONTAKT</span>
-            <h3>Szybka wycena w kalkulatorze</h3>
-            <p>Wybierasz pakiet powyżej, kopiujesz gotową wiadomość i wysyłasz ją przez Instagram, Facebooka, E-mail lub SMS.</p>
-          </div>
-          <div class="step-card">
-            <span class="step-num">02 / LOGISTYKA</span>
-            <h3>Odbiór 0 zł lub Paczkomat</h3>
-            <p>W Myślenicach odbieramy sprzęt spod Twoich drzwi za 0 zł. Z całej Polski wysyłasz urządzenie paczkomatem InPost.</p>
-          </div>
-          <div class="step-card">
-            <span class="step-num">03 / SERWIS & TESTY</span>
-            <h3>Czyszczenie, PTM i raport</h3>
-            <p>Robimy pomiary temperatur PRZED, czyścimy układ, aplikujemy PhaseSheet PTM / Putty / MX-7 i wykonujemy testy obciążeniowe PO.</p>
-          </div>
-          <div class="step-card">
-            <span class="step-num">04 / ZWROT ESD</span>
-            <h3>Dokumentacja i odbiór</h3>
-            <p>Otrzymujesz zdjęcia z prac oraz zrzuty temperatur z HWiNFO64 / FurMark, a sprzęt wraca zabezpieczony antystatycznie (ESD).</p>
+          <div class="materials-grid">
+            <div class="material-card">
+              <span class="material-tag">RDZEŃ CPU / GPU / APU</span>
+              <h3>Thermal Grizzly PhaseSheet PTM</h3>
+              <p>Materiał zmiennofazowy (klasy PTM7950), który w temperaturze pracy wypełnia mikroskopijne nierówności rdzenia. Brak zjawiska degradacji pump-out i wieloletnia stabilność temperatur.</p>
+            </div>
+            <div class="material-card">
+              <span class="material-tag">PAMIĘCI VRAM & SEKCJA VRM</span>
+              <h3>Thermal Grizzly Putty Basic</h3>
+              <p>Elastyczny kit termoprzewodzący zastępujący klasyczne termopady. Idealnie dopasowuje się do każdej szczeliny bez ryzyka niedociśnięcia radiatora do rdzenia GPU/CPU.</p>
+            </div>
+            <div class="material-card">
+              <span class="material-tag">BIUROWE & STANDARD PC</span>
+              <h3>Arctic MX-7</h3>
+              <p>Nowoczesna, nieprzewodząca prądu pasta termoprzewodząca o wysokiej wydajności, idealna do laptopów biurowych, ultrabooków oraz standardowych procesorów stacjonarnych.</p>
+            </div>
+            <div class="material-card">
+              <span class="material-tag">OPCJA NA ZAMÓWIENIE</span>
+              <h3>Thermal Grizzly KryoSheet</h3>
+              <p>Grafenowy pad termoprzewodzący o ekstremalnej przewodności cieplnej, dostępny na indywidualne zamówienie pod najmocniejsze układy.</p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- FAQ -->
-    <section id="faq">
-      <div class="container">
-        <div class="section-header">
-          <h2>Najczęstsze pytania</h2>
+      <!-- PROCESS -->
+      <section id="proces">
+        <div class="container">
+          <div class="section-header">
+            <h2>Jak wygląda realizacja krok po kroku</h2>
+            <p>Prosty i przejrzysty proces — lokalnie na terenie Myślenic oraz wysyłkowo w całej Polsce.</p>
+          </div>
+
+          <div class="steps-grid">
+            <div class="step-card">
+              <span class="step-num">01 / KONTAKT</span>
+              <h3>Szybka wycena w kalkulatorze</h3>
+              <p>Wybierasz pakiet powyżej, kopiujesz gotową wiadomość i wysyłasz ją przez Instagram, Facebooka, E-mail lub SMS.</p>
+            </div>
+            <div class="step-card">
+              <span class="step-num">02 / LOGISTYKA</span>
+              <h3>Odbiór 0 zł lub Paczkomat</h3>
+              <p>W Myślenicach odbieramy sprzęt spod Twoich drzwi za 0 zł. Z całej Polski wysyłasz urządzenie paczkomatem InPost.</p>
+            </div>
+            <div class="step-card">
+              <span class="step-num">03 / SERWIS & TESTY</span>
+              <h3>Czyszczenie, PTM i raport</h3>
+              <p>Robimy pomiary temperatur PRZED, czyścimy układ, aplikujemy PhaseSheet PTM / Putty / MX-7 i wykonujemy testy obciążeniowe PO.</p>
+            </div>
+            <div class="step-card">
+              <span class="step-num">04 / ZWROT ESD</span>
+              <h3>Dokumentacja i odbiór</h3>
+              <p>Otrzymujesz zdjęcia z prac oraz zrzuty temperatur z HWiNFO64 / FurMark, a sprzęt wraca zabezpieczony antystatycznie (ESD).</p>
+            </div>
+          </div>
         </div>
+      </section>
 
-        <div class="faq-list">
-          <details class="faq-item">
-            <summary>Jakie handheldy przyjmujecie na serwis chłodzenia?</summary>
-            <p>Serwisujemy wyłącznie przenośne komputery PC (handheldy PC): Steam Deck (LCD oraz OLED), ASUS ROG Ally / Ally X, Lenovo Legion Go oraz MSI Claw. Nie przyjmujemy konsol Nintendo Switch ani podobnych zamkniętych konsol.</p>
-          </details>
-          <details class="faq-item">
-            <summary>Czy darmowy odbiór w Myślenicach naprawdę kosztuje 0 zł?</summary>
-            <p>Tak — na terenie Myślenic odbiór urządzenia spod drzwi oraz zwrot po wykonanej usłudze są całkowicie darmowe (0 zł), podobnie jak wstępna diagnoza temperatur.</p>
-          </details>
-          <details class="faq-item">
-            <summary>Skąd mam pewność, jakie materiały zostały użyte w środku?</summary>
-            <p>Do każdego zlecenia otrzymujesz dokumentację zdjęciową z otwartego układu chłodzenia podczas aplikacji materiałów (Thermal Grizzly PhaseSheet PTM, Putty Basic, Arctic MX-7) oraz zrzuty ekranu z temperaturami PRZED i PO serwisie.</p>
-          </details>
-          <details class="faq-item">
-            <summary>Jak długo trwa wykonanie usługi?</summary>
-            <p>Standardowy czas realizacji dla laptopów, kart GPU oraz handheldów PC wynosi zazwyczaj 24–48 godzin od momentu odebrania sprzętu (w przypadku opcjonalnego zamówienia KryoSheet termin potwierdzamy indywidualnie).</p>
-          </details>
+      <!-- FAQ -->
+      <section id="faq">
+        <div class="container">
+          <div class="section-header">
+            <h2>Najczęstsze pytania</h2>
+          </div>
+
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary>Jakie handheldy przyjmujecie na serwis chłodzenia?</summary>
+              <p>Serwisujemy wyłącznie przenośne komputery PC (handheldy PC): Steam Deck (LCD oraz OLED), ASUS ROG Ally / Ally X, Lenovo Legion Go oraz MSI Claw. Nie przyjmujemy konsol Nintendo Switch ani podobnych zamkniętych konsol.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Czy darmowy odbiór w Myślenicach naprawdę kosztuje 0 zł?</summary>
+              <p>Tak — na terenie Myślenic odbiór urządzenia spod drzwi oraz zwrot po wykonanej usłudze są całkowicie darmowe (0 zł), podobnie jak wstępna diagnoza temperatur.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Skąd mam pewność, jakie materiały zostały użyte w środku?</summary>
+              <p>Do każdego zlecenia otrzymujesz dokumentację zdjęciową z otwartego układu chłodzenia podczas aplikacji materiałów (Thermal Grizzly PhaseSheet PTM, Putty Basic, Arctic MX-7) oraz zrzuty ekranu z temperaturami PRZED i PO serwisie.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Jak długo trwa wykonanie usługi?</summary>
+              <p>Standardowy czas realizacji dla laptopów, kart GPU oraz handheldów PC wynosi zazwyczaj 24–48 godzin od momentu odebrania sprzętu (w przypadku opcjonalnego zamówienia KryoSheet termin potwierdzamy indywidualnie).</p>
+            </details>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- CONTACT HUB (Telefon, E-mail, Instagram, Facebook) -->
-    <section id="kontakt">
-      <div class="container">
-        <div class="section-header">
-          <h2>Kontakt i social media</h2>
-          <p>Napisz lub zadzwoń wygodnym dla Ciebie kanałem — odpowiadamy sprawnie z konkretną wyceną i terminem.</p>
+      <!-- CONTACT HUB -->
+      <section id="kontakt">
+        <div class="container">
+          <div class="section-header">
+            <h2>Kontakt i social media</h2>
+            <p>Napisz lub zadzwoń wygodnym dla Ciebie kanałem — odpowiadamy sprawnie z konkretną wyceną i terminem.</p>
+          </div>
+
+          <div class="contact-grid" id="contactGrid"></div>
         </div>
+      </section>
+    </main>
+  </div>
 
-        <div class="contact-grid" id="contactGrid"></div>
-      </div>
-    </section>
-  </main>
+  <!-- ======================================================================= -->
+  <!-- VIEW 2: OSOBNA ZAKŁADKA PARTNERA — PERFECT-PHONE MYŚLENICE              -->
+  <!-- ======================================================================= -->
+  <div id="view-partner" class="page-view">
+    <main>
+      <section class="hero">
+        <div class="container">
+          <div class="hero-eyebrow partner-badge">
+            <span class="hero-dot blue"></span>
+            POLECANY PARTNER LOKALNY • MYŚLENICE UL. SŁONECZNA 2D
+          </div>
+
+          <h1><span class="blue">Perfect-Phone</span> — Serwis, Telefony i Akcesoria.</h1>
+          <p class="hero-subline">
+            Sprawdzony punkt GSM w Myślenicach przy dworcu — sprzedaż smartfonów, profesjonalny serwis oraz pełen wybór akcesoriów.
+          </p>
+          <p class="hero-desc">
+            Szukasz pewnego telefonu, szybkiej naprawy smartfona albo solidnego szkła i etui na miejscu w Myślenicach? Odwiedź nasz zaprzyjaźniony salon <strong>Perfect-Phone</strong> przy <strong>ul. Słonecznej 2D (przy dworcu)</strong>, gdzie znajdziesz również nasze ulotki serwisowe <strong>BRAND NEW</strong>.
+          </p>
+
+          <div class="hero-cta-row">
+            <a href="https://perfect-phone.pl/" target="_blank" rel="noopener" class="btn-partner">Odwiedź stronę perfect-phone.pl ↗</a>
+            <a href="tel:+48782333986" class="btn-secondary">Zadzwoń: 782 333 986</a>
+            <a href="https://maps.google.com/?q=My%C5%9Blenice+ul.+S%C5%82oneczna+2D" target="_blank" rel="noopener" class="btn-secondary">Nawiguj: ul. Słoneczna 2D</a>
+          </div>
+
+          <div class="perks-strip">
+            <div class="perk-chip">
+              <span class="perk-icon blue"></span>
+              <div>
+                <strong>Raty 0% i zakupy online</strong>
+                <span>Wygodne finansowanie 0% na wybrane urządzenia</span>
+              </div>
+            </div>
+            <div class="perk-chip">
+              <span class="perk-icon blue"></span>
+              <div>
+                <strong>Gwarancja jakości</strong>
+                <span>Sprawdzone produkty oraz pewny serwis GSM</span>
+              </div>
+            </div>
+            <div class="perk-chip">
+              <span class="perk-icon blue"></span>
+              <div>
+                <strong>Szybka realizacja</strong>
+                <span>Sprawna obsługa na miejscu przy dworcu w Myślenicach</span>
+              </div>
+            </div>
+            <div class="perk-chip">
+              <span class="perk-icon blue"></span>
+              <div>
+                <strong>Profesjonalna obsługa</strong>
+                <span>Doradztwo w doborze sprzętu i akcesoriów</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PARTNER OFFER -->
+      <section>
+        <div class="container">
+          <div class="section-header">
+            <h2>Czym zajmuje się Perfect-Phone?</h2>
+            <p>Kompleksowa obsługa urządzeń mobilnych w jednym miejscu w centrum Myślenic.</p>
+          </div>
+
+          <div class="materials-grid">
+            <div class="material-card">
+              <span class="material-tag blue">01 / SPRZEDAŻ SMARTFONÓW</span>
+              <h3>Sprawdzone telefony</h3>
+              <p>Szeroki wybór smartfonów (m.in. Apple iPhone, Samsung Galaxy oraz inne wiodące marki) z gwarancją jakości i opcją wygodnych rat 0%.</p>
+            </div>
+            <div class="material-card">
+              <span class="material-tag blue">02 / SERWIS GSM</span>
+              <h3>Szybkie naprawy telefonów</h3>
+              <p>Profesjonalna diagnostyka i naprawa smartfonów — wymiana wyświetlaczy, baterii, złączy ładowania oraz usuwanie bieżących usterek.</p>
+            </div>
+            <div class="material-card">
+              <span class="material-tag blue">03 / AKCESORIA</span>
+              <h3>Ochrona i zasilanie</h3>
+              <p>Dopasowane szkła hartowane i folie ochronne, etui, szybkie ładowarki sieciowe i samochodowe oraz przewody dopasowane do Twojego modelu.</p>
+            </div>
+            <div class="material-card">
+              <span class="material-tag blue">04 / ZAKUPY ONLINE & RATY 0%</span>
+              <h3>Wygodna oferta przez internet</h3>
+              <p>Pełny katalog dostępny również online na <strong>perfect-phone.pl</strong> z możliwością zamówienia i skorzystania z oferty Raty 0%.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PARTNER CONTACT CARDS -->
+      <section>
+        <div class="container">
+          <div class="section-header">
+            <h2>Kontakt bezpośredni — Perfect-Phone</h2>
+            <p>Skontaktuj się bezpośrednio z salonem lub wpadnij osobiście przy dworcu w Myślenicach.</p>
+          </div>
+
+          <div class="contact-grid">
+            <a href="https://maps.google.com/?q=My%C5%9Blenice+ul.+S%C5%82oneczna+2D" target="_blank" rel="noopener" class="contact-card partner-theme">
+              <div class="contact-card-top">
+                <span class="contact-icon-box blue">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                </span>
+                <span class="contact-arrow">↗</span>
+              </div>
+              <div>
+                <span class="contact-label">Adres salonu</span>
+                <span class="contact-value">Myślenice, ul. Słoneczna 2D (przy dworcu)</span>
+              </div>
+            </a>
+
+            <a href="tel:+48782333986" class="contact-card partner-theme">
+              <div class="contact-card-top">
+                <span class="contact-icon-box blue">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </span>
+                <span class="contact-arrow">↗</span>
+              </div>
+              <div>
+                <span class="contact-label">Telefon</span>
+                <span class="contact-value">782 333 986</span>
+              </div>
+            </a>
+
+            <a href="mailto:biuro@perfect-phone.pl" class="contact-card partner-theme">
+              <div class="contact-card-top">
+                <span class="contact-icon-box blue">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                </span>
+                <span class="contact-arrow">↗</span>
+              </div>
+              <div>
+                <span class="contact-label">E-mail</span>
+                <span class="contact-value">biuro@perfect-phone.pl</span>
+              </div>
+            </a>
+
+            <a href="https://www.youtube.com/@perfectphone12" target="_blank" rel="noopener" class="contact-card partner-theme">
+              <div class="contact-card-top">
+                <span class="contact-icon-box blue">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
+                </span>
+                <span class="contact-arrow">↗</span>
+              </div>
+              <div>
+                <span class="contact-label">YouTube & WWW</span>
+                <span class="contact-value">@perfectphone12 • perfect-phone.pl</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="partner-coop-box">
+            <div>
+              <h3>Potrzebujesz serwisu laptopa, karty graficznej lub handhelda PC?</h3>
+              <p>Wróć do zakładki serwisu <strong>BRAND NEW</strong>, oblicz rabat na start (-15% do -25%) i zamów darmowy odbiór sprzętu spod drzwi na terenie Myślenic.</p>
+            </div>
+            <button type="button" class="btn-primary" onclick="switchPageView('service')">Przejdź do wyceny BRAND NEW →</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
 
   <!-- FOOTER -->
   <footer>
     <div class="container footer-inner">
       <div>
         <strong style="color:#fff;">BRAND <span style="color:var(--accent);">NEW</span></strong> — Żeby Twój sprzęt znów poczuł się jak BRAND NEW<br />
-        <span>Myślenice (odbiór 0 zł) • Wysyłka Paczkomat InPost cała Polska</span>
+        <span>Myślenice (odbiór 0 zł) • Wysyłka Paczkomat InPost cała Polska • Partner: <a href="#perfect-phone" onclick="switchPageView('partner'); return false;" style="color:#93c5fd; text-decoration:none; font-weight:600;">Perfect-Phone</a></span>
       </div>
 
       <div class="footer-links" id="footerLinks"></div>
@@ -1455,20 +1826,20 @@
       brandName: "BRAND NEW",
       city: "Myślenice",
 
-      // 1. TELEFON (wpisz swój numer, np. phoneDisplay: "+48 500 600 700", phoneRaw: "+48500600700")
-      phoneDisplay: "+48 730 963 314",
-      phoneRaw: "+48730963314",
+      // 1. TWÓJ TELEFON
+      phoneDisplay: "+48 000 000 000",
+      phoneRaw: "+48000000000",
 
-      // 2. E-MAIL
-      email: "serwis.brandnew@gmail.com",
+      // 2. TWÓJ E-MAIL
+      email: "kontakt@brandnewservice.pl",
 
-      // 3. INSTAGRAM
-      instagramLabel: "@serwisbrandnew",
-      instagramUrl: "https://instagram.com/serwisbrandnew?psln=dW1uNnZleDBpN2Vi",
+      // 3. TWÓJ INSTAGRAM
+      instagramLabel: "@brandnew.serwis",
+      instagramUrl: "https://instagram.com/",
 
-      // 4. FACEBOOK
-      facebookLabel: "Serwis Brand New",
-      facebookUrl: "https://facebook.com/share/1Jr2L1ovqe/",
+      // 4. TWÓJ FACEBOOK
+      facebookLabel: "BRAND NEW Serwis",
+      facebookUrl: "https://facebook.com/",
 
       // Progi automatycznego rabatu na start
       discounts: [
@@ -1606,7 +1977,45 @@
     };
 
     // =========================================================================
-    // LOGIKA ZAKŁADEK, KALKULATORA, GENERATORA WIADOMOŚCI I KONTAKTU
+    // PRZEŁĄCZANIE WIDOKÓW (OSOBNA ZAKŁADKA: SERWIS VS PARTNER PERFECT-PHONE)
+    // =========================================================================
+    function switchPageView(viewName) {
+      const isPartner = viewName === "partner";
+
+      document.getElementById("view-service").classList.toggle("active", !isPartner);
+      document.getElementById("view-partner").classList.toggle("active", isPartner);
+
+      document.querySelectorAll(".view-tab-btn").forEach(btn => {
+        const active = btn.dataset.view === viewName;
+        btn.classList.toggle("active", active);
+        btn.setAttribute("aria-selected", String(active));
+      });
+
+      const sectionNav = document.getElementById("serviceSectionNav");
+      if (sectionNav) {
+        sectionNav.style.visibility = isPartner ? "hidden" : "visible";
+      }
+
+      const mobileMenu = document.getElementById("mobileMenu");
+      const menuToggle = document.getElementById("menuToggle");
+      if (mobileMenu) mobileMenu.classList.remove("open");
+      if (menuToggle) menuToggle.setAttribute("aria-expanded", "false");
+
+      if (isPartner && window.location.hash !== "#perfect-phone") {
+        history.replaceState(null, "", "#perfect-phone");
+      } else if (!isPartner && window.location.hash === "#perfect-phone") {
+        history.replaceState(null, "", window.location.pathname);
+      }
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    if (window.location.hash === "#perfect-phone") {
+      switchPageView("partner");
+    }
+
+    // =========================================================================
+    // LOGIKA KALKULATORA, ZAKŁADEK SPRZĘTU I KONTAKTU
     // =========================================================================
     const categoryNames = {
       laptops: "Laptopy",
@@ -1730,14 +2139,12 @@ Daj znać, kiedy możemy ogarnąć temat!`;
 
       generatedMessage.value = msgText;
 
-      // Aktualizacja linków SMS i E-mail z gotową treścią wiadomości
       const encodedBody = encodeURIComponent(msgText);
       const encodedSubject = encodeURIComponent(`Wycena serwisu BRAND NEW — ${categoryNames[currentCategory]}`);
       smsDirectBtn.href = `sms:${CONFIG.phoneRaw}?body=${encodedBody}`;
       mailDirectBtn.href = `mailto:${CONFIG.email}?subject=${encodedSubject}&body=${encodedBody}`;
     }
 
-    // Zakładki
     document.querySelectorAll(".bn-tab").forEach(tab => {
       tab.addEventListener("click", () => {
         document.querySelectorAll(".bn-tab").forEach(t => {
@@ -1775,14 +2182,8 @@ Daj znać, kiedy możemy ogarnąć temat!`;
       const open = mobileMenu.classList.toggle("open");
       menuToggle.setAttribute("aria-expanded", String(open));
     });
-    mobileMenu.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", () => {
-        mobileMenu.classList.remove("open");
-        menuToggle.setAttribute("aria-expanded", "false");
-      });
-    });
 
-    // Renderowanie 4 kanałów kontaktu (Telefon, E-mail, Instagram, Facebook)
+    // Renderowanie 4 kanałów kontaktu BRAND NEW
     igDirectBtn.href = CONFIG.instagramUrl;
     fbDirectBtn.href = CONFIG.facebookUrl;
 
