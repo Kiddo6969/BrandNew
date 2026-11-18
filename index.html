@@ -1359,6 +1359,18 @@
     font-size: 11.5px;
   }
     }
+    .view-tab-btn[data-view="service"]::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+.view-tab-btn.active[data-view="service"]::before {
+  background: #ffffff;
+}
   </style>
 </head>
 <body>
