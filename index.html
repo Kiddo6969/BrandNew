@@ -1925,7 +1925,7 @@
         { maxPrice: Infinity, percent: 25 }
       ],
 
-      // Pakiety usług dla wszystkich 3 zakładek
+// Pakiety usług dla wszystkich 3 zakładek
       services: {
         laptops: [
           {
@@ -1944,14 +1944,14 @@
           {
             id: "lap-std",
             badge: "BIUROWE & ULTRABOOKI",
-            title: "Pakiet Standard — Arctic MX-7",
+            title: "Pakiet Standard — Arctic MX-7 + Putty",
             price: 130,
             unit: "/ usługa + materiał",
-            description: "Kompleksowe czyszczenie układu chłodzenia oraz wymiana pasty na wysokowydajną Arctic MX-7.",
+            description: "Kompleksowe czyszczenie układu chłodzenia, pasta Arctic MX-7 na rdzeń oraz Thermal Putty na sekcję zasilania i pamięci (w modelach posiadających ich chłodzenie).",
             features: [
               "Czyszczenie radiatorów, kanałów i łopatek wentylatorów",
-              "Aplikacja pasty Arctic MX-7 na rdzeń CPU / GPU",
-              "Raport temperatur PRZED i PO (HWiNFO64)"
+              "Pasta Arctic MX-7 na rdzeń CPU / GPU + Thermal Grizzly Putty Basic (gdzie występuje)",
+              "Dokumentacja zdjęciowa oraz podstawowy pomiar temperatur PRZED i PO (HWiNFO64)"
             ]
           },
           {
@@ -1960,11 +1960,11 @@
             title: "Pakiet Pro — PhaseSheet PTM + Putty",
             price: 220,
             unit: "/ usługa + materiał",
-            description: "Maksymalna wydajność chłodzenia pod laptopy gamingowe i stacje robocze bez efektu degradacji pasty.",
+            description: "Maksymalna wydajność i trwałość na lata dla laptopów gamingowych oraz stacji roboczych — zero efektu wypływania pasty (pump-out).",
             features: [
-              "Termopad zmiennofazowy Thermal Grizzly PhaseSheet PTM na CPU i GPU",
-              "Wymiana termopadów na kit Thermal Grizzly Putty Basic (VRAM / VRM)",
-              "Pełna dokumentacja zdjęciowa + testy obciążeniowe PRZED i PO"
+              "Zmiennofazowy Thermal Grizzly PhaseSheet PTM na rdzeń CPU i GPU",
+              "Pełna aplikacja Thermal Grizzly Putty Basic na kości VRAM i sekcję VRM",
+              "Rozszerzony raport telemetrii (Core / HotSpot / stabilność zegarów) + opcjonalny Undervolting"
             ]
           }
         ],
@@ -1975,37 +1975,37 @@
             title: "Diagnostyka i testy HotSpot",
             price: 0,
             unit: "/ bez zobowiązań",
-            description: "Weryfikacja temperatur rdzenia, HotSpot oraz pamięci VRAM pod pełnym obciążeniem przed serwisem.",
+            description: "Weryfikacja temperatur rdzenia, HotSpot oraz pamięci VRAM pod pełnym obciążeniem przed otwarciem karty.",
             features: [
               "Pomiar Core, HotSpot i VRAM w HWiNFO64 / FurMark",
-              "Ocena kultury pracy wentylatorów i termopadów",
-              "Pełny kosztorys przed otwarciem karty"
+              "Ocena kultury pracy wentylatorów i stanu fabrycznych termopadów",
+              "Pełny kosztorys przed podjęciem decyzji"
             ]
           },
           {
             id: "gpu-std",
-            badge: "KARTY GRAFICZNE • RDZEŃ",
-            title: "Pakiet Core — PhaseSheet PTM",
+            badge: "STARSZE & CHŁODNIEJSZE GPU",
+            title: "Pakiet Standard — Arctic MX-7 + Putty",
             price: 150,
             unit: "/ usługa + materiał",
-            description: "Czyszczenie radiatora karty graficznej i montaż zmiennofazowego pada PhaseSheet PTM na rdzeń GPU.",
+            description: "Pełny serwis chłodzenia dla starszych lub chłodniejszych kart (GTX, podstawowe RTX/RX) z wymianą masy na pamięciach i VRM.",
             features: [
-              "Przedmuchanie i czyszczenie finów radiatora oraz wentylatorów",
-              "Aplikacja Thermal Grizzly PhaseSheet PTM (PTM7950) na rdzeń GPU",
-              "Zrzuty temperatur Core i HotSpot PRZED i PO"
+              "Czyszczenie radiatora oraz łopatek wentylatorów",
+              "Pasta Arctic MX-7 na rdzeń GPU + Thermal Grizzly Putty Basic na VRAM i VRM",
+              "Dokumentacja zdjęciowa + podstawowy zrzut temperatur Core i HotSpot PRZED i PO"
             ]
           },
           {
             id: "gpu-full",
-            badge: "KARTY GRAFICZNE • PEŁNY SERWIS",
-            title: "Pakiet Full — PhaseSheet PTM + Putty",
+            badge: "WYDAJNE GPU • PEŁNY SERWIS",
+            title: "Pakiet Pro — PhaseSheet PTM + Putty",
             price: 250,
             unit: "/ usługa + materiał",
-            description: "Kompleksowa regeneracja układu chłodzenia GPU: rdzeń, kości pamięci GDDR6/GDDR6X oraz sekcja zasilania VRM.",
+            description: "Topowa regeneracja chłodzenia pod gorące karty z pamięciami GDDR6/GDDR6X — trwałość na lata bez efektu pump-out.",
             features: [
-              "Thermal Grizzly PhaseSheet PTM na rdzeń GPU",
-              "Kit Thermal Grizzly Putty Basic na kości VRAM i sekcję VRM",
-              "Dokumentacja zdjęciowa wnętrza + raport temperatur PRZED i PO"
+              "Zmiennofazowy Thermal Grizzly PhaseSheet PTM na rdzeń GPU",
+              "Pełna aplikacja Thermal Grizzly Putty Basic na kości VRAM i sekcję VRM",
+              "Rozszerzona telemetria (Core / HotSpot / VRAM / stabilność taktowań) + opcjonalny Undervolting"
             ]
           }
         ],
@@ -2026,14 +2026,14 @@
           {
             id: "hh-std",
             badge: "HANDHELD PC • STANDARD",
-            title: "Pakiet Standard — Arctic MX-7",
+            title: "Pakiet Standard — Arctic MX-7 + Putty",
             price: 130,
             unit: "/ usługa + materiał",
-            description: "Czyszczenie układu chłodzenia i wymiana pasty na Arctic MX-7 dla Steam Deck, ASUS ROG Ally, Lenovo Legion Go oraz MSI Claw.",
+            description: "Czyszczenie układu chłodzenia oraz wymiana pasty i masy termoprzewodzącej dla Steam Deck, ROG Ally, Legion Go i MSI Claw (bez Nintendo Switch).",
             features: [
               "Czyszczenie radiatora i łopatek turbiny chłodzącej",
-              "Aplikacja pasty Arctic MX-7 na układ APU",
-              "Testy temperatur i głośności PRZED i PO"
+              "Pasta Arctic MX-7 na układ APU + Thermal Grizzly Putty Basic na sekcję zasilania i pamięci",
+              "Dokumentacja zdjęciowa + podstawowy pomiar temperatur i głośności PRZED i PO"
             ]
           },
           {
@@ -2042,11 +2042,11 @@
             title: "Pakiet Pro — PhaseSheet PTM + Putty",
             price: 190,
             unit: "/ usługa + materiał",
-            description: "Topowy serwis chłodzenia dla Steam Deck, ROG Ally, Legion Go i MSI Claw (nie obsługujemy Nintendo Switch).",
+            description: "Maksymalna kultura pracy i fabryczna trwałość na lata dla Steam Deck, ROG Ally, Legion Go i MSI Claw (bez Nintendo Switch).",
             features: [
-              "Termopad zmiennofazowy Thermal Grizzly PhaseSheet PTM na układ APU",
-              "Wymiana termopadów na kit Thermal Grizzly Putty Basic",
-              "Pełne czyszczenie wnętrza + dokumentacja temperatur PRZED i PO"
+              "Zmiennofazowy Thermal Grizzly PhaseSheet PTM na układ APU",
+              "Pełna aplikacja Thermal Grizzly Putty Basic na sekcję zasilania i pamięci",
+              "Rozszerzony raport temperatur pod obciążeniem i kontrola stabilności taktowań PRZED i PO"
             ]
           }
         ]
