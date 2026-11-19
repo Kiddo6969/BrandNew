@@ -1545,10 +1545,10 @@
               </div>
 
               <label class="addon-toggle" for="kryoAddon">
-                <span>Opcja: <strong>Thermal Grizzly KryoSheet</strong> (na indywidualne zamówienie, +40 zł)</span>
+                <span>Zamień na <strong>Pakiet Kryo — KryoSheet + Putty</strong> (pad grafenowy na rdzeń, +40 zł do ceny Pro, <strong>-25% na start</strong>)</span>
                 <input type="checkbox" id="kryoAddon" />
               </label>
-
+              
               <div class="price-breakdown">
                 <div class="breakdown-line">
                   <span>Wybrana usługa:</span>
@@ -1907,9 +1907,31 @@
     </div>
   </footer>
 
-  <script>
+ <script>
     // =========================================================================
-    // CENTRALNA KONFIGURACJA — TU UZUPEŁNIJ SWOJE DANE KONTAKTOWE I LINKI
+    // KONFIGURACJA PROMOCJI NA START (AUTOMATYCZNE WYŁĄCZENIE PO DACIE)
+    // =========================================================================
+    const PROMO_CONFIG = {
+      startText: "24.11.2026",
+      endText: "24.01.2027",
+      endDateISO: "2027-01-24T23:59:59",
+      kryoDiscountPercent: 25
+    };
+
+    const isPromoActive = new Date() <= new Date(PROMO_CONFIG.endDateISO);
+
+    const bannerEl = document.getElementById("promo-banner");
+    const datesEl = document.getElementById("promo-dates");
+    if (bannerEl) {
+      if (isPromoActive) {
+        if (datesEl) datesEl.textContent = `${PROMO_CONFIG.startText} – ${PROMO_CONFIG.endText}`;
+      } else {
+        bannerEl.style.display = "none";
+      }
+    }
+
+    // =========================================================================
+    // CENTRALNA KONFIGURACJA — DANE KONTAKTOWE, RABATY I PAKIETY
     // =========================================================================
     const CONFIG = {
       brandName: "BRAND NEW",
@@ -1937,7 +1959,7 @@
         { maxPrice: Infinity, percent: 25 }
       ],
 
-// Pakiety usług dla wszystkich 3 zakładek
+      // Pakiety usług dla wszystkich 3 zakładek
       services: {
         laptops: [
           {
@@ -2134,17 +2156,18 @@
     const smsDirectBtn = document.getElementById("smsDirectBtn");
     const mailDirectBtn = document.getElementById("mailDirectBtn");
 
-    function getDiscountPercent(basePrice) {
-      if (basePrice <= 0) return 0;
+    function getDiscountPercent(basePrice, forceKryo = false) {
+      if (basePrice <= 0 || !isPromoActive) return 0;
+      if (forceKryo) return PROMO_CONFIG.kryoDiscountPercent;
       const tier = CONFIG.discounts.find(d => basePrice <= d.maxPrice);
       return tier ? tier.percent : 0;
     }
 
-    function calculatePrice(basePrice) {
+    function calculatePrice(basePrice, forceKryo = false) {
       if (basePrice <= 0) {
         return { base: 0, percent: 0, saved: 0, final: 0 };
       }
-      const percent = getDiscountPercent(basePrice);
+      const percent = getDiscountPercent(basePrice, forceKryo);
       const final = Math.round(basePrice * (1 - percent / 100));
       const saved = basePrice - final;
       return { base: basePrice, percent, saved, final };
@@ -2152,7 +2175,7 @@
 
     function renderCards() {
       const list = CONFIG.services[currentCategory] || [];
-      if (!list.some(item => item.id === selectedServiceId)) {
+      if (kryoAddon.checked || !list.some(item => item.id === selectedServiceId)) {
         selectedServiceId = list[list.length - 1].id;
       }
 
@@ -2160,13 +2183,18 @@
 
       cardsGrid.innerHTML = list.map(service => {
         const isSelected = service.id === selectedServiceId;
-        const pricing = calculatePrice(service.price);
+        const pricing = calculatePrice(service.price, false);
 
-        const priceHtml = service.price === 0
-          ? `<span class="price-final">0 zł</span><span class="price-unit">${service.unit}</span>`
-          : `<span class="price-final">${pricing.final} zł</span>
+        let priceHtml = "";
+        if (service.price === 0) {
+          priceHtml = `<span class="price-final">0 zł</span><span class="price-unit">${service.unit}</span>`;
+        } else if (pricing.percent > 0) {
+          priceHtml = `<span class="price-final">${pricing.final} zł</span>
              <span class="price-old">${pricing.base} zł</span>
              <span class="discount-pill">-${pricing.percent}% NA START</span>`;
+        } else {
+          priceHtml = `<span class="price-final">${pricing.base} zł</span><span class="price-unit">${service.unit}</span>`;
+        }
 
         const featuresHtml = service.features.map(f => `<li>${f}</li>`).join("");
 
@@ -2180,7 +2208,7 @@
               <ul class="card-features">${featuresHtml}</ul>
             </div>
             <button type="button" class="card-select-btn">
-              ${isSelected ? "Wybrano do wyceny ✓" : "Wybierz ten pakiet"}
+              ${isSelected ? (kryoAddon.checked ? "Baza pod Pakiet Kryo ✓" : "Wybrano do wyceny ✓") : "Wybierz ten pakiet"}
             </button>
           </article>
         `;
@@ -2188,6 +2216,7 @@
 
       cardsGrid.querySelectorAll(".service-card").forEach(card => {
         card.addEventListener("click", () => {
+          kryoAddon.checked = false;
           selectedServiceId = card.dataset.id;
           renderCards();
           updateSummary();
@@ -2198,11 +2227,14 @@
     function updateSummary() {
       const list = CONFIG.services[currentCategory] || [];
       const service = list.find(s => s.id === selectedServiceId) || list[0];
-      const addonPrice = (kryoAddon.checked && service.price > 0) ? 40 : 0;
-      const totalBase = service.price + addonPrice;
-      const pricing = calculatePrice(totalBase);
+      const proService = list[list.length - 1];
+      const isKryo = kryoAddon.checked;
 
-      summaryServiceName.textContent = service.title + (addonPrice > 0 ? " + KryoSheet" : "");
+      const activeTitle = isKryo ? "Pakiet Kryo — KryoSheet + Putty" : service.title;
+      const totalBase = isKryo ? (proService.price + 40) : service.price;
+      const pricing = calculatePrice(totalBase, isKryo);
+
+      summaryServiceName.textContent = activeTitle;
       summaryBasePrice.textContent = `${pricing.base} zł`;
       summaryDiscountLabel.textContent = `Rabat na start (-${pricing.percent}%):`;
       summaryDiscountValue.textContent = pricing.saved > 0 ? `-${pricing.saved} zł` : "0 zł";
@@ -2210,19 +2242,23 @@
 
       const modelText = deviceModelInput.value.trim() || "do podania";
       const logisticsText = logisticsSelect.value;
-      const kryoText = addonPrice > 0 ? "\n• Opcja dodatkowa: Thermal Grizzly KryoSheet" : "";
 
-      const priceSummaryLine = pricing.base === 0
-        ? "0 zł (darmowa diagnoza i wycena)"
-        : `${pricing.final} zł po rabacie -${pricing.percent}% (cena bazowa: ${pricing.base} zł)`;
+      let priceSummaryLine = "";
+      if (pricing.base === 0) {
+        priceSummaryLine = "0 zł (darmowa diagnoza i wycena)";
+      } else if (pricing.percent > 0) {
+        priceSummaryLine = `${pricing.final} zł po rabacie -${pricing.percent}% (cena bazowa: ${pricing.base} zł)`;
+      } else {
+        priceSummaryLine = `${pricing.base} zł`;
+      }
 
       const msgText =
 `Cześć BRAND NEW! Chcę umówić serwis chłodzenia:
-• Kategoria: ${categoryNames[currentCategory]}
-• Pakiet: ${service.title}${kryoText}
-• Model sprzętu: ${modelText}
-• Przekazanie: ${logisticsText}
-• Wycena z kalkulatora: ${priceSummaryLine}
+- Kategoria: ${categoryNames[currentCategory]}
+- Pakiet: ${activeTitle}
+- Model sprzętu: ${modelText}
+- Przekazanie: ${logisticsText}
+- Wycena z kalkulatora: ${priceSummaryLine}
 
 Daj znać, kiedy możemy ogarnąć temat!`;
 
@@ -2250,7 +2286,10 @@ Daj znać, kiedy możemy ogarnąć temat!`;
 
     deviceModelInput.addEventListener("input", updateSummary);
     logisticsSelect.addEventListener("change", updateSummary);
-    kryoAddon.addEventListener("change", updateSummary);
+    kryoAddon.addEventListener("change", () => {
+      renderCards();
+      updateSummary();
+    });
 
     copyMsgBtn.addEventListener("click", async () => {
       try {
@@ -2328,32 +2367,5 @@ Daj znać, kiedy możemy ogarnąć temat!`;
     renderCards();
     updateSummary();
   </script>
-      <script>
-  const PROMO_CONFIG = {
-    startText: "24.11.2026",
-    endText: "24.01.2027",
-    endDateISO: "2027-01-24T23:59:59",
-    discountPercent: 25
-  };
-
-  const isPromoActive = new Date() <= new Date(PROMO_CONFIG.endDateISO);
-  // Jeśli promocja trwa, płaci 75% ceny dopłaty za KryoSheet (czyli -25%); po terminie 100% (1.0)
-  const kryosheetMultiplier = isPromoActive ? (1 - PROMO_CONFIG.discountPercent / 100) : 1;
-  };
-
-  const isPromoActive = new Date() <= new Date(PROMO_CONFIG.endDateISO);
-  const kryosheetDiscount = isPromoActive ? PROMO_CONFIG.discountAmount : 0;
-
-  const bannerEl = document.getElementById("promo-banner");
-  const datesEl = document.getElementById("promo-dates");
-
-  if (bannerEl && datesEl) {
-    if (isPromoActive) {
-      datesEl.textContent = `${PROMO_CONFIG.startText} – ${PROMO_CONFIG.endText}`;
-    } else {
-      bannerEl.style.display = "none";
-    }
-  }
-</script>
 </body>
 </html>
