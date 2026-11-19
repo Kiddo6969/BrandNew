@@ -1487,6 +1487,17 @@
         </div>
       </section>
 
+      <div id="promo-banner" style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.15); border-left: 4px solid var(--accent, #38bdf8); border-radius: 10px; padding: 14px 18px; margin: 20px auto; max-width: 960px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px;">
+  <div>
+    <strong style="color: var(--accent, #38bdf8); font-size: 0.95rem; letter-spacing: 0.5px;">PROMOCJA NA START • -25 ZŁ PRZY WYBORZE KRYOSHEET</strong>
+    <p style="margin: 4px 0 0 0; font-size: 0.9rem; opacity: 0.9;">
+      Przy wyborze pada grafenowego <strong>Thermal Grizzly KryoSheet</strong> rabat <strong>25 zł</strong> nalicza się automatycznie. Oferta obowiązuje przez 2 miesiące od uruchomienia serwisu.
+    </p>
+  </div>
+  <div style="background: rgba(56, 189, 248, 0.12); color: var(--accent, #38bdf8); padding: 6px 12px; border-radius: 6px; font-weight: 600; font-size: 0.85rem; white-space: nowrap;">
+    Obowiązuje: <span id="promo-dates">24.11.2026 – 24.01.2027</span>
+  </div>
+
       <!-- CALCULATOR & SERVICES -->
       <section id="kalkulator">
         <div class="container">
@@ -2316,5 +2327,27 @@ Daj znać, kiedy możemy ogarnąć temat!`;
     renderCards();
     updateSummary();
   </script>
+      <script>
+  const PROMO_CONFIG = {
+    startText: "24.11.2026",
+    endText: "24.01.2027",
+    endDateISO: "2027-01-24T23:59:59", // Po tej dacie baner i rabat wyłączają się same
+    discountAmount: 25
+  };
+
+  const isPromoActive = new Date() <= new Date(PROMO_CONFIG.endDateISO);
+  const kryosheetDiscount = isPromoActive ? PROMO_CONFIG.discountAmount : 0;
+
+  const bannerEl = document.getElementById("promo-banner");
+  const datesEl = document.getElementById("promo-dates");
+
+  if (bannerEl && datesEl) {
+    if (isPromoActive) {
+      datesEl.textContent = `${PROMO_CONFIG.startText} – ${PROMO_CONFIG.endText}`;
+    } else {
+      bannerEl.style.display = "none";
+    }
+  }
+</script>
 </body>
 </html>
