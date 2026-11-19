@@ -1,2364 +1,311 @@
-<!DOCTYPE html>
-<html lang="pl" class="scroll-smooth">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BRAND NEW — Serwis Chłodzenia Laptopów, GPU, PC i Handheldów | Myślenice</title>
-  <meta name="description" content="Żeby Twój sprzęt znów poczuł się jak BRAND NEW. Serwis chłodzenia GPU, laptopów, PC oraz handheldów PC (Steam Deck, ROG Ally, Legion Go). Partner lokalny w Myślenicach: Perfect-Phone." />
-  <script>
-    (function () {
-      try {
-        var saved = localStorage.getItem("bn_theme");
-        var theme = (saved === "dark" || saved === "light")
-          ? saved
-          : (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-        document.documentElement.setAttribute("data-theme", theme);
-      } catch (e) {
-        document.documentElement.setAttribute("data-theme", "light");
-      }
-    })();
-  </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --bg-main: #f4f7fb;
-      --bg-header: rgba(255, 255, 255, 0.92);
-      --bg-card: #ffffff;
-      --bg-card-hover: #f8fbff;
-      --bg-elevated: #eaf1f8;
-      --bg-input: #f8fafc;
-      --bg-footer: #ffffff;
-      --border: rgba(15, 23, 42, 0.09);
-      --border-strong: rgba(15, 23, 42, 0.16);
-      --text-primary: #0f172a;
-      --text-subline: #1e293b;
-      --text-body: #334155;
-      --text-secondary: #475569;
-      --text-muted: #64748b;
-      --accent: #dc2626;
-      --accent-hover: #b91c1c;
-      --accent-soft: #fee2e2;
-      --accent-soft-border: rgba(220, 38, 38, 0.28);
-      --accent-badge-text: #b91c1c;
-      --accent-glow: rgba(220, 38, 38, 0.24);
-      --accent-secondary: #0ea5e9;
-      --accent-secondary-text: #0369a1;
-      --accent-secondary-soft: #e0f2fe;
-      --accent-secondary-soft-hover: #bae6fd;
-      --accent-secondary-border: rgba(14, 165, 233, 0.35);
-      --partner-accent: #2563eb;
-      --partner-text: #1d4ed8;
-      --partner-soft: #dbeafe;
-      --partner-border: rgba(37, 99, 235, 0.32);
-      --partner-glow: rgba(37, 99, 235, 0.24);
-      --promo-bg: linear-gradient(90deg, #e0f2fe 0%, #f0f9ff 65%, #fef2f2 100%);
-      --promo-pill-bg: #ffffff;
-      --selected-card-bg: linear-gradient(180deg, rgba(220, 38, 38, 0.04) 0%, rgba(14, 165, 233, 0.03) 45%, #ffffff 100%);
-      --coop-bg: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 55%, #fef2f2 100%);
-      --grid-line: rgba(15, 23, 42, 0.032);
-      --glow-red: rgba(220, 38, 38, 0.07);
-      --glow-cyan: rgba(14, 165, 233, 0.11);
-      --glow-blue: rgba(37, 99, 235, 0.07);
-      --shadow-card: 0 4px 20px rgba(15, 23, 42, 0.05);
-      --logo-outline: #0f172a;
-      --radius-lg: 16px;
-      --radius-md: 12px;
-      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      --font-mono: 'JetBrains Mono', monospace;
-    }
-
-    [data-theme="dark"] {
-      --bg-main: #090a0f;
-      --bg-header: rgba(9, 10, 15, 0.9);
-      --bg-card: #12141c;
-      --bg-card-hover: #171a24;
-      --bg-elevated: #1b1f2b;
-      --bg-input: #0d0f15;
-      --bg-footer: #0c0e14;
-      --border: rgba(255, 255, 255, 0.08);
-      --border-strong: rgba(255, 255, 255, 0.15);
-      --text-primary: #f8fafc;
-      --text-subline: #e2e8f0;
-      --text-body: #cbd5e1;
-      --text-secondary: #94a3b8;
-      --text-muted: #64748b;
-      --accent: #ef233c;
-      --accent-hover: #d90429;
-      --accent-soft: rgba(239, 35, 60, 0.16);
-      --accent-soft-border: rgba(239, 35, 60, 0.38);
-      --accent-badge-text: #fda4af;
-      --accent-glow: rgba(239, 35, 60, 0.35);
-      --accent-secondary: #38bdf8;
-      --accent-secondary-text: #7dd3fc;
-      --accent-secondary-soft: rgba(56, 189, 248, 0.14);
-      --accent-secondary-soft-hover: rgba(56, 189, 248, 0.22);
-      --accent-secondary-border: rgba(56, 189, 248, 0.35);
-      --partner-accent: #3b82f6;
-      --partner-text: #93c5fd;
-      --partner-soft: rgba(59, 130, 246, 0.15);
-      --partner-border: rgba(59, 130, 246, 0.35);
-      --partner-glow: rgba(59, 130, 246, 0.28);
-      --promo-bg: linear-gradient(90deg, rgba(56, 189, 248, 0.12) 0%, rgba(18, 20, 28, 0.96) 65%, rgba(239, 35, 60, 0.1) 100%);
-      --promo-pill-bg: #1b1f2b;
-      --selected-card-bg: linear-gradient(180deg, rgba(239, 35, 60, 0.11) 0%, rgba(56, 189, 248, 0.05) 45%, #12141c 100%);
-      --coop-bg: linear-gradient(135deg, rgba(59, 130, 246, 0.14) 0%, rgba(56, 189, 248, 0.08) 55%, rgba(239, 35, 60, 0.08) 100%);
-      --grid-line: rgba(255, 255, 255, 0.025);
-      --glow-red: rgba(239, 35, 60, 0.11);
-      --glow-cyan: rgba(56, 189, 248, 0.09);
-      --glow-blue: rgba(59, 130, 246, 0.08);
-      --shadow-card: 0 8px 26px rgba(0, 0, 0, 0.35);
-      --logo-outline: #090a0f;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html, body {
-      max-width: 100%;
-      overflow-x: hidden;
-    }
-
-    body {
-      background-color: var(--bg-main);
-      color: var(--text-primary);
-      font-family: var(--font-sans);
-      line-height: 1.55;
-      -webkit-font-smoothing: antialiased;
-      transition: background-color 0.25s ease, color 0.25s ease;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background-image:
-        radial-gradient(circle at 12% 8%, var(--glow-red), transparent 42%),
-        radial-gradient(circle at 88% 18%, var(--glow-cyan), transparent 46%),
-        radial-gradient(circle at 75% 82%, var(--glow-blue), transparent 45%),
-        linear-gradient(var(--grid-line) 1px, transparent 1px),
-        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-      background-size: 100% 100%, 100% 100%, 100% 100%, 40px 40px, 40px 40px;
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 0 16px;
-    }
-
-    @media (min-width: 640px) {
-      .container {
-        padding: 0 24px;
-      }
-    }
-
-    /* Header */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: var(--bg-header);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border);
-      box-shadow: 0 2px 14px rgba(15, 23, 42, 0.04);
-      transition: background-color 0.25s ease, border-color 0.25s ease;
-    }
-
-    .header-inner {
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-    }
-
-    @media (min-width: 640px) {
-      .header-inner {
-        height: 72px;
-      }
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      color: var(--text-primary);
-      flex-shrink: 0;
-      cursor: pointer;
-    }
-
-    .brand-logo {
-      width: 48px;
-      height: 33px;
-      flex-shrink: 0;
-      filter: drop-shadow(0 2px 4px rgba(15, 23, 42, 0.16));
-    }
-
-    @media (min-width: 640px) {
-      .brand-logo {
-        width: 56px;
-        height: 38px;
-      }
-    }
-
-    .brand-name {
-      font-weight: 800;
-      font-size: 16px;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      white-space: nowrap;
-      color: var(--text-primary);
-    }
-
-    @media (min-width: 640px) {
-      .brand-name {
-        font-size: 18px;
-      }
-    }
-
-    .brand-name span {
-      color: var(--accent);
-    }
-
-    /* Top View Switcher */
-    .view-switcher {
-      display: flex;
-      align-items: center;
-      background: var(--bg-elevated);
-      border: 1px solid var(--border-strong);
-      border-radius: 11px;
-      padding: 3px;
-      gap: 4px;
-    }
-
-    .view-tab-btn {
-      background: transparent;
-      border: none;
-      color: var(--text-secondary);
-      font-family: var(--font-sans);
-      font-size: 12px;
-      font-weight: 700;
-      padding: 7px 10px;
-      border-radius: 8px;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: all 0.2s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    @media (min-width: 640px) {
-      .view-tab-btn {
-        font-size: 13px;
-        padding: 8px 14px;
-      }
-    }
-
-    .view-tab-btn:hover {
-      color: var(--text-primary);
-    }
-
-    .view-tab-btn.active[data-view="service"] {
-      background: var(--accent);
-      color: #ffffff;
-      box-shadow: 0 2px 10px var(--accent-glow);
-    }
-
-    .view-tab-btn.active[data-view="partner"] {
-      background: var(--partner-accent);
-      color: #ffffff;
-      box-shadow: 0 2px 12px var(--partner-glow);
-    }
-
-    .partner-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--partner-accent);
-      flex-shrink: 0;
-    }
-
-    .view-tab-btn.active .partner-dot {
-      background: #ffffff;
-    }
-
-    .nav-links {
-      display: none;
-      align-items: center;
-      gap: 18px;
-    }
-
-    .nav-links a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      font-size: 13.5px;
-      font-weight: 600;
-      transition: color 0.2s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--accent);
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    /* Theme Toggle Button */
-    .theme-toggle-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      height: 38px;
-      padding: 0 11px;
-      background: var(--bg-elevated);
-      border: 1px solid var(--border-strong);
-      border-radius: 10px;
-      color: var(--text-primary);
-      font-family: var(--font-sans);
-      font-size: 12.5px;
-      font-weight: 700;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: border-color 0.2s ease, background 0.2s ease, transform 0.15s ease;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .theme-toggle-btn:hover {
-      border-color: var(--accent-secondary);
-      background: var(--accent-secondary-soft);
-      color: var(--accent-secondary-text);
-    }
-
-    .theme-toggle-btn .icon-sun {
-      display: none;
-    }
-
-    .theme-toggle-btn .icon-moon {
-      display: inline-flex;
-    }
-
-    [data-theme="dark"] .theme-toggle-btn .icon-sun {
-      display: inline-flex;
-    }
-
-    [data-theme="dark"] .theme-toggle-btn .icon-moon {
-      display: none;
-    }
-
-    .theme-toggle-label {
-      display: none;
-    }
-
-    @media (min-width: 480px) {
-      .theme-toggle-label {
-        display: inline;
-      }
-    }
-
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      background: var(--accent);
-      color: #ffffff;
-      border: none;
-      border-radius: 10px;
-      padding: 9px 13px;
-      font-family: var(--font-sans);
-      font-size: 12.5px;
-      font-weight: 700;
-      text-decoration: none;
-      cursor: pointer;
-      white-space: nowrap;
-      box-shadow: 0 4px 14px var(--accent-glow);
-      transition: background 0.2s ease, transform 0.15s ease;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    @media (min-width: 640px) {
-      .btn-primary {
-        padding: 10px 16px;
-        font-size: 13.5px;
-      }
-    }
-
-    .btn-primary:hover {
-      background: var(--accent-hover);
-      transform: translateY(-1px);
-    }
-
-    .btn-partner {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      background: var(--partner-accent);
-      color: #ffffff;
-      border: none;
-      border-radius: 10px;
-      padding: 12px 18px;
-      font-family: var(--font-sans);
-      font-size: 14px;
-      font-weight: 700;
-      text-decoration: none;
-      cursor: pointer;
-      white-space: nowrap;
-      box-shadow: 0 4px 16px var(--partner-glow);
-      transition: filter 0.2s ease, transform 0.15s ease;
-    }
-
-    .btn-partner:hover {
-      filter: brightness(1.08);
-      transform: translateY(-1px);
-    }
-
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      background: var(--bg-card);
-      color: var(--text-primary);
-      border: 1px solid var(--border-strong);
-      border-radius: 10px;
-      padding: 11px 16px;
-      font-family: var(--font-sans);
-      font-size: 13.5px;
-      font-weight: 600;
-      text-decoration: none;
-      cursor: pointer;
-      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
-      transition: border-color 0.2s ease, background 0.2s ease;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .btn-secondary:hover {
-      border-color: var(--accent-secondary);
-      background: var(--accent-secondary-soft);
-    }
-
-    .menu-toggle {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 38px;
-      height: 38px;
-      background: var(--bg-elevated);
-      border: 1px solid var(--border-strong);
-      border-radius: 10px;
-      color: var(--text-primary);
-      cursor: pointer;
-      flex-shrink: 0;
-    }
-
-    .mobile-menu {
-      display: none;
-      flex-direction: column;
-      padding: 8px 16px 16px;
-      background: var(--bg-card);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .mobile-menu.open {
-      display: flex;
-    }
-
-    .mobile-menu a,
-    .mobile-menu button {
-      background: none;
-      border: none;
-      text-align: left;
-      font-family: var(--font-sans);
-      color: var(--text-secondary);
-      text-decoration: none;
-      font-size: 15px;
-      font-weight: 600;
-      padding: 11px 4px;
-      border-bottom: 1px solid var(--border);
-      cursor: pointer;
-    }
-
-    .mobile-menu a:last-child,
-    .mobile-menu button:last-child {
-      border-bottom: none;
-    }
-
-    .mobile-menu .partner-mobile-link {
-      color: var(--partner-text);
-      font-weight: 700;
-    }
-
-    .desktop-only-cta {
-      display: none;
-    }
-
-    @media (min-width: 1020px) {
-      .nav-links {
-        display: flex;
-      }
-      .desktop-only-cta {
-        display: inline-flex;
-      }
-      .menu-toggle {
-        display: none;
-      }
-      .mobile-menu {
-        display: none !important;
-      }
-    }
-
-    /* Page Views Visibility */
-    .page-view {
-      display: none;
-      animation: fadeView 0.25s ease;
-    }
-
-    .page-view.active {
-      display: block;
-    }
-
-    @keyframes fadeView {
-      from { opacity: 0; transform: translateY(6px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Hero */
-    .hero {
-      padding: 34px 0 28px;
-    }
-
-    @media (min-width: 768px) {
-      .hero {
-        padding: 54px 0 40px;
-      }
-    }
-
-    .hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: var(--font-mono);
-      font-size: 10.5px;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--accent-secondary-text);
-      background: var(--accent-secondary-soft);
-      border: 1px solid var(--accent-secondary-border);
-      padding: 6px 12px;
-      border-radius: 999px;
-      margin-bottom: 16px;
-      max-width: 100%;
-    }
-
-    .hero-eyebrow.partner-badge {
-      color: var(--partner-text);
-      background: var(--partner-soft);
-      border-color: var(--partner-border);
-    }
-
-    @media (min-width: 640px) {
-      .hero-eyebrow {
-        font-size: 11px;
-        letter-spacing: 0.08em;
-        padding: 6px 14px;
-        margin-bottom: 20px;
-      }
-    }
-
-    .hero-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 8px var(--accent-glow);
-      flex-shrink: 0;
-    }
-
-    .hero-dot.blue {
-      background: var(--partner-accent);
-      box-shadow: 0 0 8px var(--partner-glow);
-    }
-
-    .hero h1 {
-      font-size: clamp(28px, 7vw, 52px);
-      font-weight: 800;
-      line-height: 1.13;
-      letter-spacing: -0.025em;
-      max-width: 840px;
-      margin-bottom: 14px;
-      color: var(--text-primary);
-    }
-
-    .hero h1 .brand-word {
-      color: var(--text-primary);
-      white-space: nowrap;
-    }
-
-    .hero h1 .new-word {
-      color: var(--accent);
-      white-space: nowrap;
-    }
-
-    .hero h1 span.blue {
-      color: var(--partner-accent);
-    }
-
-    .hero-subline {
-      font-size: clamp(16px, 3.6vw, 21px);
-      font-weight: 700;
-      color: var(--text-subline);
-      margin-bottom: 12px;
-      line-height: 1.35;
-    }
-
-    .hero-desc {
-      color: var(--text-secondary);
-      font-size: 14.5px;
-      max-width: 700px;
-      margin-bottom: 22px;
-    }
-
-    .hero-desc strong {
-      color: var(--text-primary);
-    }
-
-    @media (min-width: 640px) {
-      .hero-desc {
-        font-size: 16.5px;
-        margin-bottom: 28px;
-      }
-    }
-
-    .hero-cta-row {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-bottom: 26px;
-    }
-
-    @media (min-width: 540px) {
-      .hero-cta-row {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 12px;
-        margin-bottom: 34px;
-      }
-    }
-
-    .hero-cta-row .btn-primary,
-    .hero-cta-row .btn-secondary,
-    .hero-cta-row .btn-partner {
-      width: 100%;
-      padding: 13px 20px;
-      font-size: 14px;
-    }
-
-    @media (min-width: 540px) {
-      .hero-cta-row .btn-primary,
-      .hero-cta-row .btn-secondary,
-      .hero-cta-row .btn-partner {
-        width: auto;
-      }
-    }
-
-    .perks-strip {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-    }
-
-    @media (min-width: 560px) {
-      .perks-strip {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-      }
-    }
-
-    @media (min-width: 960px) {
-      .perks-strip {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
-    .perk-chip {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 13px 15px;
-      display: flex;
-      align-items: flex-start;
-      gap: 11px;
-      box-shadow: var(--shadow-card);
-    }
-
-    .perk-icon {
-      width: 8px;
-      height: 8px;
-      border-radius: 2px;
-      background: var(--accent);
-      margin-top: 6px;
-      flex-shrink: 0;
-    }
-
-    .perk-chip:nth-child(even) .perk-icon {
-      background: var(--accent-secondary);
-    }
-
-    .perk-icon.blue {
-      background: var(--partner-accent) !important;
-    }
-
-    .perk-chip strong {
-      display: block;
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--text-primary);
-      line-height: 1.3;
-      margin-bottom: 2px;
-    }
-
-    .perk-chip span {
-      font-size: 12px;
-      color: var(--text-secondary);
-      display: block;
-      line-height: 1.35;
-    }
-
-    /* Promo Banner */
-    .promo-banner {
-      background: var(--promo-bg);
-      border: 1px solid var(--accent-secondary-border);
-      border-left: 4px solid var(--accent);
-      border-radius: 12px;
-      padding: 14px 18px;
-      margin: 4px auto 0;
-      max-width: 960px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      box-shadow: var(--shadow-card);
-    }
-
-    .promo-title {
-      color: var(--accent-secondary-text);
-      font-size: 0.95rem;
-      letter-spacing: 0.4px;
-    }
-
-    .promo-text {
-      margin: 4px 0 0 0;
-      font-size: 0.9rem;
-      color: var(--text-body);
-    }
-
-    .promo-text strong {
-      color: var(--text-primary);
-    }
-
-    .promo-text .promo-percent {
-      color: var(--accent);
-    }
-
-    .promo-date-badge {
-      background: var(--promo-pill-bg);
-      border: 1px solid var(--accent-secondary-border);
-      color: var(--accent-secondary-text);
-      padding: 6px 12px;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: 0.85rem;
-      white-space: nowrap;
-    }
-
-    /* Section Base */
-    section {
-      padding: 34px 0;
-    }
-
-    @media (min-width: 768px) {
-      section {
-        padding: 46px 0;
-      }
-    }
-
-    .section-header {
-      margin-bottom: 20px;
-    }
-
-    .section-header h2 {
-      font-size: clamp(22px, 5vw, 34px);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      line-height: 1.2;
-      margin-bottom: 8px;
-      color: var(--text-primary);
-    }
-
-    .section-header p {
-      color: var(--text-secondary);
-      font-size: 14px;
-      max-width: 740px;
-    }
-
-    @media (min-width: 640px) {
-      .section-header p {
-        font-size: 15px;
-      }
-    }
-
-    .section-header strong {
-      color: var(--text-primary);
-    }
-
-    /* Smooth Minimalist Tabs */
-    .bn-tabs-wrapper {
-      display: flex;
-      justify-content: center;
-      margin: 22px 0 20px;
-    }
-
-    .bn-tabs {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 24px;
-      border-bottom: 2px solid var(--border);
-      padding: 0 8px;
-      max-width: 100%;
-    }
-
-    @media (min-width: 480px) {
-      .bn-tabs {
-        gap: 40px;
-      }
-    }
-
-    .bn-tab {
-      background: transparent;
-      border: none;
-      padding: 8px 0 0;
-      cursor: pointer;
-      color: var(--text-muted);
-      font-family: var(--font-sans);
-      font-size: 15px;
-      font-weight: 700;
-      letter-spacing: 0.01em;
-      transition: color 0.25s ease;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    @media (min-width: 480px) {
-      .bn-tab {
-        font-size: 16px;
-      }
-    }
-
-    .bn-tab:hover {
-      color: var(--text-primary);
-    }
-
-    .bn-tab.active {
-      color: var(--accent);
-    }
-
-    .bn-tab-label {
-      position: relative;
-      display: inline-block;
-      padding-bottom: 10px;
-      white-space: nowrap;
-    }
-
-    .bn-tab-label::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -2px;
-      width: 100%;
-      height: 3px;
-      background: var(--accent);
-      border-radius: 999px;
-      transform: scaleX(0);
-      transform-origin: center;
-      transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .bn-tab.active .bn-tab-label::after {
-      transform: scaleX(1);
-    }
-
-    /* Handheld Notice Banner */
-    .category-notice {
-      display: none;
-      max-width: 760px;
-      margin: 0 auto 20px;
-      background: var(--accent-secondary-soft);
-      border: 1px solid var(--accent-secondary-border);
-      border-radius: var(--radius-md);
-      padding: 11px 14px;
-      font-size: 13px;
-      color: var(--text-body);
-      text-align: center;
-      line-height: 1.45;
-    }
-
-    .category-notice.visible {
-      display: block;
-    }
-
-    .category-notice strong {
-      color: var(--accent-secondary-text);
-    }
-
-    /* Service Cards Grid */
-    .cards-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-      margin-bottom: 22px;
-    }
-
-    @media (min-width: 740px) {
-      .cards-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 18px;
-        margin-bottom: 28px;
-      }
-    }
-
-    .service-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      cursor: pointer;
-      box-shadow: var(--shadow-card);
-      transition: border-color 0.22s ease, background 0.22s ease, transform 0.18s ease, box-shadow 0.22s ease;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    @media (min-width: 640px) {
-      .service-card {
-        padding: 24px;
-      }
-    }
-
-    .service-card:hover {
-      background: var(--bg-card-hover);
-      border-color: var(--accent-secondary);
-      transform: translateY(-2px);
-    }
-
-    .service-card.selected {
-      border: 2px solid var(--accent);
-      background: var(--selected-card-bg);
-      box-shadow: 0 12px 28px rgba(220, 38, 38, 0.12);
-    }
-
-    .card-badge {
-      display: inline-block;
-      font-family: var(--font-mono);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      color: var(--accent-secondary-text);
-      background: var(--accent-secondary-soft);
-      border: 1px solid var(--accent-secondary-border);
-      border-radius: 6px;
-      padding: 4px 8px;
-      margin-bottom: 12px;
-    }
-
-    .service-card.selected .card-badge {
-      color: var(--accent-badge-text);
-      border-color: var(--accent-soft-border);
-      background: var(--accent-soft);
-    }
-
-    .card-title {
-      font-size: 18px;
-      font-weight: 800;
-      margin-bottom: 8px;
-      line-height: 1.3;
-      color: var(--text-primary);
-    }
-
-    .card-price-row {
-      display: flex;
-      align-items: baseline;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 12px;
-    }
-
-    .price-final {
-      font-size: 26px;
-      font-weight: 800;
-      color: var(--text-primary);
-      letter-spacing: -0.02em;
-    }
-
-    .price-old {
-      font-size: 14px;
-      color: var(--text-muted);
-      text-decoration: line-through;
-    }
-
-    .price-unit {
-      font-size: 12.5px;
-      color: var(--text-muted);
-    }
-
-    .discount-pill {
-      font-family: var(--font-mono);
-      font-size: 10.5px;
-      font-weight: 700;
-      color: var(--accent-secondary-text);
-      background: var(--accent-secondary-soft);
-      border: 1px solid var(--accent-secondary-border);
-      padding: 2px 7px;
-      border-radius: 6px;
-    }
-
-    .card-desc {
-      font-size: 13.5px;
-      color: var(--text-secondary);
-      margin-bottom: 16px;
-      line-height: 1.45;
-    }
-
-    .card-features {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin-bottom: 18px;
-    }
-
-    .card-features li {
-      display: flex;
-      align-items: flex-start;
-      gap: 9px;
-      font-size: 13px;
-      color: var(--text-body);
-      line-height: 1.4;
-    }
-
-    .card-features li::before {
-      content: "";
-      width: 6px;
-      height: 6px;
-      border-radius: 1.5px;
-      background: var(--accent-secondary);
-      margin-top: 6px;
-      flex-shrink: 0;
-    }
-
-    .card-select-btn {
-      width: 100%;
-      padding: 11px 14px;
-      border-radius: 10px;
-      font-family: var(--font-sans);
-      font-size: 13px;
-      font-weight: 700;
-      cursor: pointer;
-      border: 1px solid var(--border-strong);
-      background: var(--bg-elevated);
-      color: var(--text-primary);
-      transition: all 0.2s ease;
-    }
-
-    .card-select-btn:hover {
-      background: var(--accent-secondary-soft);
-      border-color: var(--accent-secondary);
-    }
-
-    .service-card.selected .card-select-btn {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: #ffffff;
-    }
-
-    /* Calculator Summary & Message Builder */
-    .summary-panel {
-      background: var(--bg-card);
-      border: 1px solid var(--border-strong);
-      border-radius: var(--radius-lg);
-      padding: 18px;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
-      box-shadow: var(--shadow-card);
-    }
-
-    @media (min-width: 860px) {
-      .summary-panel {
-        grid-template-columns: 1.05fr 1fr;
-        padding: 28px;
-        gap: 24px;
-      }
-    }
-
-    .form-group {
-      margin-bottom: 14px;
-    }
-
-    .form-label {
-      display: block;
-      font-size: 11.5px;
-      font-family: var(--font-mono);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--text-secondary);
-      margin-bottom: 7px;
-    }
-
-    .form-input, .form-select {
-      width: 100%;
-      background: var(--bg-input);
-      border: 1px solid var(--border-strong);
-      border-radius: 10px;
-      padding: 11px 13px;
-      color: var(--text-primary);
-      font-family: var(--font-sans);
-      font-size: 16px;
-      outline: none;
-      transition: border-color 0.2s ease, background 0.2s ease;
-    }
-
-    .form-input:focus, .form-select:focus {
-      border-color: var(--accent-secondary);
-      background: var(--bg-card);
-    }
-
-    .addon-toggle {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      background: var(--accent-secondary-soft);
-      border: 1px solid var(--accent-secondary-border);
-      border-radius: 10px;
-      padding: 11px 13px;
-      cursor: pointer;
-      font-size: 13px;
-      color: var(--text-primary);
-      line-height: 1.4;
-      transition: border-color 0.2s ease, background 0.2s ease;
-    }
-
-    .addon-toggle:hover {
-      border-color: var(--accent-secondary);
-      background: var(--accent-secondary-soft-hover);
-    }
-
-    .addon-toggle input {
-      accent-color: var(--accent);
-      width: 18px;
-      height: 18px;
-      flex-shrink: 0;
-      cursor: pointer;
-    }
-
-    .price-breakdown {
-      background: var(--bg-input);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 14px;
-      margin-top: 14px;
-    }
-
-    .breakdown-line {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 10px;
-      font-size: 13px;
-      color: var(--text-secondary);
-      margin-bottom: 7px;
-    }
-
-    .breakdown-line strong {
-      text-align: right;
-      color: var(--text-primary);
-    }
-
-    .breakdown-line.discount {
-      color: var(--accent-secondary-text);
-      font-weight: 700;
-    }
-
-    .breakdown-total {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      border-top: 1px solid var(--border);
-      padding-top: 11px;
-      margin-top: 8px;
-      font-weight: 800;
-      font-size: 16px;
-      color: var(--text-primary);
-    }
-
-    .breakdown-total span:last-child {
-      color: var(--accent);
-      font-size: 24px;
-    }
-
-    .message-box {
-      width: 100%;
-      min-height: 165px;
-      background: var(--bg-input);
-      border: 1px solid var(--border-strong);
-      border-radius: 12px;
-      padding: 12px;
-      color: var(--text-body);
-      font-family: var(--font-mono);
-      font-size: 12px;
-      line-height: 1.5;
-      resize: vertical;
-      margin-bottom: 12px;
-    }
-
-    .summary-actions {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 9px;
-    }
-
-    @media (min-width: 480px) {
-      .summary-actions {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .summary-actions .btn-full {
-        grid-column: 1 / -1;
-      }
-    }
-
-    .summary-actions .btn-primary,
-    .summary-actions .btn-secondary {
-      width: 100%;
-      padding: 12px 14px;
-      font-size: 13.5px;
-    }
-
-    /* Info Hub Carousel 3-in-1 */
-    .info-hub-controls {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      max-width: 760px;
-      margin: 0 auto 28px auto;
-      padding: 8px;
-      background: var(--bg-card);
-      border: 1px solid var(--border-strong);
-      border-radius: 14px;
-      box-shadow: var(--shadow-card);
-    }
-    .info-arrow-btn {
-      width: 42px;
-      height: 42px;
-      flex-shrink: 0;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 10px;
-      border: 1px solid var(--border-strong);
-      background: var(--bg-elevated);
-      color: var(--text-primary);
-      font-size: 1.15rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.15s;
-    }
-    .info-arrow-btn:hover {
-      background: var(--accent-secondary-soft);
-      border-color: var(--accent-secondary);
-      color: var(--accent-secondary-text);
-    }
-    .info-arrow-btn:active {
-      transform: scale(0.95);
-    }
-    .info-hub-pills {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      flex: 1;
-      min-width: 0;
-    }
-    .info-pill-btn {
-      flex: 1;
-      padding: 10px 8px;
-      border: 1px solid transparent;
-      border-radius: 9px;
-      background: transparent;
-      color: var(--text-secondary);
-      font-size: 0.85rem;
-      font-weight: 700;
-      cursor: pointer;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      transition: all 0.2s;
-    }
-    .info-pill-btn:hover {
-      color: var(--text-primary);
-    }
-    .info-pill-btn.active {
-      background: var(--accent-secondary-soft);
-      border-color: var(--accent-secondary-border);
-      color: var(--accent-secondary-text);
-    }
-    .info-slide {
-      display: none;
-      animation: infoSlideFade 0.25s ease;
-    }
-    .info-slide.active {
-      display: block;
-    }
-    @keyframes infoSlideFade {
-      from { opacity: 0; transform: translateY(6px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @media (max-width: 540px) {
-      .info-hub-controls {
-        padding: 6px;
-        gap: 6px;
-      }
-      .info-arrow-btn {
-        width: 38px;
-        height: 38px;
-        font-size: 1rem;
-      }
-      .info-pill-btn {
-        font-size: 0.76rem;
-        padding: 9px 4px;
-      }
-    }
-
-    /* Materials & Steps Grids */
-    .materials-grid,
-    .steps-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-    }
-
-    @media (min-width: 580px) {
-      .materials-grid,
-      .steps-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
-      }
-    }
-
-    @media (min-width: 960px) {
-      .materials-grid,
-      .steps-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
-    .material-card,
-    .step-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 18px;
-      box-shadow: var(--shadow-card);
-    }
-
-    @media (min-width: 640px) {
-      .material-card,
-      .step-card {
-        padding: 20px;
-      }
-    }
-
-    .material-tag,
-    .step-num {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      color: var(--accent-secondary-text);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      margin-bottom: 7px;
-      display: block;
-    }
-
-    .step-num {
-      color: var(--accent);
-    }
-
-    .material-tag.blue,
-    .step-num.blue {
-      color: var(--partner-text);
-    }
-
-    .material-card h3,
-    .step-card h3 {
-      font-size: 16.5px;
-      font-weight: 800;
-      margin-bottom: 7px;
-      line-height: 1.3;
-      color: var(--text-primary);
-    }
-
-    .material-card p,
-    .step-card p {
-      font-size: 13.5px;
-      color: var(--text-secondary);
-      line-height: 1.45;
-    }
-
-    /* FAQ */
-    .faq-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      max-width: 820px;
-    }
-
-    .faq-item {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 15px 18px;
-      box-shadow: var(--shadow-card);
-    }
-
-    .faq-item summary {
-      font-weight: 700;
-      font-size: 14.5px;
-      color: var(--text-primary);
-      cursor: pointer;
-      list-style: none;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      line-height: 1.35;
-    }
-
-    .faq-item summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .faq-item summary::after {
-      content: "+";
-      color: var(--accent-secondary-text);
-      font-family: var(--font-mono);
-      font-size: 18px;
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-
-    .faq-item[open] summary::after {
-      content: "−";
-      color: var(--accent);
-    }
-
-    .faq-item p {
-      margin-top: 10px;
-      font-size: 13.5px;
-      color: var(--text-secondary);
-      line-height: 1.5;
-    }
-
-    /* Dedicated Contact Hub Section */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-    }
-
-    @media (min-width: 560px) {
-      .contact-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 14px;
-      }
-    }
-
-    @media (min-width: 960px) {
-      .contact-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
-    .contact-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 18px;
-      text-decoration: none;
-      color: var(--text-primary);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 12px;
-      box-shadow: var(--shadow-card);
-      transition: border-color 0.2s ease, background 0.2s ease, transform 0.18s ease;
-    }
-
-    .contact-card:hover {
-      border-color: var(--accent-secondary);
-      background: var(--bg-card-hover);
-      transform: translateY(-2px);
-    }
-
-    .contact-card.partner-theme:hover {
-      border-color: var(--partner-accent);
-    }
-
-    .contact-card-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-    }
-
-    .contact-icon-box {
-      width: 38px;
-      height: 38px;
-      border-radius: 10px;
-      background: var(--accent-soft);
-      border: 1px solid var(--accent-soft-border);
-      color: var(--accent);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .contact-card:nth-child(even) .contact-icon-box {
-      background: var(--accent-secondary-soft);
-      border-color: var(--accent-secondary-border);
-      color: var(--accent-secondary-text);
-    }
-
-    .contact-icon-box.blue {
-      background: var(--partner-soft) !important;
-      border-color: var(--partner-border) !important;
-      color: var(--partner-text) !important;
-    }
-
-    .contact-arrow {
-      color: var(--text-muted);
-      font-family: var(--font-mono);
-      font-size: 14px;
-    }
-
-    .contact-card:hover .contact-arrow {
-      color: var(--accent-secondary-text);
-    }
-
-    .contact-card.partner-theme:hover .contact-arrow {
-      color: var(--partner-text);
-    }
-
-    .contact-label {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--text-muted);
-      display: block;
-      margin-bottom: 3px;
-    }
-
-    .contact-value {
-      font-size: 14.5px;
-      font-weight: 700;
-      color: var(--text-primary);
-      word-break: break-word;
-    }
-
-    /* Partner Cooperation Banner */
-    .partner-coop-box {
-      background: var(--coop-bg);
-      border: 1px solid var(--partner-border);
-      border-radius: var(--radius-lg);
-      padding: 22px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      margin-top: 16px;
-      box-shadow: var(--shadow-card);
-    }
-
-    @media (min-width: 768px) {
-      .partner-coop-box {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        padding: 28px;
-      }
-    }
-
-    .partner-coop-box h3 {
-      font-size: 19px;
-      font-weight: 800;
-      margin-bottom: 6px;
-      color: var(--text-primary);
-    }
-
-    .partner-coop-box p {
-      font-size: 14px;
-      color: var(--text-secondary);
-      max-width: 640px;
-    }
-
-    /* Footer */
-    footer {
-      background: var(--bg-footer);
-      border-top: 1px solid var(--border);
-      padding: 28px 0 40px;
-      margin-top: 24px;
-      color: var(--text-secondary);
-      font-size: 13px;
-    }
-
-    .footer-inner {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    @media (min-width: 768px) {
-      .footer-inner {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-      }
-    }
-
-    .footer-brand-title {
-      color: var(--text-primary);
-    }
-
-    .footer-partner-link {
-      color: var(--partner-text);
-      text-decoration: none;
-      font-weight: 700;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px 18px;
-    }
-
-    .footer-links a {
-      color: var(--text-primary);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 13px;
-    }
-
-    .footer-links a:hover {
-      color: var(--accent);
-    }
-
-    @media (max-width: 639px) {
-      .header-inner {
-        height: auto;
-        flex-wrap: wrap;
-        padding: 10px 0;
-        gap: 10px;
-      }
-
-      .brand {
-        order: 1;
-      }
-
-      .header-actions {
-        order: 2;
-      }
-
-      .view-switcher {
-        order: 3;
-        width: 100%;
-        justify-content: space-between;
-      }
-
-      .view-tab-btn {
-        flex: 1;
-        justify-content: center;
-        padding: 8px 6px;
-        font-size: 11.5px;
-      }
-    }
-
-    .view-tab-btn[data-view="service"]::before {
-      content: "";
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--accent);
-      flex-shrink: 0;
-    }
-
-    .view-tab-btn.active[data-view="service"]::before {
-      background: #ffffff;
-    }
-  </style>
-</head>
-<body>
-
-  <!-- HEADER -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="#serwis" class="brand" onclick="switchPageView('service'); return false;">
-        <!-- Logo BRAND NEW (odwzorowane z profilowego IG / FB) -->
-        <svg class="brand-logo" viewBox="-12 -12 876 598" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Logo BRAND NEW">
-          <polygon points="420,320 370,354 370,438 389,461 390,526 415,572 437,572 462,525 462,461 481,438 481,353 431,320" fill="var(--logo-outline)"/>
-          <polygon points="682,250 671,249 602,289 603,298 633,298 628,310 598,329 568,316 555,316 520,336 520,346 583,376 596,376 661,351 690,289" fill="var(--logo-outline)"/>
-          <polygon points="169,250 161,288 191,351 255,376 268,376 331,346 330,335 296,316 283,316 256,329 223,310 218,297 248,298 249,289 180,249" fill="var(--logo-outline)"/>
-          <polygon points="722,225 714,225 693,247 697,283 676,356 604,376 598,385 547,367 535,367 534,376 505,344 497,344 510,406 575,441 583,441 583,432 561,405 642,408 642,399 617,389 677,395 708,359 708,349 693,348 735,295" fill="var(--logo-outline)"/>
-          <polygon points="129,225 116,295 159,350 143,349 143,358 175,395 238,388 210,399 209,408 290,405 268,432 268,441 276,441 341,406 354,344 346,344 317,376 316,367 304,367 253,385 249,377 175,356 154,281 158,246 139,226" fill="var(--logo-outline)"/>
-          <polygon points="850,2 829,8 575,160 610,113 610,104 594,109 467,202 434,293 434,305 477,333 492,335 768,176 825,81 828,66 817,67 729,131 848,13" fill="var(--logo-outline)"/>
-          <polygon points="2,2 5,15 120,129 34,67 23,66 25,79 85,177 360,335 371,335 418,304 384,202 253,106 241,104 241,113 276,160 22,8" fill="var(--logo-outline)"/>
-          <!-- Lewa i prawa brew/skrzydło -->
-          <polygon points="10,8 295,178 368,325 92,168 32,74 134,142" fill="#dc143c"/>
-          <polygon points="842,8 557,178 484,325 760,168 820,74 718,142" fill="#dc143c"/>
-          <polygon points="246,112 378,208 410,300 368,325 295,178" fill="#a80828"/>
-          <polygon points="606,112 474,208 442,300 484,325 557,178" fill="#a80828"/>
-          <!-- Białe błyski na brwiach -->
-          <polygon points="66,115 245,218 286,256 92,168" fill="#ffffff"/>
-          <polygon points="786,115 607,218 566,256 760,168" fill="#ffffff"/>
-          <polygon points="256,126 364,208 324,228 286,174" fill="#ffffff"/>
-          <polygon points="596,126 488,208 528,228 566,174" fill="#ffffff"/>
-          <!-- Zewnętrzne oprawy oczu -->
-          <polygon points="134,234 148,284 182,350 252,374 312,358 346,352 334,400 274,434 298,398 220,400 248,382 178,388 150,354 166,352 124,294" fill="#dc143c"/>
-          <polygon points="718,234 704,284 670,350 600,374 540,358 506,352 518,400 578,434 554,398 632,400 604,382 674,388 702,354 686,352 728,294" fill="#dc143c"/>
-          <!-- Białe akcenty pod oczami -->
-          <polygon points="182,350 248,374 218,384 176,368" fill="#ffffff"/>
-          <polygon points="670,350 604,374 634,384 676,368" fill="#ffffff"/>
-          <polygon points="346,352 334,396 312,378" fill="#ffffff"/>
-          <polygon points="506,352 518,396 540,378" fill="#ffffff"/>
-          <!-- Źrenice -->
-          <polygon points="176,258 242,294 212,306 258,336 288,324 322,342 262,368 196,344 168,288" fill="#a80828"/>
-          <polygon points="676,258 610,294 640,306 594,336 564,324 530,342 590,368 656,344 684,288" fill="#a80828"/>
-          <polygon points="212,306 258,336 252,352 204,326" fill="#ffffff"/>
-          <polygon points="640,306 594,336 600,352 648,326" fill="#ffffff"/>
-          <!-- Dziób -->
-          <polygon points="426,328 474,358 474,434 454,458 454,520 426,566 398,520 398,458 378,434 378,358" fill="#dc143c"/>
-          <polygon points="426,328 378,358 378,434 398,458 398,520 426,566" fill="#8f0620"/>
-          <polygon points="426,432 454,442 444,462 426,462 408,462 398,442" fill="#ffffff"/>
-          <polygon points="426,486 438,516 426,554 414,516" fill="#ffffff"/>
-        </svg>
-        <span class="brand-name">BRAND <span>NEW</span></span>
-      </a>
-
-      <!-- Separate Top Tabs Switcher -->
-      <div class="view-switcher" role="tablist" aria-label="Wybór widoku strony">
-        <button type="button" class="view-tab-btn active" data-view="service" role="tab" aria-selected="true" onclick="switchPageView('service')">
-          Serwis PC / GPU
-        </button>
-        <button type="button" class="view-tab-btn" data-view="partner" role="tab" aria-selected="false" onclick="switchPageView('partner')">
-          <span class="partner-dot"></span>
-          Perfect-Phone
-        </button>
-      </div>
-
-      <nav class="nav-links" aria-label="Nawigacja sekcji" id="serviceSectionNav">
-        <a href="#kalkulator">Cennik</a>
-        <a href="#materialy">Materiały</a>
-        <a href="#proces">Proces</a>
-        <a href="#kontakt">Kontakt</a>
-      </nav>
-
-      <div class="header-actions">
-        <!-- Przełącznik Trybu Jasnego / Ciemnego -->
-        <button type="button" class="theme-toggle-btn" id="themeToggleBtn" aria-label="Przełącz tryb jasny lub ciemny" title="Przełącz tryb jasny / ciemny">
-          <span class="icon-moon" aria-hidden="true">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
-          </span>
-          <span class="icon-sun" aria-hidden="true">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
-          </span>
-          <span class="theme-toggle-label" id="themeToggleLabel">Ciemny</span>
-        </button>
-
-        <a href="#kalkulator" class="btn-primary desktop-only-cta" onclick="switchPageView('service')">Oblicz wycenę</a>
-        <button type="button" class="menu-toggle" id="menuToggle" aria-label="Otwórz menu" aria-expanded="false">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
-            <line x1="3" y1="7" x2="21" y2="7"></line>
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="17" x2="21" y2="17"></line>
-          </svg>
-        </button>
-      </div>
-    </div>
-
-    <div class="mobile-menu" id="mobileMenu">
-      <button type="button" onclick="switchPageView('service')">Strona główna — Serwis BRAND NEW</button>
-      <button type="button" class="partner-mobile-link" onclick="switchPageView('partner')">Partner lokalny — Perfect-Phone GSM</button>
-      <a href="#kalkulator" onclick="switchPageView('service')">Cennik i kalkulator rabatów</a>
-      <a href="#materialy" onclick="switchPageView('service')">Stosowane materiały</a>
-      <a href="#kontakt" onclick="switchPageView('service')">Kontakt (Telefon, IG, FB, E-mail)</a>
-      <button type="button" id="mobileThemeToggleBtn">Zmień motyw: Tryb ciemny / jasny</button>
-    </div>
-  </header>
-
-  <!-- ======================================================================= -->
-  <!-- VIEW 1: GŁÓWNA STRONA SERWISU BRAND NEW                                 -->
-  <!-- ======================================================================= -->
-  <div id="view-service" class="page-view active">
-    <main>
-      <section class="hero">
-        <div class="container">
-          <div class="hero-eyebrow">
-            <span class="hero-dot"></span>
-            MYŚLENICE ODBIÓR 0 ZŁ • WYSYŁKA CAŁA PL
-          </div>
-
-          <h1>Żeby Twój sprzęt znów poczuł się jak <span class="brand-word">BRAND</span> <span class="new-word">NEW</span>.</h1>
-          <p class="hero-subline">
-            Profesjonalny serwis układów chłodzenia Laptopów, GPU, PC i Handheldów PC.
-          </p>
-          <p class="hero-desc">
-            Koniec z przegrzewaniem, wyciem wentylatorów i spadkami FPS. Zamiast fabrycznych kompromisów aplikujemy zmiennofazowy <strong>Thermal Grizzly PhaseSheet PTM (PTM7950)</strong>, kit <strong>Putty Basic</strong> oraz pastę <strong>Arctic MX-7</strong> — zawsze z raportem temperatur PRZED i PO.
-          </p>
-
-          <div class="hero-cta-row">
-            <a href="#kalkulator" class="btn-primary">Oblicz cenę po rabacie -15% do -25%</a>
-            <a href="#kontakt" class="btn-secondary">Szybki kontakt (Tel / IG / FB / Mail)</a>
-          </div>
-
-          <div class="perks-strip">
-            <div class="perk-chip">
-              <span class="perk-icon"></span>
-              <div>
-                <strong>Diagnoza i wycena 0 zł</strong>
-                <span>Pomiar temperatur przed pracą bez zobowiązań</span>
-              </div>
-            </div>
-            <div class="perk-chip">
-              <span class="perk-icon"></span>
-              <div>
-                <strong>Myślenice: odbiór 0 zł</strong>
-                <span>Darmowy odbiór i zwrot sprzętu spod drzwi</span>
-              </div>
-            </div>
-            <div class="perk-chip">
-              <span class="perk-icon"></span>
-              <div>
-                <strong>Raport PRZED i PO</strong>
-                <span>Zrzuty HWiNFO64 / FurMark + zdjęcia wnętrza</span>
-              </div>
-            </div>
-            <div class="perk-chip">
-              <span class="perk-icon"></span>
-              <div>
-                <strong>Zabezpieczenie ESD</strong>
-                <span>Bezpieczny transport lokalny oraz Paczkomat InPost</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div class="container">
-        <div id="promo-banner" class="promo-banner">
-          <div>
-            <strong class="promo-title">PROMOCJA NA START • -25% PRZY WYBORZE KRYOSHEET</strong>
-            <p class="promo-text">
-              Przy wyborze pada grafenowego <strong>Thermal Grizzly KryoSheet</strong> rabat <strong class="promo-percent">25%</strong> nalicza się automatycznie. Oferta obowiązuje przez 2 miesiące od uruchomienia serwisu.
-            </p>
-          </div>
-          <div class="promo-date-badge">
-            Obowiązuje: <span id="promo-dates">24.11.2026 – 24.01.2027</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- CALCULATOR & SERVICES -->
-      <section id="kalkulator">
-        <div class="container">
-          <div class="section-header">
-            <h2>Wybierz sprzęt i sprawdź cenę po rabacie</h2>
-            <p>
-              Przełącz kategorię sprzętu poniżej. Kalkulator automatycznie przelicza zniżkę na start (<strong>-15%</strong> do 150 zł, <strong>-20%</strong> w przedziale 151–260 zł, <strong>-25%</strong> powyżej 260 zł) oraz generuje gotową wiadomość do wysłania jednym kliknięciem.
-            </p>
-          </div>
-
-          <div class="bn-tabs-wrapper">
-            <div class="bn-tabs" role="tablist" aria-label="Kategoria sprzętu">
-              <button type="button" class="bn-tab active" role="tab" aria-selected="true" data-category="laptops">
-                <span class="bn-tab-label">Laptopy</span>
-              </button>
-              <button type="button" class="bn-tab" role="tab" aria-selected="false" data-category="gpu">
-                <span class="bn-tab-label">GPU</span>
-              </button>
-              <button type="button" class="bn-tab" role="tab" aria-selected="false" data-category="handheld">
-                <span class="bn-tab-label">Handheld</span>
-              </button>
-            </div>
-          </div>
-
-          <div class="category-notice" id="handheldNotice">
-            Obsługujemy wyłącznie <strong>handheldy PC</strong> (Steam Deck, ASUS ROG Ally, Lenovo Legion Go, MSI Claw). <strong>Nie serwisujemy</strong> konsol Nintendo Switch ani podobnych urządzeń.
-          </div>
-
-          <div class="cards-grid" id="cardsGrid"></div>
-
-          <div class="summary-panel">
-            <div>
-              <div class="form-group">
-                <label class="form-label" for="deviceModelInput">Model urządzenia (opcjonalnie)</label>
-                <input type="text" id="deviceModelInput" class="form-input" placeholder="np. Lenovo Legion 5 / RTX 3070 / Steam Deck" />
-              </div>
-
-              <div class="form-group">
-                <label class="form-label" for="logisticsSelect">Sposób przekazania sprzętu</label>
-                <select id="logisticsSelect" class="form-select">
-                  <option value="Odbiór i zwrot spod drzwi — Myślenice (0 zł)">Odbiór i zwrot spod drzwi — Myślenice (0 zł)</option>
-                  <option value="Wysyłka Paczkomat InPost — cała Polska">Wysyłka Paczkomat InPost — cała Polska</option>
-                </select>
-              </div>
-
-              <label class="addon-toggle" for="kryoAddon">
-                <span>Zamień na <strong>Pakiet Kryo — KryoSheet + Putty</strong> (pad grafenowy na rdzeń, +40 zł do ceny Pro, <strong>-25% na start</strong>)</span>
-                <input type="checkbox" id="kryoAddon" />
-              </label>
-
-              <div class="price-breakdown">
-                <div class="breakdown-line">
-                  <span>Wybrana usługa:</span>
-                  <strong id="summaryServiceName">—</strong>
-                </div>
-                <div class="breakdown-line">
-                  <span>Cena katalogowa:</span>
-                  <span id="summaryBasePrice">0 zł</span>
-                </div>
-                <div class="breakdown-line discount">
-                  <span id="summaryDiscountLabel">Rabat na start (0%):</span>
-                  <span id="summaryDiscountValue">0 zł</span>
-                </div>
-                <div class="breakdown-total">
-                  <span>Do zapłaty po rabacie:</span>
-                  <span id="summaryFinalPrice">0 zł</span>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <label class="form-label" for="generatedMessage">Gotowa wiadomość do wysłania</label>
-              <textarea id="generatedMessage" class="message-box" readonly></textarea>
-
-              <div class="summary-actions">
-                <button type="button" class="btn-primary btn-full" id="copyMsgBtn">1. Kopiuj gotową wiadomość</button>
-                <a href="#" target="_blank" rel="noopener" class="btn-secondary" id="igDirectBtn">Instagram DM</a>
-                <a href="#" target="_blank" rel="noopener" class="btn-secondary" id="fbDirectBtn">Facebook / Messenger</a>
-                <a href="#" class="btn-secondary" id="smsDirectBtn">Wyślij SMS</a>
-                <a href="#" class="btn-secondary" id="mailDirectBtn">Wyślij E-mail</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- POŁĄCZONA SEKCJA: WYSYŁKA / MATERIAŁY / PROCES (KARUZELA 3-W-1) -->
-      <section id="info-hub">
-        <span id="wysylka"></span>
-        <span id="materialy"></span>
-        <span id="proces"></span>
-
-        <div class="container">
-          <div class="info-hub-controls" role="region" aria-label="Przełącznik informacji">
-            <button type="button" class="info-arrow-btn" id="infoPrevBtn" aria-label="Poprzednia sekcja">&#8592;</button>
-
-            <div class="info-hub-pills" role="tablist">
-              <button type="button" class="info-pill-btn active" data-slide-target="0">1. Wysyłka</button>
-              <button type="button" class="info-pill-btn" data-slide-target="1">2. Materiały</button>
-              <button type="button" class="info-pill-btn" data-slide-target="2">3. Realizacja</button>
-            </div>
-
-            <button type="button" class="info-arrow-btn" id="infoNextBtn" aria-label="Następna sekcja">&#8594;</button>
-          </div>
-
-          <div id="infoSlidesViewport">
-            <!-- SLAJD 1: WYSYŁKA -->
-            <div class="info-slide active" data-slide-index="0">
-              <div class="section-header">
-                <h2>Jak bezpiecznie zapakować sprzęt do wysyłki?</h2>
-                <p>Wysyłasz sprzęt Paczkomatem lub kurierem? Zastosuj te <strong>4 proste zasady</strong>, żeby paczka dotarła do Myślenic w jednym kawałku.</p>
-              </div>
-
-              <div class="materials-grid">
-                <div class="material-card">
-                  <span class="material-tag">01 / KARTY GPU</span>
-                  <h3>Ochrona ESD i zero luzu</h3>
-                  <p>Włóż kartę w oryginalne pudełko, worek antystatyczny (ESD) lub różową folię bąbelkową ESD. Jeśli ich nie masz, owiń PCB najpierw w czysty papier pakowy lub tekturę — dopiero na wierzch daj zwykłą folię bąbelkową (nigdy bezpośrednio na elektronikę).</p>
-                </div>
-
-                <div class="material-card">
-                  <span class="material-tag">02 / LAPTOPY I HANDHELDY</span>
-                  <h3>Ochrona matrycy i analogów</h3>
-                  <p>Między klawiaturę a ekran laptopa włóż cienką piankę lub mikrofibrę. Handheldy (Steam Deck, ROG Ally, Legion Go) najlepiej wysyłać w oryginalnym, sztywnym etui zabezpieczonym dodatkowym kartonem.</p>
-                </div>
-
-                <div class="material-card">
-                  <span class="material-tag">03 / KARTON I UBEZPIECZENIE</span>
-                  <h3>Sztywne pudełko zamiast folii</h3>
-                  <p>Zawsze używaj grubego, nieuszkodzonego kartonu i zaklej go solidnie taśmą. Przy nadaniu Paczkomatem lub kurierem zaznacz ubezpieczenie odpowiadające realnej wartości sprzętu.</p>
-                </div>
-
-                <div class="material-card">
-                  <span class="material-tag">04 / ORYGINALNE OPAKOWANIA</span>
-                  <h3>Jeśli je posiadasz, użyj oryginalnego pudełka</h3>
-                  <p>Nic nie chroni sprzętu lepiej niż fabryczne pudełko oraz oryginalne wypełnienie. Zawsze traktuj je jako pierwszorzędny wybór, a dopiero w razie ich braku myśl o innych zamiennikach.</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- SLAJD 2: MATERIAŁY -->
-            <div class="info-slide" data-slide-index="1">
-              <div class="section-header">
-                <h2>Materiały, na których pracujemy</h2>
-                <p>Nie stosujemy tanich, wysychających past OEM. Każdy układ chłodzenia dobieramy pod specyfikę termiczną konkretnego rdzenia i sekcji zasilania.</p>
-              </div>
-
-              <div class="materials-grid">
-                <div class="material-card">
-                  <span class="material-tag">RDZEŃ CPU / GPU / APU</span>
-                  <h3>Thermal Grizzly PhaseSheet PTM</h3>
-                  <p>Materiał zmiennofazowy (klasy PTM7950), który w temperaturze pracy wypełnia mikroskopijne nierówności rdzenia. Brak zjawiska degradacji pump-out i wieloletnia stabilność temperatur.</p>
-                </div>
-                <div class="material-card">
-                  <span class="material-tag">PAMIĘCI VRAM & SEKCJA VRM</span>
-                  <h3>Thermal Grizzly Putty Basic</h3>
-                  <p>Elastyczny kit termoprzewodzący zastępujący klasyczne termopady. Idealnie dopasowuje się do każdej szczeliny bez ryzyka niedociśnięcia radiatora do rdzenia GPU/CPU.</p>
-                </div>
-                <div class="material-card">
-                  <span class="material-tag">BIUROWE & STANDARD</span>
-                  <h3>Arctic MX-7</h3>
-                  <p>Nowoczesna, nieprzewodząca prądu pasta termoprzewodząca o wysokiej wydajności, idealna do laptopów biurowych, ultrabooków oraz chłodniejszych kart graficznych.</p>
-                </div>
-                <div class="material-card">
-                  <span class="material-tag">OPCJA NA ZAMÓWIENIE</span>
-                  <h3>Thermal Grizzly KryoSheet</h3>
-                  <p>Grafenowy pad termoprzewodzący o ekstremalnej przewodności cieplnej, dostępny na indywidualne zamówienie pod najmocniejsze układy.</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- SLAJD 3: REALIZACJA KROK PO KROKU -->
-            <div class="info-slide" data-slide-index="2">
-              <div class="section-header">
-                <h2>Jak wygląda realizacja krok po kroku</h2>
-                <p>Prosty i przejrzysty proces — lokalnie na terenie Myślenic oraz wysyłkowo w całej Polsce.</p>
-              </div>
-
-              <div class="steps-grid">
-                <div class="step-card">
-                  <span class="step-num">01 / KONTAKT</span>
-                  <h3>Szybka wycena w kalkulatorze</h3>
-                  <p>Wybierasz pakiet powyżej, kopiujesz gotową wiadomość i wysyłasz ją przez Instagram, Facebooka, E-mail lub SMS.</p>
-                </div>
-                <div class="step-card">
-                  <span class="step-num">02 / LOGISTYKA</span>
-                  <h3>Odbiór 0 zł lub Paczkomat</h3>
-                  <p>W Myślenicach odbieramy sprzęt spod Twoich drzwi za 0 zł. Z całej Polski wysyłasz urządzenie paczkomatem InPost.</p>
-                </div>
-                <div class="step-card">
-                  <span class="step-num">03 / SERWIS & TESTY</span>
-                  <h3>Czyszczenie, PTM i raport</h3>
-                  <p>Robimy pomiary temperatur PRZED, czyścimy układ, aplikujemy PhaseSheet PTM / Putty / MX-7 i wykonujemy testy obciążeniowe PO.</p>
-                </div>
-                <div class="step-card">
-                  <span class="step-num">04 / ZWROT ESD</span>
-                  <h3>Dokumentacja i odbiór</h3>
-                  <p>Otrzymujesz zdjęcia z prac oraz zrzuty temperatur z HWiNFO64 / FurMark, a sprzęt wraca zabezpieczony antystatycznie (ESD).</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- FAQ -->
-      <section id="faq">
-        <div class="container">
-          <div class="section-header">
-            <h2>Najczęstsze pytania</h2>
-          </div>
-
-          <div class="faq-list">
-            <details class="faq-item">
-              <summary>Jakie handheldy przyjmujecie na serwis chłodzenia?</summary>
-              <p>Serwisujemy wyłącznie przenośne komputery PC (handheldy PC): Steam Deck (LCD oraz OLED), ASUS ROG Ally / Ally X, Lenovo Legion Go oraz MSI Claw. Nie przyjmujemy konsol Nintendo Switch ani podobnych zamkniętych konsol.</p>
-            </details>
-            <details class="faq-item">
-              <summary>Czy darmowy odbiór w Myślenicach naprawdę kosztuje 0 zł?</summary>
-              <p>Tak — na terenie Myślenic odbiór urządzenia spod drzwi oraz zwrot po wykonanej usłudze są całkowicie darmowe (0 zł), podobnie jak wstępna diagnoza temperatur.</p>
-            </details>
-            <details class="faq-item">
-              <summary>Skąd mam pewność, jakie materiały zostały użyte w środku?</summary>
-              <p>Do każdego zlecenia otrzymujesz dokumentację zdjęciową z otwartego układu chłodzenia podczas aplikacji materiałów (Thermal Grizzly PhaseSheet PTM, Putty Basic, Arctic MX-7) oraz zrzuty ekranu z temperaturami PRZED i PO serwisie.</p>
-            </details>
-            <details class="faq-item">
-              <summary>Jak długo trwa wykonanie usługi?</summary>
-              <p>Standardowy czas realizacji dla laptopów, kart GPU oraz handheldów PC wynosi zazwyczaj 24–48 godzin od momentu odebrania sprzętu (w przypadku opcjonalnego zamówienia KryoSheet termin potwierdzamy indywidualnie).</p>
-            </details>
-          </div>
-        </div>
-      </section>
-
-      <!-- CONTACT HUB -->
-      <section id="kontakt">
-        <div class="container">
-          <div class="section-header">
-            <h2>Kontakt i social media</h2>
-            <p>Napisz lub zadzwoń wygodnym dla Ciebie kanałem — odpowiadamy sprawnie z konkretną wyceną i terminem.</p>
-          </div>
-
-          <div class="contact-grid" id="contactGrid"></div>
-        </div>
-      </section>
-    </main>
-  </div>
-
-  <!-- ======================================================================= -->
-  <!-- VIEW 2: OSOBNA ZAKŁADKA PARTNERA — PERFECT-PHONE MYŚLENICE              -->
-  <!-- ======================================================================= -->
-  <div id="view-partner" class="page-view">
-    <main>
-      <section class="hero">
-        <div class="container">
-          <div class="hero-eyebrow partner-badge">
-            <span class="hero-dot blue"></span>
-            POLECANY PARTNER LOKALNY • MYŚLENICE UL. SŁONECZNA 2D
-          </div>
-
-          <h1><span class="blue">Perfect-Phone</span> — Serwis, Telefony i Akcesoria.</h1>
-          <p class="hero-subline">
-            Sprawdzony punkt GSM w Myślenicach przy dworcu — sprzedaż smartfonów, profesjonalny serwis oraz pełen wybór akcesoriów.
-          </p>
-          <p class="hero-desc">
-            Szukasz pewnego telefonu, szybkiej naprawy smartfona albo solidnego szkła i etui na miejscu w Myślenicach? Odwiedź nasz zaprzyjaźniony salon <strong>Perfect-Phone</strong> przy <strong>ul. Słonecznej 2D (przy dworcu)</strong>, gdzie znajdziesz również nasze ulotki serwisowe <strong>BRAND NEW</strong>.
-          </p>
-
-          <div class="hero-cta-row">
-            <a href="https://perfect-phone.pl/" target="_blank" rel="noopener" class="btn-partner">Odwiedź stronę perfect-phone.pl ↗</a>
-            <a href="tel:+48782333986" class="btn-secondary">Zadzwoń: 782 333 986</a>
-            <a href="https://maps.google.com/?q=My%C5%9Blenice+ul.+S%C5%82oneczna+2D" target="_blank" rel="noopener" class="btn-secondary">Nawiguj: ul. Słoneczna 2D</a>
-          </div>
-
-          <div class="perks-strip">
-            <div class="perk-chip">
-              <span class="perk-icon blue"></span>
-              <div>
-                <strong>Raty 0% i zakupy online</strong>
-                <span>Wygodne finansowanie 0% na wybrane urządzenia</span>
-              </div>
-            </div>
-            <div class="perk-chip">
-              <span class="perk-icon blue"></span>
-              <div>
-                <strong>Gwarancja jakości</strong>
-                <span>Sprawdzone produkty oraz pewny serwis GSM</span>
-              </div>
-            </div>
-            <div class="perk-chip">
-              <span class="perk-icon blue"></span>
-              <div>
-                <strong>Szybka realizacja</strong>
-                <span>Sprawna obsługa na miejscu przy dworcu w Myślenicach</span>
-              </div>
-            </div>
-            <div class="perk-chip">
-              <span class="perk-icon blue"></span>
-              <div>
-                <strong>Profesjonalna obsługa</strong>
-                <span>Doradztwo w doborze sprzętu i akcesoriów</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- PARTNER OFFER -->
-      <section>
-        <div class="container">
-          <div class="section-header">
-            <h2>Czym zajmuje się Perfect-Phone?</h2>
-            <p>Kompleksowa obsługa urządzeń mobilnych w jednym miejscu w centrum Myślenic.</p>
-          </div>
-
-          <div class="materials-grid">
-            <div class="material-card">
-              <span class="material-tag blue">01 / SPRZEDAŻ SMARTFONÓW</span>
-              <h3>Sprawdzone telefony</h3>
-              <p>Szeroki wybór smartfonów (m.in. Apple iPhone, Samsung Galaxy oraz inne wiodące marki) z gwarancją jakości i opcją wygodnych rat 0%.</p>
-            </div>
-            <div class="material-card">
-              <span class="material-tag blue">02 / SERWIS GSM</span>
-              <h3>Szybkie naprawy telefonów</h3>
-              <p>Profesjonalna diagnostyka i naprawa smartfonów — wymiana wyświetlaczy, baterii, złączy ładowania oraz usuwanie bieżących usterek.</p>
-            </div>
-            <div class="material-card">
-              <span class="material-tag blue">03 / AKCESORIA</span>
-              <h3>Ochrona i zasilanie</h3>
-              <p>Dopasowane szkła hartowane i folie ochronne, etui, szybkie ładowarki sieciowe i samochodowe oraz przewody dopasowane do Twojego modelu.</p>
-            </div>
-            <div class="material-card">
-              <span class="material-tag blue">04 / ZAKUPY ONLINE & RATY 0%</span>
-              <h3>Wygodna oferta przez internet</h3>
-              <p>Pełny katalog dostępny również online na <strong>perfect-phone.pl</strong> z możliwością zamówienia i skorzystania z oferty Raty 0%.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- PARTNER CONTACT CARDS -->
-      <section>
-        <div class="container">
-          <div class="section-header">
-            <h2>Kontakt bezpośredni — Perfect-Phone</h2>
-            <p>Skontaktuj się bezpośrednio z salonem lub wpadnij osobiście przy dworcu w Myślenicach.</p>
-          </div>
-
-          <div class="contact-grid">
-            <a href="https://maps.google.com/?q=My%C5%9Blenice+ul.+S%C5%82oneczna+2D" target="_blank" rel="noopener" class="contact-card partner-theme">
-              <div class="contact-card-top">
-                <span class="contact-icon-box blue">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-                </span>
-                <span class="contact-arrow">↗</span>
-              </div>
-              <div>
-                <span class="contact-label">Adres salonu</span>
-                <span class="contact-value">Myślenice, ul. Słoneczna 2D (przy dworcu)</span>
-              </div>
-            </a>
-
-            <a href="tel:+48782333986" class="contact-card partner-theme">
-              <div class="contact-card-top">
-                <span class="contact-icon-box blue">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                </span>
-                <span class="contact-arrow">↗</span>
-              </div>
-              <div>
-                <span class="contact-label">Telefon</span>
-                <span class="contact-value">782 333 986</span>
-              </div>
-            </a>
-
-            <a href="mailto:biuro@perfect-phone.pl" class="contact-card partner-theme">
-              <div class="contact-card-top">
-                <span class="contact-icon-box blue">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                </span>
-                <span class="contact-arrow">↗</span>
-              </div>
-              <div>
-                <span class="contact-label">E-mail</span>
-                <span class="contact-value">biuro@perfect-phone.pl</span>
-              </div>
-            </a>
-
-            <a href="https://www.youtube.com/@perfectphone12" target="_blank" rel="noopener" class="contact-card partner-theme">
-              <div class="contact-card-top">
-                <span class="contact-icon-box blue">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
-                </span>
-                <span class="contact-arrow">↗</span>
-              </div>
-              <div>
-                <span class="contact-label">YouTube & WWW</span>
-                <span class="contact-value">@perfectphone12 • perfect-phone.pl</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="partner-coop-box">
-            <div>
-              <h3>Potrzebujesz serwisu laptopa, karty graficznej lub handhelda PC?</h3>
-              <p>Wróć do zakładki serwisu <strong>BRAND NEW</strong>, oblicz rabat na start (-15% do -25%) i zamów darmowy odbiór sprzętu spod drzwi na terenie Myślenic.</p>
-            </div>
-            <button type="button" class="btn-primary" onclick="switchPageView('service')">Przejdź do wyceny BRAND NEW →</button>
-          </div>
-        </div>
-      </section>
-    </main>
-  </div>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="container footer-inner">
-      <div>
-        <strong class="footer-brand-title">BRAND <span style="color:var(--accent);">NEW</span></strong> — Żeby Twój sprzęt znów poczuł się jak BRAND NEW<br />
-        <span>Myślenice (odbiór 0 zł) • Wysyłka Paczkomat InPost cała Polska • Partner: <a href="#perfect-phone" onclick="switchPageView('partner'); return false;" class="footer-partner-link">Perfect-Phone</a></span>
-      </div>
-
-      <div class="footer-links" id="footerLinks"></div>
-    </div>
-  </footer>
-
-  <script>
-    // =========================================================================
-    // OBSŁUGA TRYBU JASNEGO I CIEMNEGO (DLA KAŻDEGO UŻYTKOWNIKA NIEZALEŻNIE)
-    // =========================================================================
-    (function initThemeSwitcher() {
-      const root = document.documentElement;
-      const toggleBtn = document.getElementById("themeToggleBtn");
-      const toggleLabel = document.getElementById("themeToggleLabel");
-      const mobileToggleBtn = document.getElementById("mobileThemeToggleBtn");
-
-      function updateThemeUI(theme) {
-        root.setAttribute("data-theme", theme);
-        const isDark = theme === "dark";
-        if (toggleLabel) {
-          toggleLabel.textContent = isDark ? "Jasny" : "Ciemny";
-        }
-        if (toggleBtn) {
-          toggleBtn.setAttribute("aria-pressed", String(isDark));
-          toggleBtn.setAttribute("title", isDark ? "Przełącz na tryb jasny" : "Przełącz na tryb ciemny");
-        }
-        if (mobileToggleBtn) {
-          mobileToggleBtn.textContent = isDark
-            ? "Przełącz na tryb jasny ☀️"
-            : "Przełącz na tryb ciemny 🌙";
-        }
-      }
-
-      function toggleTheme() {
-        const current = root.getAttribute("data-theme") === "dark" ? "dark" : "light";
-        const next = current === "dark" ? "light" : "dark";
-        updateThemeUI(next);
-        try {
-          localStorage.setItem("bn_theme", next);
-        } catch (e) {}
-      }
-
-      const initialTheme = root.getAttribute("data-theme") === "dark" ? "
+<script>
+(function () {
+  "use strict";
+
+  /* ======================================================================
+     KONFIGURACJA — UZUPEŁNIJ SWOIMI DANYMI I CENAMI
+     ====================================================================== */
+  var CONFIG = {
+    phone: "+48000000000",          // do linków tel: i sms:
+    phoneDisplay: "000 000 000",    // wyświetlany numer
+    instagram: "brandnew_serwis",   // sam login, bez @
+    facebook: "brandnew.serwis",    // nazwa strony FB (m.me/NAZWA)
+    email: "kontakt@twojadomena.pl"
+  };
+
+  // Ceny katalogowe (zł). Pakiet Kryo = Pro + 40 zł.
+  var CATEGORIES = {
+    laptops:  { label: "Laptop",   basic: 119, pro: 199, feat: "Czyszczenie wentylatorów i radiatora laptopa" },
+    gpu:      { label: "Karta GPU", basic: 129, pro: 219, feat: "Demontaż chłodzenia GPU i czyszczenie radiatora" },
+    handheld: { label: "Handheld PC", basic: 139, pro: 229, feat: "Rozkręcenie handhelda i czyszczenie wentylatora" }
+  };
+  var KRYO_EXTRA = 40;
+
+  var SERVICES = [
+    { id: "basic", badge: "Standard", title: "Pakiet Basic — Arctic MX-7",
+      desc: "Dobry wybór do sprzętu biurowego i chłodniejszych układów.",
+      feats: ["{cat}", "Nowa pasta Arctic MX-7", "Raport temperatur PRZED i PO"] },
+    { id: "pro", badge: "Najczęściej wybierany", title: "Pakiet Pro — PTM7950 + Putty",
+      desc: "Zmiennofazowy PTM na rdzeń i Putty na pamięci oraz VRM.",
+      feats: ["{cat}", "Thermal Grizzly PhaseSheet PTM (PTM7950)", "Thermal Grizzly Putty Basic na VRAM / VRM", "Raport temperatur PRZED i PO"] },
+    { id: "kryo", badge: "Rabat -25% na start", title: "Pakiet Kryo — KryoSheet + Putty",
+      desc: "Grafenowy pad KryoSheet na rdzeń dla najmocniejszych układów.",
+      feats: ["{cat}", "Thermal Grizzly KryoSheet (pad grafenowy)", "Thermal Grizzly Putty Basic na VRAM / VRM", "Raport temperatur PRZED i PO"] }
+  ];
+
+  /* ====================================================================== */
+  var state = { view: "service", category: "laptops", service: "pro" };
+
+  function $(id) { return document.getElementById(id); }
+  function qsa(sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); }
+
+  /* ----- MOTYW JASNY / CIEMNY ----- */
+  var root = document.documentElement;
+  var themeBtn = $("themeToggleBtn");
+  var themeLabel = $("themeToggleLabel");
+  var themeBtnMobile = $("mobileThemeToggleBtn");
+
+  function applyTheme(theme) {
+    root.setAttribute("data-theme", theme);
+    var dark = theme === "dark";
+    if (themeLabel) themeLabel.textContent = dark ? "Jasny" : "Ciemny";
+    if (themeBtn) {
+      themeBtn.setAttribute("aria-pressed", String(dark));
+      themeBtn.setAttribute("title", dark ? "Przełącz na tryb jasny" : "Przełącz na tryb ciemny");
+    }
+    if (themeBtnMobile) themeBtnMobile.textContent = dark ? "Przełącz na tryb jasny ☀️" : "Przełącz na tryb ciemny 🌙";
+  }
+  function toggleTheme() {
+    var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    applyTheme(next);
+    try { localStorage.setItem("bn_theme", next); } catch (e) {}
+  }
+  applyTheme(root.getAttribute("data-theme") === "dark" ? "dark" : "light");
+  if (themeBtn) themeBtn.addEventListener("click", toggleTheme);
+  if (themeBtnMobile) themeBtnMobile.addEventListener("click", function () { toggleTheme(); closeMenu(); });
+
+  /* ----- MENU MOBILNE ----- */
+  var menuBtn = $("menuToggle");
+  var mobileMenu = $("mobileMenu");
+  function closeMenu() {
+    if (!mobileMenu) return;
+    mobileMenu.classList.remove("open");
+    if (menuBtn) menuBtn.setAttribute("aria-expanded", "false");
+  }
+  if (menuBtn) menuBtn.addEventListener("click", function () {
+    var open = mobileMenu.classList.toggle("open");
+    menuBtn.setAttribute("aria-expanded", String(open));
+  });
+  if (mobileMenu) mobileMenu.addEventListener("click", function (e) {
+    if (e.target.closest("a, button")) closeMenu();
+  });
+
+  /* ----- PRZEŁĄCZANIE WIDOKÓW: SERWIS / PARTNER ----- */
+  window.switchPageView = function (view) {
+    state.view = view === "partner" ? "partner" : "service";
+    $("view-service").classList.toggle("active", state.view === "service");
+    $("view-partner").classList.toggle("active", state.view === "partner");
+    qsa(".view-tab-btn").forEach(function (b) {
+      var on = b.getAttribute("data-view") === state.view;
+      b.classList.toggle("active", on);
+      b.setAttribute("aria-selected", String(on));
+    });
+    var nav = $("serviceSectionNav");
+    if (nav) nav.style.visibility = state.view === "service" ? "" : "hidden";
+    closeMenu();
+    if (!location.hash || state.view === "partner") window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  /* ----- KALKULATOR ----- */
+  function priceFor(cat, id) {
+    var c = CATEGORIES[cat];
+    if (id === "basic") return c.basic;
+    if (id === "pro") return c.pro;
+    return c.pro + KRYO_EXTRA;
+  }
+  function discountPct(base, id) {
+    if (id === "kryo") return 25;
+    if (base <= 150) return 15;
+    if (base <= 260) return 20;
+    return 25;
+  }
+  function calc(cat, id) {
+    var base = priceFor(cat, id);
+    var pct = discountPct(base, id);
+    var off = Math.round(base * pct / 100);
+    return { base: base, pct: pct, off: off, final: base - off };
+  }
+
+  function renderCards() {
+    var cat = state.category;
+    var catFeat = CATEGORIES[cat].feat;
+    $("cardsGrid").innerHTML = SERVICES.map(function (s) {
+      var r = calc(cat, s.id);
+      var sel = state.service === s.id;
+      var feats = s.feats.map(function (f) {
+        return "<li>" + (f === "{cat}" ? catFeat : f) + "</li>";
+      }).join("");
+      return '<div class="service-card' + (sel ? " selected" : "") + '" data-id="' + s.id + '" role="button" tabindex="0" aria-pressed="' + sel + '">' +
+        "<div>" +
+        '<span class="card-badge">' + s.badge + "</span>" +
+        '<h3 class="card-title">' + s.title + "</h3>" +
+        '<div class="card-price-row">' +
+        '<span class="price-final">' + r.final + " zł</span>" +
+        '<span class="price-old">' + r.base + " zł</span>" +
+        '<span class="discount-pill">-' + r.pct + "%</span>" +
+        "</div>" +
+        '<p class="card-desc">' + s.desc + "</p>" +
+        '<ul class="card-features">' + feats + "</ul>" +
+        "</div>" +
+        '<button type="button" class="card-select-btn" tabindex="-1">' + (sel ? "Wybrano ✓" : "Wybierz pakiet") + "</button>" +
+        "</div>";
+    }).join("");
+  }
+
+  function buildMessage(r, svc) {
+    var model = ($("deviceModelInput").value || "").trim() || "(do uzupełnienia)";
+    return [
+      "Cześć! Chcę zamówić serwis chłodzenia w BRAND NEW.",
+      "",
+      "Kategoria: " + CATEGORIES[state.category].label,
+      "Usługa: " + svc.title,
+      "Model: " + model,
+      "Przekazanie: " + $("logisticsSelect").value,
+      "",
+      "Cena katalogowa: " + r.base + " zł",
+      "Rabat na start (-" + r.pct + "%): -" + r.off + " zł",
+      "Do zapłaty: " + r.final + " zł",
+      "",
+      "Proszę o potwierdzenie terminu."
+    ].join("\n");
+  }
+
+  function updateSummary() {
+    var svc = SERVICES.filter(function (s) { return s.id === state.service; })[0];
+    var r = calc(state.category, state.service);
+    $("summaryServiceName").textContent = svc.title;
+    $("summaryBasePrice").textContent = r.base + " zł";
+    $("summaryDiscountLabel").textContent = "Rabat na start (" + r.pct + "%):";
+    $("summaryDiscountValue").textContent = "-" + r.off + " zł";
+    $("summaryFinalPrice").textContent = r.final + " zł";
+    $("kryoAddon").checked = state.service === "kryo";
+
+    var msg = buildMessage(r, svc);
+    $("generatedMessage").value = msg;
+    var enc = encodeURIComponent(msg);
+    var subj = encodeURIComponent("Zapytanie o serwis chłodzenia — BRAND NEW");
+    $("igDirectBtn").href = "https://ig.me/m/" + CONFIG.instagram;
+    $("fbDirectBtn").href = "https://m.me/" + CONFIG.facebook;
+    $("smsDirectBtn").href = "sms:" + CONFIG.phone + "?&body=" + enc;
+    $("mailDirectBtn").href = "mailto:" + CONFIG.email + "?subject=" + subj + "&body=" + enc;
+  }
+
+  function refresh() { renderCards(); updateSummary(); }
+
+  function setCategory(cat) {
+    if (!CATEGORIES[cat]) return;
+    state.category = cat;
+    qsa(".bn-tab").forEach(function (t) {
+      var on = t.getAttribute("data-category") === cat;
+      t.classList.toggle("active", on);
+      t.setAttribute("aria-selected", String(on));
+    });
+    $("handheldNotice").classList.toggle("visible", cat === "handheld");
+    refresh();
+  }
+
+  qsa(".bn-tab").forEach(function (t) {
+    t.addEventListener("click", function () { setCategory(t.getAttribute("data-category")); });
+  });
+
+  var grid = $("cardsGrid");
+  function pickCard(e) {
+    var card = e.target.closest(".service-card");
+    if (!card) return;
+    state.service = card.getAttribute("data-id");
+    refresh();
+  }
+  grid.addEventListener("click", pickCard);
+  grid.addEventListener("keydown", function (e) {
+    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); pickCard(e); }
+  });
+
+  $("kryoAddon").addEventListener("change", function () {
+    state.service = this.checked ? "kryo" : "pro";
+    refresh();
+  });
+  $("deviceModelInput").addEventListener("input", updateSummary);
+  $("logisticsSelect").addEventListener("change", updateSummary);
+
+  /* ----- KOPIOWANIE ----- */
+  function copyText(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(text);
+    }
+    return new Promise(function (resolve, reject) {
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy") ? resolve() : reject(); } catch (e) { reject(e); }
+      document.body.removeChild(ta);
+    });
+  }
+  var copyBtn = $("copyMsgBtn");
+  var copyBtnText = copyBtn.textContent;
+  copyBtn.addEventListener("click", function () {
+    copyText($("generatedMessage").value).then(function () {
+      copyBtn.textContent = "Skopiowano ✓";
+    }, function () {
+      $("generatedMessage").select();
+      copyBtn.textContent = "Zaznacz i skopiuj ręcznie";
+    }).then(function () {
+      setTimeout(function () { copyBtn.textContent = copyBtnText; }, 2000);
+    });
+  });
+  // Przy wejściu na IG / FB wiadomość też trafia do schowka
+  ["igDirectBtn", "fbDirectBtn"].forEach(function (id) {
+    $(id).addEventListener("click", function () {
+      copyText($("generatedMessage").value).catch(function () {});
+    });
+  });
+
+  /* ----- KARUZELA INFO: WYSYŁKA / MATERIAŁY / REALIZACJA ----- */
+  var slides = qsa(".info-slide");
+  var pills = qsa(".info-pill-btn");
+  var slideIdx = 0;
+  function showSlide(i) {
+    slideIdx = (i + slides.length) % slides.length;
+    slides.forEach(function (s, n) { s.classList.toggle("active", n === slideIdx); });
+    pills.forEach(function (p, n) { p.classList.toggle("active", n === slideIdx); });
+  }
+  $("infoPrevBtn").addEventListener("click", function () { showSlide(slideIdx - 1); });
+  $("infoNextBtn").addEventListener("click", function () { showSlide(slideIdx + 1); });
+  pills.forEach(function (p) {
+    p.addEventListener("click", function () { showSlide(parseInt(p.getAttribute("data-slide-target"), 10)); });
+  });
+
+  var HUB_ANCHORS = { "#wysylka": 0, "#materialy": 1, "#proces": 2 };
+  function goHub(hash) {
+    if (!(hash in HUB_ANCHORS)) return false;
+    showSlide(HUB_ANCHORS[hash]);
+    $("info-hub").scrollIntoView({ behavior: "smooth", block: "start" });
+    return true;
+  }
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest('a[href^="#"]');
+    if (a && goHub(a.getAttribute("href"))) e.preventDefault();
+  });
+
+  /* ----- KONTAKT I MEDIA ----- */
+  var ICONS = {
+    phone: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>',
+    ig: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg>',
+    fb: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>',
+    mail: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>'
+  };
+  var CONTACTS = [
+    { icon: "phone", label: "Telefon / SMS", value: CONFIG.phoneDisplay, href: "tel:" + CONFIG.phone, ext: false },
+    { icon: "ig", label: "Instagram", value: "@" + CONFIG.instagram, href: "https://ig.me/m/" + CONFIG.instagram, ext: true },
+    { icon: "fb", label: "Facebook", value: CONFIG.facebook, href: "https://m.me/" + CONFIG.facebook, ext: true },
+    { icon: "mail", label: "E-mail", value: CONFIG.email, href: "mailto:" + CONFIG.email, ext: false }
+  ];
+  $("contactGrid").innerHTML = CONTACTS.map(function (c) {
+    return '<a href="' + c.href + '"' + (c.ext ? ' target="_blank" rel="noopener"' : "") + ' class="contact-card">' +
+      '<div class="contact-card-top"><span class="contact-icon-box">' + ICONS[c.icon] + '</span><span class="contact-arrow">↗</span></div>' +
+      '<div><span class="contact-label">' + c.label + '</span><span class="contact-value">' + c.value + "</span></div></a>";
+  }).join("");
+
+  $("footerLinks").innerHTML = CONTACTS.map(function (c) {
+    return '<a href="' + c.href + '"' + (c.ext ? ' target="_blank" rel="noopener"' : "") + ">" + c.label + "</a>";
+  }).join("");
+
+  /* ----- START ----- */
+  setCategory("laptops");
+  if (location.hash) setTimeout(function () { goHub(location.hash); }, 50);
+})();
+</script>
+</body>
+</html>
