@@ -1585,107 +1585,275 @@
         </div>
       </section>
 
-      <!-- WYSYŁKA -->
-      <section id="wysylka">
-  <div class="container">
-    <div class="section-header">
-      <h2>Jak bezpiecznie zapakować sprzęt do wysyłki?</h2>
-      <p>Wysyłasz sprzęt Paczkomatem lub kurierem? Zastosuj te <strong>4 proste zasady</strong>, żeby paczka dotarła do Myślenic w jednym kawałku.</p>
-    </div>
+     <!-- POŁĄCZONA SEKCJA: WYSYŁKA / MATERIAŁY / PROCES (KARUZELA 3-W-1) -->
+      <style>
+        .info-hub-controls {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 10px;
+          max-width: 760px;
+          margin: 0 auto 28px auto;
+          padding: 8px;
+          background: rgba(255, 255, 255, 0.04);
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          border-radius: 14px;
+        }
+        .info-arrow-btn {
+          width: 42px;
+          height: 42px;
+          flex-shrink: 0;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 10px;
+          border: 1px solid rgba(255, 255, 255, 0.16);
+          background: rgba(255, 255, 255, 0.06);
+          color: #fff;
+          font-size: 1.15rem;
+          cursor: pointer;
+          transition: background 0.2s, border-color 0.2s, transform 0.15s;
+        }
+        .info-arrow-btn:hover {
+          background: rgba(56, 189, 248, 0.18);
+          border-color: var(--accent, #38bdf8);
+        }
+        .info-arrow-btn:active {
+          transform: scale(0.95);
+        }
+        .info-hub-pills {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 6px;
+          flex: 1;
+          min-width: 0;
+        }
+        .info-pill-btn {
+          flex: 1;
+          padding: 10px 8px;
+          border: 1px solid transparent;
+          border-radius: 9px;
+          background: transparent;
+          color: rgba(255, 255, 255, 0.65);
+          font-size: 0.85rem;
+          font-weight: 600;
+          cursor: pointer;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          transition: all 0.2s;
+        }
+        .info-pill-btn.active {
+          background: rgba(56, 189, 248, 0.16);
+          border-color: rgba(56, 189, 248, 0.45);
+          color: #fff;
+        }
+        .info-slide {
+          display: none;
+          animation: infoSlideFade 0.25s ease;
+        }
+        .info-slide.active {
+          display: block;
+        }
+        @keyframes infoSlideFade {
+          from { opacity: 0; transform: translateY(6px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        @media (max-width: 540px) {
+          .info-hub-controls {
+            padding: 6px;
+            gap: 6px;
+          }
+          .info-arrow-btn {
+            width: 38px;
+            height: 38px;
+            font-size: 1rem;
+          }
+          .info-pill-btn {
+            font-size: 0.76rem;
+            padding: 9px 4px;
+          }
+        }
+      </style>
 
-    <div class="materials-grid">
-      <div class="material-card">
-        <span class="material-tag">01 / KARTY GPU</span>
-        <h3>Ochrona ESD i zero luzu</h3>
-        <p>Włóż kartę w oryginalne pudełko, worek antystatyczny (ESD) lub różową folię bąbelkową ESD. Jeśli ich nie masz, owiń PCB najpierw w czysty papier pakowy lub tekturę — dopiero na wierzch daj zwykłą folię bąbelkową (nigdy bezpośrednio na elektronikę).</p>
-      </div>
+      <section id="info-hub">
+        <!-- Kotwice dla starych linków z menu -->
+        <span id="wysylka"></span>
+        <span id="materialy"></span>
+        <span id="proces"></span>
 
-      <div class="material-card">
-        <span class="material-tag">02 / LAPTOPY I HANDHELDY</span>
-        <h3>Ochrona matrycy i analogów</h3>
-        <p>Między klawiaturę a ekran laptopa włóż cienką piankę lub mikrofibrę. Handheldy (Steam Deck, ROG Ally, Legion Go) najlepiej wysyłać w oryginalnym, sztywnym etui zabezpieczonym dodatkowym kartonem.</p>
-      </div>
-
-      <div class="material-card">
-        <span class="material-tag">03 / KARTON I UBEZPIECZENIE</span>
-        <h3>Sztywne pudełko zamiast folii</h3>
-        <p>Zawsze używaj grubego, nieuszkodzonego kartonu i zaklej go solidnie taśmą. Przy nadaniu Paczkomatem lub kurierem zaznacz ubezpieczenie odpowiadające realnej wartości sprzętu.</p>
-      </div>
-
-    <div class="material-card">
-        <span class="material-tag">04 / ORYGINALNE OPAKOWANIA</span>
-        <h3>Jeśli je posiadasz, użyj oryginalnego pudełka</h3>
-        <p>Nic nie chroni sprzętu lepiej niż fabryczne pudełko oraz oryginalne wypełnienie. Zawsze traktuj je jako pierwszorzędny wybór, a dopiero w razie ich braku myśl o innych zamiennikach.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-      <!-- MATERIALS -->
-      <section id="materialy">
         <div class="container">
-          <div class="section-header">
-            <h2>Materiały, na których pracujemy</h2>
-            <p>Nie stosujemy tanich, wysychających past OEM. Każdy układ chłodzenia dobieramy pod specyfikę termiczną konkretnego rdzenia i sekcji zasilania.</p>
+          <!-- PASEK NAWIGACJI ZE STRZAŁKAMI -->
+          <div class="info-hub-controls" role="region" aria-label="Przełącznik informacji">
+            <button type="button" class="info-arrow-btn" id="infoPrevBtn" aria-label="Poprzednia sekcja">&#8592;</button>
+
+            <div class="info-hub-pills" role="tablist">
+              <button type="button" class="info-pill-btn active" data-slide-target="0">1. Wysyłka</button>
+              <button type="button" class="info-pill-btn" data-slide-target="1">2. Materiały</button>
+              <button type="button" class="info-pill-btn" data-slide-target="2">3. Realizacja</button>
+            </div>
+
+            <button type="button" class="info-arrow-btn" id="infoNextBtn" aria-label="Następna sekcja">&#8594;</button>
           </div>
 
-          <div class="materials-grid">
-            <div class="material-card">
-              <span class="material-tag">RDZEŃ CPU / GPU / APU</span>
-              <h3>Thermal Grizzly PhaseSheet PTM</h3>
-              <p>Materiał zmiennofazowy (klasy PTM7950), który w temperaturze pracy wypełnia mikroskopijne nierówności rdzenia. Brak zjawiska degradacji pump-out i wieloletnia stabilność temperatur.</p>
+          <div id="infoSlidesViewport">
+            <!-- SLAJD 1: WYSYŁKA -->
+            <div class="info-slide active" data-slide-index="0">
+              <div class="section-header">
+                <h2>Jak bezpiecznie zapakować sprzęt do wysyłki?</h2>
+                <p>Wysyłasz sprzęt Paczkomatem lub kurierem? Zastosuj te <strong>4 proste zasady</strong>, żeby paczka dotarła do Myślenic w jednym kawałku.</p>
+              </div>
+
+              <div class="materials-grid">
+                <div class="material-card">
+                  <span class="material-tag">01 / KARTY GPU</span>
+                  <h3>Ochrona ESD i zero luzu</h3>
+                  <p>Włóż kartę w oryginalne pudełko, worek antystatyczny (ESD) lub różową folię bąbelkową ESD. Jeśli ich nie masz, owiń PCB najpierw w czysty papier pakowy lub tekturę — dopiero na wierzch daj zwykłą folię bąbelkową (nigdy bezpośrednio na elektronikę).</p>
+                </div>
+
+                <div class="material-card">
+                  <span class="material-tag">02 / LAPTOPY I HANDHELDY</span>
+                  <h3>Ochrona matrycy i analogów</h3>
+                  <p>Między klawiaturę a ekran laptopa włóż cienką piankę lub mikrofibrę. Handheldy (Steam Deck, ROG Ally, Legion Go) najlepiej wysyłać w oryginalnym, sztywnym etui zabezpieczonym dodatkowym kartonem.</p>
+                </div>
+
+                <div class="material-card">
+                  <span class="material-tag">03 / KARTON I UBEZPIECZENIE</span>
+                  <h3>Sztywne pudełko zamiast folii</h3>
+                  <p>Zawsze używaj grubego, nieuszkodzonego kartonu i zaklej go solidnie taśmą. Przy nadaniu Paczkomatem lub kurierem zaznacz ubezpieczenie odpowiadające realnej wartości sprzętu.</p>
+                </div>
+
+                <div class="material-card">
+                  <span class="material-tag">04 / ORYGINALNE OPAKOWANIA</span>
+                  <h3>Jeśli je posiadasz, użyj oryginalnego pudełka</h3>
+                  <p>Nic nie chroni sprzętu lepiej niż fabryczne pudełko oraz oryginalne wypełnienie. Zawsze traktuj je jako pierwszorzędny wybór, a dopiero w razie ich braku myśl o innych zamiennikach.</p>
+                </div>
+              </div>
             </div>
-            <div class="material-card">
-              <span class="material-tag">PAMIĘCI VRAM & SEKCJA VRM</span>
-              <h3>Thermal Grizzly Putty Basic</h3>
-              <p>Elastyczny kit termoprzewodzący zastępujący klasyczne termopady. Idealnie dopasowuje się do każdej szczeliny bez ryzyka niedociśnięcia radiatora do rdzenia GPU/CPU.</p>
+
+            <!-- SLAJD 2: MATERIAŁY -->
+            <div class="info-slide" data-slide-index="1">
+              <div class="section-header">
+                <h2>Materiały, na których pracujemy</h2>
+                <p>Nie stosujemy tanich, wysychających past OEM. Każdy układ chłodzenia dobieramy pod specyfikę termiczną konkretnego rdzenia i sekcji zasilania.</p>
+              </div>
+
+              <div class="materials-grid">
+                <div class="material-card">
+                  <span class="material-tag">RDZEŃ CPU / GPU / APU</span>
+                  <h3>Thermal Grizzly PhaseSheet PTM</h3>
+                  <p>Materiał zmiennofazowy (klasy PTM7950), który w temperaturze pracy wypełnia mikroskopijne nierówności rdzenia. Brak zjawiska degradacji pump-out i wieloletnia stabilność temperatur.</p>
+                </div>
+                <div class="material-card">
+                  <span class="material-tag">PAMIĘCI VRAM & SEKCJA VRM</span>
+                  <h3>Thermal Grizzly Putty Basic</h3>
+                  <p>Elastyczny kit termoprzewodzący zastępujący klasyczne termopady. Idealnie dopasowuje się do każdej szczeliny bez ryzyka niedociśnięcia radiatora do rdzenia GPU/CPU.</p>
+                </div>
+                <div class="material-card">
+                  <span class="material-tag">BIUROWE & STANDARD</span>
+                  <h3>Arctic MX-7</h3>
+                  <p>Nowoczesna, nieprzewodząca prądu pasta termoprzewodząca o wysokiej wydajności, idealna do laptopów biurowych, ultrabooków oraz chłodniejszych kart graficznych.</p>
+                </div>
+                <div class="material-card">
+                  <span class="material-tag">OPCJA NA ZAMÓWIENIE</span>
+                  <h3>Thermal Grizzly KryoSheet</h3>
+                  <p>Grafenowy pad termoprzewodzący o ekstremalnej przewodności cieplnej, dostępny na indywidualne zamówienie pod najmocniejsze układy.</p>
+                </div>
+              </div>
             </div>
-            <div class="material-card">
-              <span class="material-tag">BIUROWE & STANDARD PC</span>
-              <h3>Arctic MX-7</h3>
-              <p>Nowoczesna, nieprzewodząca prądu pasta termoprzewodząca o wysokiej wydajności, idealna do laptopów biurowych, ultrabooków oraz standardowych procesorów stacjonarnych.</p>
-            </div>
-            <div class="material-card">
-              <span class="material-tag">OPCJA NA ZAMÓWIENIE</span>
-              <h3>Thermal Grizzly KryoSheet</h3>
-              <p>Grafenowy pad termoprzewodzący o ekstremalnej przewodności cieplnej, dostępny na indywidualne zamówienie pod najmocniejsze układy.</p>
+
+            <!-- SLAJD 3: REALIZACJA KROK PO KROKU -->
+            <div class="info-slide" data-slide-index="2">
+              <div class="section-header">
+                <h2>Jak wygląda realizacja krok po kroku</h2>
+                <p>Prosty i przejrzysty proces — lokalnie na terenie Myślenic oraz wysyłkowo w całej Polsce.</p>
+              </div>
+
+              <div class="steps-grid">
+                <div class="step-card">
+                  <span class="step-num">01 / KONTAKT</span>
+                  <h3>Szybka wycena w kalkulatorze</h3>
+                  <p>Wybierasz pakiet powyżej, kopiujesz gotową wiadomość i wysyłasz ją przez Instagram, Facebooka, E-mail lub SMS.</p>
+                </div>
+                <div class="step-card">
+                  <span class="step-num">02 / LOGISTYKA</span>
+                  <h3>Odbiór 0 zł lub Paczkomat</h3>
+                  <p>W Myślenicach odbieramy sprzęt spod Twoich drzwi za 0 zł. Z całej Polski wysyłasz urządzenie paczkomatem InPost.</p>
+                </div>
+                <div class="step-card">
+                  <span class="step-num">03 / SERWIS & TESTY</span>
+                  <h3>Czyszczenie, PTM i raport</h3>
+                  <p>Robimy pomiary temperatur PRZED, czyścimy układ, aplikujemy PhaseSheet PTM / Putty / MX-7 i wykonujemy testy obciążeniowe PO.</p>
+                </div>
+                <div class="step-card">
+                  <span class="step-num">04 / ZWROT ESD</span>
+                  <h3>Dokumentacja i odbiór</h3>
+                  <p>Otrzymujesz zdjęcia z prac oraz zrzuty temperatur z HWiNFO64 / FurMark, a sprzęt wraca zabezpieczony antystatycznie (ESD).</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- PROCESS -->
-      <section id="proces">
-        <div class="container">
-          <div class="section-header">
-            <h2>Jak wygląda realizacja krok po kroku</h2>
-            <p>Prosty i przejrzysty proces — lokalnie na terenie Myślenic oraz wysyłkowo w całej Polsce.</p>
-          </div>
+      <script>
+        (function () {
+          const slides = document.querySelectorAll(".info-slide");
+          const pills = document.querySelectorAll(".info-pill-btn");
+          const prevBtn = document.getElementById("infoPrevBtn");
+          const nextBtn = document.getElementById("infoNextBtn");
+          const viewport = document.getElementById("infoSlidesViewport");
+          let activeIndex = 0;
 
-          <div class="steps-grid">
-            <div class="step-card">
-              <span class="step-num">01 / KONTAKT</span>
-              <h3>Szybka wycena w kalkulatorze</h3>
-              <p>Wybierasz pakiet powyżej, kopiujesz gotową wiadomość i wysyłasz ją przez Instagram, Facebooka, E-mail lub SMS.</p>
-            </div>
-            <div class="step-card">
-              <span class="step-num">02 / LOGISTYKA</span>
-              <h3>Odbiór 0 zł lub Paczkomat</h3>
-              <p>W Myślenicach odbieramy sprzęt spod Twoich drzwi za 0 zł. Z całej Polski wysyłasz urządzenie paczkomatem InPost.</p>
-            </div>
-            <div class="step-card">
-              <span class="step-num">03 / SERWIS & TESTY</span>
-              <h3>Czyszczenie, PTM i raport</h3>
-              <p>Robimy pomiary temperatur PRZED, czyścimy układ, aplikujemy PhaseSheet PTM / Putty / MX-7 i wykonujemy testy obciążeniowe PO.</p>
-            </div>
-            <div class="step-card">
-              <span class="step-num">04 / ZWROT ESD</span>
-              <h3>Dokumentacja i odbiór</h3>
-              <p>Otrzymujesz zdjęcia z prac oraz zrzuty temperatur z HWiNFO64 / FurMark, a sprzęt wraca zabezpieczony antystatycznie (ESD).</p>
-            </div>
-          </div>
-        </div>
-      </section>
+          function showInfoSlide(index) {
+            activeIndex = (index + slides.length) % slides.length;
+            slides.forEach((s, i) => s.classList.toggle("active", i === activeIndex));
+            pills.forEach((p, i) => p.classList.toggle("active", i === activeIndex));
+          }
+
+          prevBtn.addEventListener("click", () => showInfoSlide(activeIndex - 1));
+          nextBtn.addEventListener("click", () => showInfoSlide(activeIndex + 1));
+
+          pills.forEach(btn => {
+            btn.addEventListener("click", () => {
+              showInfoSlide(Number(btn.dataset.slideTarget));
+            });
+          });
+
+          // Obsługa gestu przesunięcia (swipe) na telefonie
+          let touchStartX = 0;
+          let touchStartY = 0;
+          viewport.addEventListener("touchstart", e => {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+          }, { passive: true });
+
+          viewport.addEventListener("touchend", e => {
+            const dx = e.changedTouches[0].screenX - touchStartX;
+            const dy = e.changedTouches[0].screenY - touchStartY;
+            if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+              showInfoSlide(dx < 0 ? activeIndex + 1 : activeIndex - 1);
+            }
+          }, { passive: true });
+
+          // Przełączanie slajdu po kliknięciu linków w menu (#wysylka / #materialy / #proces)
+          const hashMap = { "#wysylka": 0, "#materialy": 1, "#proces": 2 };
+          function syncFromHash() {
+            if (window.location.hash in hashMap) {
+              showInfoSlide(hashMap[window.location.hash]);
+            }
+          }
+          window.addEventListener("hashchange", syncFromHash);
+          document.querySelectorAll('a[href="#wysylka"], a[href="#materialy"], a[href="#proces"]').forEach(link => {
+            link.addEventListener("click", () => {
+              const target = link.getAttribute("href");
+              if (target in hashMap) showInfoSlide(hashMap[target]);
+            });
+          });
+          syncFromHash();
+        })();
+      </script>
 
       <!-- FAQ -->
       <section id="faq">
