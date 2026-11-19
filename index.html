@@ -5,35 +5,111 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BRAND NEW — Serwis Chłodzenia Laptopów, GPU, PC i Handheldów | Myślenice</title>
   <meta name="description" content="Żeby Twój sprzęt znów poczuł się jak BRAND NEW. Serwis chłodzenia GPU, laptopów, PC oraz handheldów PC (Steam Deck, ROG Ally, Legion Go). Partner lokalny w Myślenicach: Perfect-Phone." />
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("bn_theme");
+        var theme = (saved === "dark" || saved === "light")
+          ? saved
+          : (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
       --bg-main: #f4f7fb;
+      --bg-header: rgba(255, 255, 255, 0.92);
       --bg-card: #ffffff;
       --bg-card-hover: #f8fbff;
       --bg-elevated: #eaf1f8;
+      --bg-input: #f8fafc;
+      --bg-footer: #ffffff;
       --border: rgba(15, 23, 42, 0.09);
       --border-strong: rgba(15, 23, 42, 0.16);
       --text-primary: #0f172a;
+      --text-subline: #1e293b;
+      --text-body: #334155;
       --text-secondary: #475569;
       --text-muted: #64748b;
       --accent: #dc2626;
       --accent-hover: #b91c1c;
-      --accent-soft: rgba(220, 38, 38, 0.09);
+      --accent-soft: #fee2e2;
+      --accent-soft-border: rgba(220, 38, 38, 0.28);
+      --accent-badge-text: #b91c1c;
       --accent-glow: rgba(220, 38, 38, 0.24);
       --accent-secondary: #0ea5e9;
-      --accent-secondary-dark: #0284c7;
-      --accent-secondary-soft: rgba(14, 165, 233, 0.12);
+      --accent-secondary-text: #0369a1;
+      --accent-secondary-soft: #e0f2fe;
+      --accent-secondary-soft-hover: #bae6fd;
+      --accent-secondary-border: rgba(14, 165, 233, 0.35);
       --partner-accent: #2563eb;
-      --partner-soft: rgba(37, 99, 235, 0.1);
+      --partner-text: #1d4ed8;
+      --partner-soft: #dbeafe;
+      --partner-border: rgba(37, 99, 235, 0.32);
       --partner-glow: rgba(37, 99, 235, 0.24);
+      --promo-bg: linear-gradient(90deg, #e0f2fe 0%, #f0f9ff 65%, #fef2f2 100%);
+      --promo-pill-bg: #ffffff;
+      --selected-card-bg: linear-gradient(180deg, rgba(220, 38, 38, 0.04) 0%, rgba(14, 165, 233, 0.03) 45%, #ffffff 100%);
+      --coop-bg: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 55%, #fef2f2 100%);
+      --grid-line: rgba(15, 23, 42, 0.032);
+      --glow-red: rgba(220, 38, 38, 0.07);
+      --glow-cyan: rgba(14, 165, 233, 0.11);
+      --glow-blue: rgba(37, 99, 235, 0.07);
       --shadow-card: 0 4px 20px rgba(15, 23, 42, 0.05);
+      --logo-outline: #0f172a;
       --radius-lg: 16px;
       --radius-md: 12px;
       --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    [data-theme="dark"] {
+      --bg-main: #090a0f;
+      --bg-header: rgba(9, 10, 15, 0.9);
+      --bg-card: #12141c;
+      --bg-card-hover: #171a24;
+      --bg-elevated: #1b1f2b;
+      --bg-input: #0d0f15;
+      --bg-footer: #0c0e14;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.15);
+      --text-primary: #f8fafc;
+      --text-subline: #e2e8f0;
+      --text-body: #cbd5e1;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --accent: #ef233c;
+      --accent-hover: #d90429;
+      --accent-soft: rgba(239, 35, 60, 0.16);
+      --accent-soft-border: rgba(239, 35, 60, 0.38);
+      --accent-badge-text: #fda4af;
+      --accent-glow: rgba(239, 35, 60, 0.35);
+      --accent-secondary: #38bdf8;
+      --accent-secondary-text: #7dd3fc;
+      --accent-secondary-soft: rgba(56, 189, 248, 0.14);
+      --accent-secondary-soft-hover: rgba(56, 189, 248, 0.22);
+      --accent-secondary-border: rgba(56, 189, 248, 0.35);
+      --partner-accent: #3b82f6;
+      --partner-text: #93c5fd;
+      --partner-soft: rgba(59, 130, 246, 0.15);
+      --partner-border: rgba(59, 130, 246, 0.35);
+      --partner-glow: rgba(59, 130, 246, 0.28);
+      --promo-bg: linear-gradient(90deg, rgba(56, 189, 248, 0.12) 0%, rgba(18, 20, 28, 0.96) 65%, rgba(239, 35, 60, 0.1) 100%);
+      --promo-pill-bg: #1b1f2b;
+      --selected-card-bg: linear-gradient(180deg, rgba(239, 35, 60, 0.11) 0%, rgba(56, 189, 248, 0.05) 45%, #12141c 100%);
+      --coop-bg: linear-gradient(135deg, rgba(59, 130, 246, 0.14) 0%, rgba(56, 189, 248, 0.08) 55%, rgba(239, 35, 60, 0.08) 100%);
+      --grid-line: rgba(255, 255, 255, 0.025);
+      --glow-red: rgba(239, 35, 60, 0.11);
+      --glow-cyan: rgba(56, 189, 248, 0.09);
+      --glow-blue: rgba(59, 130, 246, 0.08);
+      --shadow-card: 0 8px 26px rgba(0, 0, 0, 0.35);
+      --logo-outline: #090a0f;
     }
 
     * {
@@ -53,6 +129,7 @@
       font-family: var(--font-sans);
       line-height: 1.55;
       -webkit-font-smoothing: antialiased;
+      transition: background-color 0.25s ease, color 0.25s ease;
     }
 
     body::before {
@@ -60,11 +137,11 @@
       position: fixed;
       inset: 0;
       background-image:
-        radial-gradient(circle at 12% 8%, rgba(220, 38, 38, 0.07), transparent 42%),
-        radial-gradient(circle at 88% 18%, rgba(14, 165, 233, 0.11), transparent 46%),
-        radial-gradient(circle at 75% 82%, rgba(37, 99, 235, 0.07), transparent 45%),
-        linear-gradient(rgba(15, 23, 42, 0.032) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(15, 23, 42, 0.032) 1px, transparent 1px);
+        radial-gradient(circle at 12% 8%, var(--glow-red), transparent 42%),
+        radial-gradient(circle at 88% 18%, var(--glow-cyan), transparent 46%),
+        radial-gradient(circle at 75% 82%, var(--glow-blue), transparent 45%),
+        linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
       background-size: 100% 100%, 100% 100%, 100% 100%, 40px 40px, 40px 40px;
       pointer-events: none;
       z-index: -1;
@@ -88,11 +165,12 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(255, 255, 255, 0.92);
+      background: var(--bg-header);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
       box-shadow: 0 2px 14px rgba(15, 23, 42, 0.04);
+      transition: background-color 0.25s ease, border-color 0.25s ease;
     }
 
     .header-inner {
@@ -219,7 +297,7 @@
     .nav-links {
       display: none;
       align-items: center;
-      gap: 20px;
+      gap: 18px;
     }
 
     .nav-links a {
@@ -238,6 +316,59 @@
       display: flex;
       align-items: center;
       gap: 8px;
+    }
+
+    /* Theme Toggle Button */
+    .theme-toggle-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      height: 38px;
+      padding: 0 11px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-strong);
+      border-radius: 10px;
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: border-color 0.2s ease, background 0.2s ease, transform 0.15s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .theme-toggle-btn:hover {
+      border-color: var(--accent-secondary);
+      background: var(--accent-secondary-soft);
+      color: var(--accent-secondary-text);
+    }
+
+    .theme-toggle-btn .icon-sun {
+      display: none;
+    }
+
+    .theme-toggle-btn .icon-moon {
+      display: inline-flex;
+    }
+
+    [data-theme="dark"] .theme-toggle-btn .icon-sun {
+      display: inline-flex;
+    }
+
+    [data-theme="dark"] .theme-toggle-btn .icon-moon {
+      display: none;
+    }
+
+    .theme-toggle-label {
+      display: none;
+    }
+
+    @media (min-width: 480px) {
+      .theme-toggle-label {
+        display: inline;
+      }
     }
 
     .btn-primary {
@@ -303,7 +434,7 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      background: #ffffff;
+      background: var(--bg-card);
       color: var(--text-primary);
       border: 1px solid var(--border-strong);
       border-radius: 10px;
@@ -320,7 +451,7 @@
 
     .btn-secondary:hover {
       border-color: var(--accent-secondary);
-      background: #f0f9ff;
+      background: var(--accent-secondary-soft);
     }
 
     .menu-toggle {
@@ -341,7 +472,7 @@
       display: none;
       flex-direction: column;
       padding: 8px 16px 16px;
-      background: #ffffff;
+      background: var(--bg-card);
       border-bottom: 1px solid var(--border);
     }
 
@@ -360,7 +491,7 @@
       font-size: 15px;
       font-weight: 600;
       padding: 11px 4px;
-      border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+      border-bottom: 1px solid var(--border);
       cursor: pointer;
     }
 
@@ -369,11 +500,16 @@
       border-bottom: none;
     }
 
+    .mobile-menu .partner-mobile-link {
+      color: var(--partner-text);
+      font-weight: 700;
+    }
+
     .desktop-only-cta {
       display: none;
     }
 
-    @media (min-width: 980px) {
+    @media (min-width: 1020px) {
       .nav-links {
         display: flex;
       }
@@ -423,9 +559,9 @@
       font-weight: 700;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: #0369a1;
-      background: #e0f2fe;
-      border: 1px solid rgba(14, 165, 233, 0.35);
+      color: var(--accent-secondary-text);
+      background: var(--accent-secondary-soft);
+      border: 1px solid var(--accent-secondary-border);
       padding: 6px 12px;
       border-radius: 999px;
       margin-bottom: 16px;
@@ -433,9 +569,9 @@
     }
 
     .hero-eyebrow.partner-badge {
-      color: #1d4ed8;
-      background: #dbeafe;
-      border-color: rgba(37, 99, 235, 0.35);
+      color: var(--partner-text);
+      background: var(--partner-soft);
+      border-color: var(--partner-border);
     }
 
     @media (min-width: 640px) {
@@ -488,7 +624,7 @@
     .hero-subline {
       font-size: clamp(16px, 3.6vw, 21px);
       font-weight: 700;
-      color: #1e293b;
+      color: var(--text-subline);
       margin-bottom: 12px;
       line-height: 1.35;
     }
@@ -606,6 +742,54 @@
       line-height: 1.35;
     }
 
+    /* Promo Banner */
+    .promo-banner {
+      background: var(--promo-bg);
+      border: 1px solid var(--accent-secondary-border);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 14px 18px;
+      margin: 4px auto 0;
+      max-width: 960px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .promo-title {
+      color: var(--accent-secondary-text);
+      font-size: 0.95rem;
+      letter-spacing: 0.4px;
+    }
+
+    .promo-text {
+      margin: 4px 0 0 0;
+      font-size: 0.9rem;
+      color: var(--text-body);
+    }
+
+    .promo-text strong {
+      color: var(--text-primary);
+    }
+
+    .promo-text .promo-percent {
+      color: var(--accent);
+    }
+
+    .promo-date-badge {
+      background: var(--promo-pill-bg);
+      border: 1px solid var(--accent-secondary-border);
+      color: var(--accent-secondary-text);
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+
     /* Section Base */
     section {
       padding: 34px 0;
@@ -658,7 +842,7 @@
       align-items: center;
       justify-content: center;
       gap: 24px;
-      border-bottom: 2px solid rgba(15, 23, 42, 0.08);
+      border-bottom: 2px solid var(--border);
       padding: 0 8px;
       max-width: 100%;
     }
@@ -727,12 +911,12 @@
       display: none;
       max-width: 760px;
       margin: 0 auto 20px;
-      background: #e0f2fe;
-      border: 1px solid rgba(14, 165, 233, 0.35);
+      background: var(--accent-secondary-soft);
+      border: 1px solid var(--accent-secondary-border);
       border-radius: var(--radius-md);
       padding: 11px 14px;
       font-size: 13px;
-      color: #0c4a6e;
+      color: var(--text-body);
       text-align: center;
       line-height: 1.45;
     }
@@ -742,7 +926,7 @@
     }
 
     .category-notice strong {
-      color: #0369a1;
+      color: var(--accent-secondary-text);
     }
 
     /* Service Cards Grid */
@@ -783,14 +967,14 @@
 
     .service-card:hover {
       background: var(--bg-card-hover);
-      border-color: rgba(14, 165, 233, 0.45);
+      border-color: var(--accent-secondary);
       transform: translateY(-2px);
     }
 
     .service-card.selected {
       border: 2px solid var(--accent);
-      background: linear-gradient(180deg, rgba(220, 38, 38, 0.04) 0%, rgba(14, 165, 233, 0.03) 45%, #ffffff 100%);
-      box-shadow: 0 12px 28px rgba(220, 38, 38, 0.11);
+      background: var(--selected-card-bg);
+      box-shadow: 0 12px 28px rgba(220, 38, 38, 0.12);
     }
 
     .card-badge {
@@ -800,18 +984,18 @@
       font-weight: 700;
       letter-spacing: 0.07em;
       text-transform: uppercase;
-      color: #0369a1;
-      background: #e0f2fe;
-      border: 1px solid rgba(14, 165, 233, 0.28);
+      color: var(--accent-secondary-text);
+      background: var(--accent-secondary-soft);
+      border: 1px solid var(--accent-secondary-border);
       border-radius: 6px;
       padding: 4px 8px;
       margin-bottom: 12px;
     }
 
     .service-card.selected .card-badge {
-      color: #b91c1c;
-      border-color: rgba(220, 38, 38, 0.3);
-      background: #fee2e2;
+      color: var(--accent-badge-text);
+      border-color: var(--accent-soft-border);
+      background: var(--accent-soft);
     }
 
     .card-title {
@@ -852,9 +1036,9 @@
       font-family: var(--font-mono);
       font-size: 10.5px;
       font-weight: 700;
-      color: #0369a1;
-      background: #e0f2fe;
-      border: 1px solid rgba(14, 165, 233, 0.3);
+      color: var(--accent-secondary-text);
+      background: var(--accent-secondary-soft);
+      border: 1px solid var(--accent-secondary-border);
       padding: 2px 7px;
       border-radius: 6px;
     }
@@ -879,7 +1063,7 @@
       align-items: flex-start;
       gap: 9px;
       font-size: 13px;
-      color: #334155;
+      color: var(--text-body);
       line-height: 1.4;
     }
 
@@ -908,7 +1092,7 @@
     }
 
     .card-select-btn:hover {
-      background: #e0f2fe;
+      background: var(--accent-secondary-soft);
       border-color: var(--accent-secondary);
     }
 
@@ -955,7 +1139,7 @@
 
     .form-input, .form-select {
       width: 100%;
-      background: #f8fafc;
+      background: var(--bg-input);
       border: 1px solid var(--border-strong);
       border-radius: 10px;
       padding: 11px 13px;
@@ -968,7 +1152,7 @@
 
     .form-input:focus, .form-select:focus {
       border-color: var(--accent-secondary);
-      background: #ffffff;
+      background: var(--bg-card);
     }
 
     .addon-toggle {
@@ -976,20 +1160,20 @@
       align-items: center;
       justify-content: space-between;
       gap: 12px;
-      background: #f0f9ff;
-      border: 1px solid rgba(14, 165, 233, 0.35);
+      background: var(--accent-secondary-soft);
+      border: 1px solid var(--accent-secondary-border);
       border-radius: 10px;
       padding: 11px 13px;
       cursor: pointer;
       font-size: 13px;
-      color: #0f172a;
+      color: var(--text-primary);
       line-height: 1.4;
       transition: border-color 0.2s ease, background 0.2s ease;
     }
 
     .addon-toggle:hover {
       border-color: var(--accent-secondary);
-      background: #e0f2fe;
+      background: var(--accent-secondary-soft-hover);
     }
 
     .addon-toggle input {
@@ -1001,7 +1185,7 @@
     }
 
     .price-breakdown {
-      background: #f8fafc;
+      background: var(--bg-input);
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 14px;
@@ -1024,7 +1208,7 @@
     }
 
     .breakdown-line.discount {
-      color: var(--accent-secondary-dark);
+      color: var(--accent-secondary-text);
       font-weight: 700;
     }
 
@@ -1048,11 +1232,11 @@
     .message-box {
       width: 100%;
       min-height: 165px;
-      background: #f8fafc;
+      background: var(--bg-input);
       border: 1px solid var(--border-strong);
       border-radius: 12px;
       padding: 12px;
-      color: #1e293b;
+      color: var(--text-body);
       font-family: var(--font-mono);
       font-size: 12px;
       line-height: 1.5;
@@ -1080,6 +1264,102 @@
       width: 100%;
       padding: 12px 14px;
       font-size: 13.5px;
+    }
+
+    /* Info Hub Carousel 3-in-1 */
+    .info-hub-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      max-width: 760px;
+      margin: 0 auto 28px auto;
+      padding: 8px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-strong);
+      border-radius: 14px;
+      box-shadow: var(--shadow-card);
+    }
+    .info-arrow-btn {
+      width: 42px;
+      height: 42px;
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      border: 1px solid var(--border-strong);
+      background: var(--bg-elevated);
+      color: var(--text-primary);
+      font-size: 1.15rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.15s;
+    }
+    .info-arrow-btn:hover {
+      background: var(--accent-secondary-soft);
+      border-color: var(--accent-secondary);
+      color: var(--accent-secondary-text);
+    }
+    .info-arrow-btn:active {
+      transform: scale(0.95);
+    }
+    .info-hub-pills {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      flex: 1;
+      min-width: 0;
+    }
+    .info-pill-btn {
+      flex: 1;
+      padding: 10px 8px;
+      border: 1px solid transparent;
+      border-radius: 9px;
+      background: transparent;
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      transition: all 0.2s;
+    }
+    .info-pill-btn:hover {
+      color: var(--text-primary);
+    }
+    .info-pill-btn.active {
+      background: var(--accent-secondary-soft);
+      border-color: var(--accent-secondary-border);
+      color: var(--accent-secondary-text);
+    }
+    .info-slide {
+      display: none;
+      animation: infoSlideFade 0.25s ease;
+    }
+    .info-slide.active {
+      display: block;
+    }
+    @keyframes infoSlideFade {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 540px) {
+      .info-hub-controls {
+        padding: 6px;
+        gap: 6px;
+      }
+      .info-arrow-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 1rem;
+      }
+      .info-pill-btn {
+        font-size: 0.76rem;
+        padding: 9px 4px;
+      }
     }
 
     /* Materials & Steps Grids */
@@ -1125,7 +1405,7 @@
     .step-num {
       font-family: var(--font-mono);
       font-size: 11px;
-      color: var(--accent-secondary-dark);
+      color: var(--accent-secondary-text);
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.06em;
@@ -1139,7 +1419,7 @@
 
     .material-tag.blue,
     .step-num.blue {
-      color: var(--partner-accent);
+      color: var(--partner-text);
     }
 
     .material-card h3,
@@ -1193,7 +1473,7 @@
 
     .faq-item summary::after {
       content: "+";
-      color: var(--accent-secondary-dark);
+      color: var(--accent-secondary-text);
       font-family: var(--font-mono);
       font-size: 18px;
       font-weight: 700;
@@ -1249,13 +1529,12 @@
 
     .contact-card:hover {
       border-color: var(--accent-secondary);
-      background: #f0f9ff;
+      background: var(--bg-card-hover);
       transform: translateY(-2px);
     }
 
     .contact-card.partner-theme:hover {
       border-color: var(--partner-accent);
-      background: #eff6ff;
     }
 
     .contact-card-top {
@@ -1269,8 +1548,8 @@
       width: 38px;
       height: 38px;
       border-radius: 10px;
-      background: #fee2e2;
-      border: 1px solid rgba(220, 38, 38, 0.25);
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-soft-border);
       color: var(--accent);
       display: inline-flex;
       align-items: center;
@@ -1279,15 +1558,15 @@
     }
 
     .contact-card:nth-child(even) .contact-icon-box {
-      background: #e0f2fe;
-      border-color: rgba(14, 165, 233, 0.28);
-      color: var(--accent-secondary-dark);
+      background: var(--accent-secondary-soft);
+      border-color: var(--accent-secondary-border);
+      color: var(--accent-secondary-text);
     }
 
     .contact-icon-box.blue {
-      background: #dbeafe !important;
-      border-color: rgba(37, 99, 235, 0.28) !important;
-      color: var(--partner-accent) !important;
+      background: var(--partner-soft) !important;
+      border-color: var(--partner-border) !important;
+      color: var(--partner-text) !important;
     }
 
     .contact-arrow {
@@ -1297,11 +1576,11 @@
     }
 
     .contact-card:hover .contact-arrow {
-      color: var(--accent-secondary-dark);
+      color: var(--accent-secondary-text);
     }
 
     .contact-card.partner-theme:hover .contact-arrow {
-      color: var(--partner-accent);
+      color: var(--partner-text);
     }
 
     .contact-label {
@@ -1323,8 +1602,8 @@
 
     /* Partner Cooperation Banner */
     .partner-coop-box {
-      background: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 55%, #fef2f2 100%);
-      border: 1px solid rgba(37, 99, 235, 0.25);
+      background: var(--coop-bg);
+      border: 1px solid var(--partner-border);
       border-radius: var(--radius-lg);
       padding: 22px;
       display: flex;
@@ -1358,7 +1637,7 @@
 
     /* Footer */
     footer {
-      background: #ffffff;
+      background: var(--bg-footer);
       border-top: 1px solid var(--border);
       padding: 28px 0 40px;
       margin-top: 24px;
@@ -1378,6 +1657,16 @@
         justify-content: space-between;
         align-items: center;
       }
+    }
+
+    .footer-brand-title {
+      color: var(--text-primary);
+    }
+
+    .footer-partner-link {
+      color: var(--partner-text);
+      text-decoration: none;
+      font-weight: 700;
     }
 
     .footer-links {
@@ -1449,13 +1738,13 @@
       <a href="#serwis" class="brand" onclick="switchPageView('service'); return false;">
         <!-- Logo BRAND NEW (odwzorowane z profilowego IG / FB) -->
         <svg class="brand-logo" viewBox="-12 -12 876 598" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Logo BRAND NEW">
-          <polygon points="420,320 370,354 370,438 389,461 390,526 415,572 437,572 462,525 462,461 481,438 481,353 431,320" fill="#0f172a"/>
-          <polygon points="682,250 671,249 602,289 603,298 633,298 628,310 598,329 568,316 555,316 520,336 520,346 583,376 596,376 661,351 690,289" fill="#0f172a"/>
-          <polygon points="169,250 161,288 191,351 255,376 268,376 331,346 330,335 296,316 283,316 256,329 223,310 218,297 248,298 249,289 180,249" fill="#0f172a"/>
-          <polygon points="722,225 714,225 693,247 697,283 676,356 604,376 598,385 547,367 535,367 534,376 505,344 497,344 510,406 575,441 583,441 583,432 561,405 642,408 642,399 617,389 677,395 708,359 708,349 693,348 735,295" fill="#0f172a"/>
-          <polygon points="129,225 116,295 159,350 143,349 143,358 175,395 238,388 210,399 209,408 290,405 268,432 268,441 276,441 341,406 354,344 346,344 317,376 316,367 304,367 253,385 249,377 175,356 154,281 158,246 139,226" fill="#0f172a"/>
-          <polygon points="850,2 829,8 575,160 610,113 610,104 594,109 467,202 434,293 434,305 477,333 492,335 768,176 825,81 828,66 817,67 729,131 848,13" fill="#0f172a"/>
-          <polygon points="2,2 5,15 120,129 34,67 23,66 25,79 85,177 360,335 371,335 418,304 384,202 253,106 241,104 241,113 276,160 22,8" fill="#0f172a"/>
+          <polygon points="420,320 370,354 370,438 389,461 390,526 415,572 437,572 462,525 462,461 481,438 481,353 431,320" fill="var(--logo-outline)"/>
+          <polygon points="682,250 671,249 602,289 603,298 633,298 628,310 598,329 568,316 555,316 520,336 520,346 583,376 596,376 661,351 690,289" fill="var(--logo-outline)"/>
+          <polygon points="169,250 161,288 191,351 255,376 268,376 331,346 330,335 296,316 283,316 256,329 223,310 218,297 248,298 249,289 180,249" fill="var(--logo-outline)"/>
+          <polygon points="722,225 714,225 693,247 697,283 676,356 604,376 598,385 547,367 535,367 534,376 505,344 497,344 510,406 575,441 583,441 583,432 561,405 642,408 642,399 617,389 677,395 708,359 708,349 693,348 735,295" fill="var(--logo-outline)"/>
+          <polygon points="129,225 116,295 159,350 143,349 143,358 175,395 238,388 210,399 209,408 290,405 268,432 268,441 276,441 341,406 354,344 346,344 317,376 316,367 304,367 253,385 249,377 175,356 154,281 158,246 139,226" fill="var(--logo-outline)"/>
+          <polygon points="850,2 829,8 575,160 610,113 610,104 594,109 467,202 434,293 434,305 477,333 492,335 768,176 825,81 828,66 817,67 729,131 848,13" fill="var(--logo-outline)"/>
+          <polygon points="2,2 5,15 120,129 34,67 23,66 25,79 85,177 360,335 371,335 418,304 384,202 253,106 241,104 241,113 276,160 22,8" fill="var(--logo-outline)"/>
           <!-- Lewa i prawa brew/skrzydło -->
           <polygon points="10,8 295,178 368,325 92,168 32,74 134,142" fill="#dc143c"/>
           <polygon points="842,8 557,178 484,325 760,168 820,74 718,142" fill="#dc143c"/>
@@ -1507,6 +1796,17 @@
       </nav>
 
       <div class="header-actions">
+        <!-- Przełącznik Trybu Jasnego / Ciemnego -->
+        <button type="button" class="theme-toggle-btn" id="themeToggleBtn" aria-label="Przełącz tryb jasny lub ciemny" title="Przełącz tryb jasny / ciemny">
+          <span class="icon-moon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+          </span>
+          <span class="icon-sun" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+          </span>
+          <span class="theme-toggle-label" id="themeToggleLabel">Ciemny</span>
+        </button>
+
         <a href="#kalkulator" class="btn-primary desktop-only-cta" onclick="switchPageView('service')">Oblicz wycenę</a>
         <button type="button" class="menu-toggle" id="menuToggle" aria-label="Otwórz menu" aria-expanded="false">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
@@ -1520,10 +1820,11 @@
 
     <div class="mobile-menu" id="mobileMenu">
       <button type="button" onclick="switchPageView('service')">Strona główna — Serwis BRAND NEW</button>
-      <button type="button" onclick="switchPageView('partner')" style="color:#2563eb; font-weight:700;">Partner lokalny — Perfect-Phone GSM</button>
+      <button type="button" class="partner-mobile-link" onclick="switchPageView('partner')">Partner lokalny — Perfect-Phone GSM</button>
       <a href="#kalkulator" onclick="switchPageView('service')">Cennik i kalkulator rabatów</a>
       <a href="#materialy" onclick="switchPageView('service')">Stosowane materiały</a>
       <a href="#kontakt" onclick="switchPageView('service')">Kontakt (Telefon, IG, FB, E-mail)</a>
+      <button type="button" id="mobileThemeToggleBtn">Zmień motyw: Tryb ciemny / jasny</button>
     </div>
   </header>
 
@@ -1586,14 +1887,14 @@
       </section>
 
       <div class="container">
-        <div id="promo-banner" style="background: linear-gradient(90deg, #e0f2fe 0%, #f0f9ff 65%, #fef2f2 100%); border: 1px solid rgba(14, 165, 233, 0.35); border-left: 4px solid var(--accent); border-radius: 12px; padding: 14px 18px; margin: 4px auto 0; max-width: 960px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; box-shadow: var(--shadow-card);">
+        <div id="promo-banner" class="promo-banner">
           <div>
-            <strong style="color: #0369a1; font-size: 0.95rem; letter-spacing: 0.4px;">PROMOCJA NA START • -25% PRZY WYBORZE KRYOSHEET</strong>
-            <p style="margin: 4px 0 0 0; font-size: 0.9rem; color: #334155;">
-              Przy wyborze pada grafenowego <strong style="color:#0f172a;">Thermal Grizzly KryoSheet</strong> rabat <strong style="color:var(--accent);">25%</strong> nalicza się automatycznie. Oferta obowiązuje przez 2 miesiące od uruchomienia serwisu.
+            <strong class="promo-title">PROMOCJA NA START • -25% PRZY WYBORZE KRYOSHEET</strong>
+            <p class="promo-text">
+              Przy wyborze pada grafenowego <strong>Thermal Grizzly KryoSheet</strong> rabat <strong class="promo-percent">25%</strong> nalicza się automatycznie. Oferta obowiązuje przez 2 miesiące od uruchomienia serwisu.
             </p>
           </div>
-          <div style="background: #ffffff; border: 1px solid rgba(14, 165, 233, 0.35); color: #0369a1; padding: 6px 12px; border-radius: 8px; font-weight: 700; font-size: 0.85rem; white-space: nowrap;">
+          <div class="promo-date-badge">
             Obowiązuje: <span id="promo-dates">24.11.2026 – 24.01.2027</span>
           </div>
         </div>
@@ -1686,103 +1987,6 @@
       </section>
 
       <!-- POŁĄCZONA SEKCJA: WYSYŁKA / MATERIAŁY / PROCES (KARUZELA 3-W-1) -->
-      <style>
-        .info-hub-controls {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          gap: 10px;
-          max-width: 760px;
-          margin: 0 auto 28px auto;
-          padding: 8px;
-          background: #ffffff;
-          border: 1px solid var(--border-strong);
-          border-radius: 14px;
-          box-shadow: var(--shadow-card);
-        }
-        .info-arrow-btn {
-          width: 42px;
-          height: 42px;
-          flex-shrink: 0;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          border-radius: 10px;
-          border: 1px solid var(--border-strong);
-          background: var(--bg-elevated);
-          color: var(--text-primary);
-          font-size: 1.15rem;
-          font-weight: 700;
-          cursor: pointer;
-          transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.15s;
-        }
-        .info-arrow-btn:hover {
-          background: #e0f2fe;
-          border-color: var(--accent-secondary);
-          color: #0369a1;
-        }
-        .info-arrow-btn:active {
-          transform: scale(0.95);
-        }
-        .info-hub-pills {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 6px;
-          flex: 1;
-          min-width: 0;
-        }
-        .info-pill-btn {
-          flex: 1;
-          padding: 10px 8px;
-          border: 1px solid transparent;
-          border-radius: 9px;
-          background: transparent;
-          color: var(--text-secondary);
-          font-size: 0.85rem;
-          font-weight: 700;
-          cursor: pointer;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          transition: all 0.2s;
-        }
-        .info-pill-btn:hover {
-          color: var(--text-primary);
-        }
-        .info-pill-btn.active {
-          background: #e0f2fe;
-          border-color: rgba(14, 165, 233, 0.45);
-          color: #0369a1;
-        }
-        .info-slide {
-          display: none;
-          animation: infoSlideFade 0.25s ease;
-        }
-        .info-slide.active {
-          display: block;
-        }
-        @keyframes infoSlideFade {
-          from { opacity: 0; transform: translateY(6px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        @media (max-width: 540px) {
-          .info-hub-controls {
-            padding: 6px;
-            gap: 6px;
-          }
-          .info-arrow-btn {
-            width: 38px;
-            height: 38px;
-            font-size: 1rem;
-          }
-          .info-pill-btn {
-            font-size: 0.76rem;
-            padding: 9px 4px;
-          }
-        }
-      </style>
-
       <section id="info-hub">
         <span id="wysylka"></span>
         <span id="materialy"></span>
@@ -1900,62 +2104,6 @@
           </div>
         </div>
       </section>
-
-      <script>
-        (function () {
-          const slides = document.querySelectorAll(".info-slide");
-          const pills = document.querySelectorAll(".info-pill-btn");
-          const prevBtn = document.getElementById("infoPrevBtn");
-          const nextBtn = document.getElementById("infoNextBtn");
-          const viewport = document.getElementById("infoSlidesViewport");
-          let activeIndex = 0;
-
-          function showInfoSlide(index) {
-            activeIndex = (index + slides.length) % slides.length;
-            slides.forEach((s, i) => s.classList.toggle("active", i === activeIndex));
-            pills.forEach((p, i) => p.classList.toggle("active", i === activeIndex));
-          }
-
-          prevBtn.addEventListener("click", () => showInfoSlide(activeIndex - 1));
-          nextBtn.addEventListener("click", () => showInfoSlide(activeIndex + 1));
-
-          pills.forEach(btn => {
-            btn.addEventListener("click", () => {
-              showInfoSlide(Number(btn.dataset.slideTarget));
-            });
-          });
-
-          let touchStartX = 0;
-          let touchStartY = 0;
-          viewport.addEventListener("touchstart", e => {
-            touchStartX = e.changedTouches[0].screenX;
-            touchStartY = e.changedTouches[0].screenY;
-          }, { passive: true });
-
-          viewport.addEventListener("touchend", e => {
-            const dx = e.changedTouches[0].screenX - touchStartX;
-            const dy = e.changedTouches[0].screenY - touchStartY;
-            if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) {
-              showInfoSlide(dx < 0 ? activeIndex + 1 : activeIndex - 1);
-            }
-          }, { passive: true });
-
-          const hashMap = { "#wysylka": 0, "#materialy": 1, "#proces": 2 };
-          function syncFromHash() {
-            if (window.location.hash in hashMap) {
-              showInfoSlide(hashMap[window.location.hash]);
-            }
-          }
-          window.addEventListener("hashchange", syncFromHash);
-          document.querySelectorAll('a[href="#wysylka"], a[href="#materialy"], a[href="#proces"]').forEach(link => {
-            link.addEventListener("click", () => {
-              const target = link.getAttribute("href");
-              if (target in hashMap) showInfoSlide(hashMap[target]);
-            });
-          });
-          syncFromHash();
-        })();
-      </script>
 
       <!-- FAQ -->
       <section id="faq">
@@ -2169,8 +2317,8 @@
   <footer>
     <div class="container footer-inner">
       <div>
-        <strong style="color:#0f172a;">BRAND <span style="color:var(--accent);">NEW</span></strong> — Żeby Twój sprzęt znów poczuł się jak BRAND NEW<br />
-        <span>Myślenice (odbiór 0 zł) • Wysyłka Paczkomat InPost cała Polska • Partner: <a href="#perfect-phone" onclick="switchPageView('partner'); return false;" style="color:#2563eb; text-decoration:none; font-weight:700;">Perfect-Phone</a></span>
+        <strong class="footer-brand-title">BRAND <span style="color:var(--accent);">NEW</span></strong> — Żeby Twój sprzęt znów poczuł się jak BRAND NEW<br />
+        <span>Myślenice (odbiór 0 zł) • Wysyłka Paczkomat InPost cała Polska • Partner: <a href="#perfect-phone" onclick="switchPageView('partner'); return false;" class="footer-partner-link">Perfect-Phone</a></span>
       </div>
 
       <div class="footer-links" id="footerLinks"></div>
@@ -2179,463 +2327,38 @@
 
   <script>
     // =========================================================================
-    // KONFIGURACJA PROMOCJI NA START (AUTOMATYCZNE WYŁĄCZENIE PO DACIE)
+    // OBSŁUGA TRYBU JASNEGO I CIEMNEGO (DLA KAŻDEGO UŻYTKOWNIKA NIEZALEŻNIE)
     // =========================================================================
-    const PROMO_CONFIG = {
-      startText: "24.11.2026",
-      endText: "24.01.2027",
-      endDateISO: "2027-01-24T23:59:59",
-      kryoDiscountPercent: 25
-    };
+    (function initThemeSwitcher() {
+      const root = document.documentElement;
+      const toggleBtn = document.getElementById("themeToggleBtn");
+      const toggleLabel = document.getElementById("themeToggleLabel");
+      const mobileToggleBtn = document.getElementById("mobileThemeToggleBtn");
 
-    const isPromoActive = new Date() <= new Date(PROMO_CONFIG.endDateISO);
-
-    const bannerEl = document.getElementById("promo-banner");
-    const datesEl = document.getElementById("promo-dates");
-    if (bannerEl) {
-      if (isPromoActive) {
-        if (datesEl) datesEl.textContent = `${PROMO_CONFIG.startText} – ${PROMO_CONFIG.endText}`;
-      } else {
-        bannerEl.style.display = "none";
-      }
-    }
-
-    // =========================================================================
-    // CENTRALNA KONFIGURACJA — DANE KONTAKTOWE, RABATY I PAKIETY
-    // =========================================================================
-    const CONFIG = {
-      brandName: "BRAND NEW",
-      city: "Myślenice",
-
-      // 1. TWÓJ TELEFON
-      phoneDisplay: "+48 730 963 314",
-      phoneRaw: "+48730963314",
-
-      // 2. TWÓJ E-MAIL
-      email: "serwis.brandnew@gmail.com",
-
-      // 3. TWÓJ INSTAGRAM
-      instagramLabel: "@serwisbrandnew",
-      instagramUrl: "https://www.instagram.com/serwisbrandnew?psln=dW1uNnZleDBpN2Vi",
-
-      // 4. TWÓJ FACEBOOK
-      facebookLabel: "Serwis Brand New",
-      facebookUrl: "https://www.facebook.com/share/1Jr2L1ovqe/",
-
-      // Progi automatycznego rabatu na start
-      discounts: [
-        { maxPrice: 150, percent: 15 },
-        { maxPrice: 260, percent: 20 },
-        { maxPrice: Infinity, percent: 25 }
-      ],
-
-      // Pakiety usług dla wszystkich 3 zakładek
-      services: {
-        laptops: [
-          {
-            id: "lap-diag",
-            badge: "WERYFIKACJA",
-            title: "Diagnostyka i wycena",
-            price: 0,
-            unit: "/ bez zobowiązań",
-            description: "Dokładny pomiar temperatur pod obciążeniem oraz ocena stanu układu chłodzenia przed rozpoczęciem prac.",
-            features: [
-              "Pomiar temperatur CPU i GPU pod obciążeniem",
-              "Weryfikacja zużycia łożysk wentylatorów",
-              "Kosztorys przed podjęciem decyzji"
-            ]
-          },
-          {
-            id: "lap-std",
-            badge: "BIUROWE & ULTRABOOKI",
-            title: "Pakiet Standard — Arctic MX-7 + Putty",
-            price: 130,
-            unit: "/ usługa + materiał",
-            description: "Kompleksowe czyszczenie układu chłodzenia, pasta Arctic MX-7 na rdzeń oraz Thermal Putty na sekcję zasilania i pamięci (w modelach posiadających ich chłodzenie).",
-            features: [
-              "Czyszczenie radiatorów, kanałów i łopatek wentylatorów",
-              "Pasta Arctic MX-7 na rdzeń CPU / GPU + Thermal Grizzly Putty Basic (gdzie występuje)",
-              "Dokumentacja zdjęciowa oraz podstawowy pomiar temperatur PRZED i PO (HWiNFO64)"
-            ]
-          },
-          {
-            id: "lap-pro",
-            badge: "GAMING & WORKSTATION",
-            title: "Pakiet Pro — PhaseSheet PTM + Putty",
-            price: 220,
-            unit: "/ usługa + materiał",
-            description: "Maksymalna wydajność i trwałość na lata dla laptopów gamingowych oraz stacji roboczych — zero efektu wypływania pasty (pump-out).",
-            features: [
-              "Zmiennofazowy Thermal Grizzly PhaseSheet PTM na rdzeń CPU i GPU",
-              "Pełna aplikacja Thermal Grizzly Putty Basic na kości VRAM i sekcję VRM",
-              "Rozszerzony raport telemetrii (Core / HotSpot / stabilność zegarów) + opcjonalny Undervolting"
-            ]
-          }
-        ],
-        gpu: [
-          {
-            id: "gpu-diag",
-            badge: "WERYFIKACJA",
-            title: "Diagnostyka i testy HotSpot",
-            price: 0,
-            unit: "/ bez zobowiązań",
-            description: "Weryfikacja temperatur rdzenia, HotSpot oraz pamięci VRAM pod pełnym obciążeniem przed otwarciem karty.",
-            features: [
-              "Pomiar Core, HotSpot i VRAM w HWiNFO64 / FurMark",
-              "Ocena kultury pracy wentylatorów i stanu fabrycznych termopadów",
-              "Pełny kosztorys przed podjęciem decyzji"
-            ]
-          },
-          {
-            id: "gpu-std",
-            badge: "STARSZE & CHŁODNIEJSZE GPU",
-            title: "Pakiet Standard — Arctic MX-7 + Putty",
-            price: 150,
-            unit: "/ usługa + materiał",
-            description: "Pełny serwis chłodzenia dla starszych lub chłodniejszych kart (GTX, podstawowe RTX/RX) z wymianą masy na pamięciach i VRM.",
-            features: [
-              "Czyszczenie radiatora oraz łopatek wentylatorów",
-              "Pasta Arctic MX-7 na rdzeń GPU + Thermal Grizzly Putty Basic na VRAM i VRM",
-              "Dokumentacja zdjęciowa + podstawowy zrzut temperatur Core i HotSpot PRZED i PO"
-            ]
-          },
-          {
-            id: "gpu-full",
-            badge: "WYDAJNE GPU • PEŁNY SERWIS",
-            title: "Pakiet Pro — PhaseSheet PTM + Putty",
-            price: 250,
-            unit: "/ usługa + materiał",
-            description: "Topowa regeneracja chłodzenia pod gorące karty z pamięciami GDDR6/GDDR6X — trwałość na lata bez efektu pump-out.",
-            features: [
-              "Zmiennofazowy Thermal Grizzly PhaseSheet PTM na rdzeń GPU",
-              "Pełna aplikacja Thermal Grizzly Putty Basic na kości VRAM i sekcję VRM",
-              "Rozszerzona telemetria (Core / HotSpot / VRAM / stabilność taktowań) + opcjonalny Undervolting"
-            ]
-          }
-        ],
-        handheld: [
-          {
-            id: "hh-diag",
-            badge: "WERYFIKACJA • HANDHELD PC",
-            title: "Diagnostyka i wycena",
-            price: 0,
-            unit: "/ bez zobowiązań",
-            description: "Pomiar temperatur APU oraz ocena kultury pracy chłodzenia. Wyłącznie handheldy PC (Steam Deck, ROG Ally, Legion Go, MSI Claw — bez Nintendo Switch).",
-            features: [
-              "Pomiar temperatur APU i obrotów wentylatora pod obciążeniem",
-              "Weryfikacja stanu radiatora i termopadów",
-              "Kosztorys przed podjęciem decyzji"
-            ]
-          },
-          {
-            id: "hh-std",
-            badge: "HANDHELD PC • STANDARD",
-            title: "Pakiet Standard — Arctic MX-7 + Putty",
-            price: 130,
-            unit: "/ usługa + materiał",
-            description: "Czyszczenie układu chłodzenia oraz wymiana pasty i masy termoprzewodzącej dla Steam Deck, ROG Ally, Legion Go i MSI Claw (bez Nintendo Switch).",
-            features: [
-              "Czyszczenie radiatora i łopatek turbiny chłodzącej",
-              "Pasta Arctic MX-7 na układ APU + Thermal Grizzly Putty Basic na sekcję zasilania i pamięci",
-              "Dokumentacja zdjęciowa + podstawowy pomiar temperatur i głośności PRZED i PO"
-            ]
-          },
-          {
-            id: "hh-pro",
-            badge: "HANDHELD PC • PRO",
-            title: "Pakiet Pro — PhaseSheet PTM + Putty",
-            price: 190,
-            unit: "/ usługa + materiał",
-            description: "Maksymalna kultura pracy i fabryczna trwałość na lata dla Steam Deck, ROG Ally, Legion Go i MSI Claw (bez Nintendo Switch).",
-            features: [
-              "Zmiennofazowy Thermal Grizzly PhaseSheet PTM na układ APU",
-              "Pełna aplikacja Thermal Grizzly Putty Basic na sekcję zasilania i pamięci",
-              "Rozszerzony raport temperatur pod obciążeniem i kontrola stabilności taktowań PRZED i PO"
-            ]
-          }
-        ]
-      }
-    };
-
-    // =========================================================================
-    // PRZEŁĄCZANIE WIDOKÓW (OSOBNA ZAKŁADKA: SERWIS VS PARTNER PERFECT-PHONE)
-    // =========================================================================
-    function switchPageView(viewName) {
-      const isPartner = viewName === "partner";
-
-      document.getElementById("view-service").classList.toggle("active", !isPartner);
-      document.getElementById("view-partner").classList.toggle("active", isPartner);
-
-      document.querySelectorAll(".view-tab-btn").forEach(btn => {
-        const active = btn.dataset.view === viewName;
-        btn.classList.toggle("active", active);
-        btn.setAttribute("aria-selected", String(active));
-      });
-
-      const sectionNav = document.getElementById("serviceSectionNav");
-      if (sectionNav) {
-        sectionNav.style.visibility = isPartner ? "hidden" : "visible";
-      }
-
-      const mobileMenu = document.getElementById("mobileMenu");
-      const menuToggle = document.getElementById("menuToggle");
-      if (mobileMenu) mobileMenu.classList.remove("open");
-      if (menuToggle) menuToggle.setAttribute("aria-expanded", "false");
-
-      if (isPartner && window.location.hash !== "#perfect-phone") {
-        history.replaceState(null, "", "#perfect-phone");
-      } else if (!isPartner && window.location.hash === "#perfect-phone") {
-        history.replaceState(null, "", window.location.pathname);
-      }
-
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-
-    if (window.location.hash === "#perfect-phone") {
-      switchPageView("partner");
-    }
-
-    // =========================================================================
-    // LOGIKA KALKULATORA, ZAKŁADEK SPRZĘTU I KONTAKTU
-    // =========================================================================
-    const categoryNames = {
-      laptops: "Laptopy",
-      gpu: "GPU (Karty graficzne)",
-      handheld: "Handheld PC"
-    };
-
-    let currentCategory = "laptops";
-    let selectedServiceId = "lap-pro";
-
-    const cardsGrid = document.getElementById("cardsGrid");
-    const handheldNotice = document.getElementById("handheldNotice");
-    const deviceModelInput = document.getElementById("deviceModelInput");
-    const logisticsSelect = document.getElementById("logisticsSelect");
-    const kryoAddon = document.getElementById("kryoAddon");
-
-    const summaryServiceName = document.getElementById("summaryServiceName");
-    const summaryBasePrice = document.getElementById("summaryBasePrice");
-    const summaryDiscountLabel = document.getElementById("summaryDiscountLabel");
-    const summaryDiscountValue = document.getElementById("summaryDiscountValue");
-    const summaryFinalPrice = document.getElementById("summaryFinalPrice");
-    const generatedMessage = document.getElementById("generatedMessage");
-    const copyMsgBtn = document.getElementById("copyMsgBtn");
-
-    const igDirectBtn = document.getElementById("igDirectBtn");
-    const fbDirectBtn = document.getElementById("fbDirectBtn");
-    const smsDirectBtn = document.getElementById("smsDirectBtn");
-    const mailDirectBtn = document.getElementById("mailDirectBtn");
-
-    function getDiscountPercent(basePrice, forceKryo = false) {
-      if (basePrice <= 0 || !isPromoActive) return 0;
-      if (forceKryo) return PROMO_CONFIG.kryoDiscountPercent;
-      const tier = CONFIG.discounts.find(d => basePrice <= d.maxPrice);
-      return tier ? tier.percent : 0;
-    }
-
-    function calculatePrice(basePrice, forceKryo = false) {
-      if (basePrice <= 0) {
-        return { base: 0, percent: 0, saved: 0, final: 0 };
-      }
-      const percent = getDiscountPercent(basePrice, forceKryo);
-      const final = Math.round(basePrice * (1 - percent / 100));
-      const saved = basePrice - final;
-      return { base: basePrice, percent, saved, final };
-    }
-
-    function renderCards() {
-      const list = CONFIG.services[currentCategory] || [];
-      if (kryoAddon.checked || !list.some(item => item.id === selectedServiceId)) {
-        selectedServiceId = list[list.length - 1].id;
-      }
-
-      handheldNotice.classList.toggle("visible", currentCategory === "handheld");
-
-      cardsGrid.innerHTML = list.map(service => {
-        const isSelected = service.id === selectedServiceId;
-        const pricing = calculatePrice(service.price, false);
-
-        let priceHtml = "";
-        if (service.price === 0) {
-          priceHtml = `<span class="price-final">0 zł</span><span class="price-unit">${service.unit}</span>`;
-        } else if (pricing.percent > 0) {
-          priceHtml = `<span class="price-final">${pricing.final} zł</span>
-             <span class="price-old">${pricing.base} zł</span>
-             <span class="discount-pill">-${pricing.percent}% NA START</span>`;
-        } else {
-          priceHtml = `<span class="price-final">${pricing.base} zł</span><span class="price-unit">${service.unit}</span>`;
+      function updateThemeUI(theme) {
+        root.setAttribute("data-theme", theme);
+        const isDark = theme === "dark";
+        if (toggleLabel) {
+          toggleLabel.textContent = isDark ? "Jasny" : "Ciemny";
         }
-
-        const featuresHtml = service.features.map(f => `<li>${f}</li>`).join("");
-
-        return `
-          <article class="service-card ${isSelected ? "selected" : ""}" data-id="${service.id}">
-            <div>
-              <span class="card-badge">${service.badge}</span>
-              <h3 class="card-title">${service.title}</h3>
-              <div class="card-price-row">${priceHtml}</div>
-              <p class="card-desc">${service.description}</p>
-              <ul class="card-features">${featuresHtml}</ul>
-            </div>
-            <button type="button" class="card-select-btn">
-              ${isSelected ? (kryoAddon.checked ? "Baza pod Pakiet Kryo ✓" : "Wybrano do wyceny ✓") : "Wybierz ten pakiet"}
-            </button>
-          </article>
-        `;
-      }).join("");
-
-      cardsGrid.querySelectorAll(".service-card").forEach(card => {
-        card.addEventListener("click", () => {
-          kryoAddon.checked = false;
-          selectedServiceId = card.dataset.id;
-          renderCards();
-          updateSummary();
-        });
-      });
-    }
-
-    function updateSummary() {
-      const list = CONFIG.services[currentCategory] || [];
-      const service = list.find(s => s.id === selectedServiceId) || list[0];
-      const proService = list[list.length - 1];
-      const isKryo = kryoAddon.checked;
-
-      const activeTitle = isKryo ? "Pakiet Kryo — KryoSheet + Putty" : service.title;
-      const totalBase = isKryo ? (proService.price + 40) : service.price;
-      const pricing = calculatePrice(totalBase, isKryo);
-
-      summaryServiceName.textContent = activeTitle;
-      summaryBasePrice.textContent = `${pricing.base} zł`;
-      summaryDiscountLabel.textContent = `Rabat na start (-${pricing.percent}%):`;
-      summaryDiscountValue.textContent = pricing.saved > 0 ? `-${pricing.saved} zł` : "0 zł";
-      summaryFinalPrice.textContent = `${pricing.final} zł`;
-
-      const modelText = deviceModelInput.value.trim() || "do podania";
-      const logisticsText = logisticsSelect.value;
-
-      let priceSummaryLine = "";
-      if (pricing.base === 0) {
-        priceSummaryLine = "0 zł (darmowa diagnoza i wycena)";
-      } else if (pricing.percent > 0) {
-        priceSummaryLine = `${pricing.final} zł po rabacie -${pricing.percent}% (cena bazowa: ${pricing.base} zł)`;
-      } else {
-        priceSummaryLine = `${pricing.base} zł`;
+        if (toggleBtn) {
+          toggleBtn.setAttribute("aria-pressed", String(isDark));
+          toggleBtn.setAttribute("title", isDark ? "Przełącz na tryb jasny" : "Przełącz na tryb ciemny");
+        }
+        if (mobileToggleBtn) {
+          mobileToggleBtn.textContent = isDark
+            ? "Przełącz na tryb jasny ☀️"
+            : "Przełącz na tryb ciemny 🌙";
+        }
       }
 
-      const msgText =
-`Cześć BRAND NEW! Chcę umówić serwis chłodzenia:
-- Kategoria: ${categoryNames[currentCategory]}
-- Pakiet: ${activeTitle}
-- Model sprzętu: ${modelText}
-- Przekazanie: ${logisticsText}
-- Wycena z kalkulatora: ${priceSummaryLine}
-
-Daj znać, kiedy możemy ogarnąć temat!`;
-
-      generatedMessage.value = msgText;
-
-      const encodedBody = encodeURIComponent(msgText);
-      const encodedSubject = encodeURIComponent(`Wycena serwisu BRAND NEW — ${categoryNames[currentCategory]}`);
-      smsDirectBtn.href = `sms:${CONFIG.phoneRaw}?body=${encodedBody}`;
-      mailDirectBtn.href = `mailto:${CONFIG.email}?subject=${encodedSubject}&body=${encodedBody}`;
-    }
-
-    document.querySelectorAll(".bn-tab").forEach(tab => {
-      tab.addEventListener("click", () => {
-        document.querySelectorAll(".bn-tab").forEach(t => {
-          t.classList.remove("active");
-          t.setAttribute("aria-selected", "false");
-        });
-        tab.classList.add("active");
-        tab.setAttribute("aria-selected", "true");
-        currentCategory = tab.dataset.category;
-        renderCards();
-        updateSummary();
-      });
-    });
-
-    deviceModelInput.addEventListener("input", updateSummary);
-    logisticsSelect.addEventListener("change", updateSummary);
-    kryoAddon.addEventListener("change", () => {
-      renderCards();
-      updateSummary();
-    });
-
-    copyMsgBtn.addEventListener("click", async () => {
-      try {
-        await navigator.clipboard.writeText(generatedMessage.value);
-        const orig = copyMsgBtn.textContent;
-        copyMsgBtn.textContent = "Skopiowano wiadomość ✓";
-        setTimeout(() => { copyMsgBtn.textContent = orig; }, 2200);
-      } catch (e) {
-        generatedMessage.select();
-        document.execCommand("copy");
+      function toggleTheme() {
+        const current = root.getAttribute("data-theme") === "dark" ? "dark" : "light";
+        const next = current === "dark" ? "light" : "dark";
+        updateThemeUI(next);
+        try {
+          localStorage.setItem("bn_theme", next);
+        } catch (e) {}
       }
-    });
 
-    // Menu mobilne
-    const menuToggle = document.getElementById("menuToggle");
-    const mobileMenu = document.getElementById("mobileMenu");
-    menuToggle.addEventListener("click", () => {
-      const open = mobileMenu.classList.toggle("open");
-      menuToggle.setAttribute("aria-expanded", String(open));
-    });
-
-    // Renderowanie 4 kanałów kontaktu BRAND NEW
-    igDirectBtn.href = CONFIG.instagramUrl;
-    fbDirectBtn.href = CONFIG.facebookUrl;
-
-    const contactChannels = [
-      {
-        label: "Telefon / SMS",
-        value: CONFIG.phoneDisplay,
-        href: `tel:${CONFIG.phoneRaw}`,
-        external: false,
-        icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>`
-      },
-      {
-        label: "E-mail",
-        value: CONFIG.email,
-        href: `mailto:${CONFIG.email}`,
-        external: false,
-        icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>`
-      },
-      {
-        label: "Instagram",
-        value: CONFIG.instagramLabel,
-        href: CONFIG.instagramUrl,
-        external: true,
-        icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>`
-      },
-      {
-        label: "Facebook",
-        value: CONFIG.facebookLabel,
-        href: CONFIG.facebookUrl,
-        external: true,
-        icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>`
-      }
-    ];
-
-    document.getElementById("contactGrid").innerHTML = contactChannels.map(ch => `
-      <a href="${ch.href}" ${ch.external ? 'target="_blank" rel="noopener"' : ''} class="contact-card">
-        <div class="contact-card-top">
-          <span class="contact-icon-box">${ch.icon}</span>
-          <span class="contact-arrow">↗</span>
-        </div>
-        <div>
-          <span class="contact-label">${ch.label}</span>
-          <span class="contact-value">${ch.value}</span>
-        </div>
-      </a>
-    `).join("");
-
-    document.getElementById("footerLinks").innerHTML = contactChannels.map(ch =>
-      `<a href="${ch.href}" ${ch.external ? 'target="_blank" rel="noopener"' : ''}>${ch.label}: ${ch.value}</a>`
-    ).join("");
-
-    // Start
-    renderCards();
-    updateSummary();
-  </script>
-</body>
-</html>
+      const initialTheme = root.getAttribute("data-theme") === "dark" ? "
