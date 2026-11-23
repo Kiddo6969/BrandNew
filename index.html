@@ -82,7 +82,7 @@
       --bg-card-hover: #222b3e;
       --bg-elevated: #273248;
       --bg-input: #161c29;
-      --bg-footer: #111621;
+      --bg-footer: #0d121c;
       --border: rgba(148, 163, 184, 0.16);
       --border-strong: rgba(125, 211, 252, 0.24);
       --text-primary: #f8fafc;
@@ -1388,7 +1388,7 @@
       font-size: 13.5px;
     }
 
-    /* Info Hub Carousel 3-in-1 */
+    /* Info Hub Carousel 4-in-1 */
     .info-hub-controls {
       display: flex;
       align-items: center;
@@ -1775,65 +1775,137 @@
     }
 
     /* Footer */
-    footer {
+    .bn-footer {
       background: var(--bg-footer);
       border-top: 1px solid var(--border);
-      padding: 28px 0 40px;
-      margin-top: 24px;
+      margin-top: 28px;
       color: var(--text-secondary);
       font-size: 13px;
+      line-height: 1.5;
       width: 100%;
       max-width: 100%;
       min-width: 0;
+      transition: background-color 0.25s ease, border-color 0.25s ease;
     }
 
-    .footer-inner {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      min-width: 0;
+    .bn-footer-top {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 22px 16px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 16px 32px;
+      align-items: center;
     }
 
-    .footer-inner > div {
-      min-width: 0;
-      max-width: 100%;
-    }
-
-    @media (min-width: 768px) {
-      .footer-inner {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
+    @media (min-width: 640px) {
+      .bn-footer-top {
+        padding: 22px 24px;
       }
     }
 
-    .footer-brand-title {
-      color: var(--text-primary);
+    @media (min-width: 820px) {
+      .bn-footer-top {
+        grid-template-columns: 1.2fr 1fr;
+      }
     }
 
-    .footer-partner-link {
-      color: var(--partner-text);
+    .bn-footer-title {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .bn-footer-title strong {
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .bn-accent {
+      color: var(--accent);
+    }
+
+    .bn-footer-sub {
+      margin-top: 4px;
+      color: var(--text-secondary);
+    }
+
+    .bn-footer-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      justify-self: start;
+      text-align: left;
+    }
+
+    .bn-footer-line {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: 6px 18px;
+    }
+
+    @media (min-width: 820px) {
+      .bn-footer-contact {
+        justify-self: end;
+        text-align: right;
+      }
+
+      .bn-footer-line {
+        justify-content: flex-end;
+      }
+    }
+
+    .bn-footer a,
+    .bn-footer a:visited {
+      color: var(--text-primary);
+      font-weight: 600;
       text-decoration: none;
+      transition: color 0.18s ease;
+    }
+
+    .bn-footer a.bn-partner-link,
+    .bn-footer a.bn-partner-link:visited {
+      color: var(--partner-text);
       font-weight: 700;
     }
 
-    .footer-links {
+    .bn-footer a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    .bn-footer a.bn-partner-link:hover {
+      color: var(--partner-accent);
+    }
+
+    .bn-footer-bottom {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 12px 16px 24px;
+      border-top: 1px solid var(--border);
       display: flex;
       flex-wrap: wrap;
-      gap: 10px 18px;
-      min-width: 0;
+      justify-content: center;
+      align-items: center;
+      gap: 8px 12px;
+      font-size: 12px;
+      color: var(--text-muted);
     }
 
-    .footer-links a {
-      color: var(--text-primary);
-      text-decoration: none;
+    @media (min-width: 640px) {
+      .bn-footer-bottom {
+        padding: 12px 24px 28px;
+      }
+    }
+
+    .bn-footer-bottom a,
+    .bn-footer-bottom a:visited {
+      color: var(--text-secondary);
       font-weight: 600;
-      font-size: 13px;
-      overflow-wrap: anywhere;
     }
 
-    .footer-links a:hover {
-      color: var(--accent);
+    .bn-footer-bottom a:hover {
+      color: var(--text-primary);
     }
 
     @media (max-width: 639px) {
@@ -2041,11 +2113,11 @@
           </div>
         </div>
       </div>
-      
+
       <!-- CALCULATOR & SERVICES -->
       <section id="kalkulator">
         <div class="container">
-                    <div class="section-header">
+          <div class="section-header">
             <h2>Wybierz sprzęt i sprawdź cenę po rabacie</h2>
             <p>
               Przełącz kategorię sprzętu poniżej — kalkulator automatycznie naliczy przysługujący rabat na start i wygeneruje gotową wiadomość do wysłania jednym kliknięciem.
@@ -2128,12 +2200,12 @@
         </div>
       </section>
 
-      <!-- POŁĄCZONA SEKCJA: WYSYŁKA / MATERIAŁY / PROCES (KARUZELA 3-W-1) -->
+      <!-- POŁĄCZONA SEKCJA: WYSYŁKA / MATERIAŁY / PROCES / SOFTWARE (KARUZELA 4-W-1) -->
       <section id="info-hub">
         <span id="wysylka"></span>
         <span id="materialy"></span>
         <span id="proces"></span>
-        <span id="sofware"></span>
+        <span id="software"></span>
 
         <div class="container">
           <div class="info-hub-controls" role="region" aria-label="Przełącznik informacji">
@@ -2245,7 +2317,8 @@
                 </div>
               </div>
             </div>
-              <!-- SLAJD 4: Software -->
+
+            <!-- SLAJD 4: SOFTWARE -->
             <div class="info-slide" data-slide-index="3">
               <div class="section-header">
                 <h2>Systemy operacyjne i optymalizacja softu</h2>
@@ -2278,8 +2351,8 @@
                 </div>
               </div>
             </div>
-            </div>
           </div>
+        </div>
       </section>
 
       <!-- FAQ -->
@@ -2294,7 +2367,7 @@
               <summary>Jakie handheldy przyjmujecie na serwis chłodzenia?</summary>
               <p>Serwisujemy wyłącznie przenośne komputery PC (handheldy PC): Steam Deck (LCD oraz OLED), ASUS ROG Ally / Ally X, Lenovo Legion Go oraz MSI Claw. Nie przyjmujemy konsol Nintendo Switch ani podobnych zamkniętych konsol.</p>
             </details>
-           <details class="faq-item">
+            <details class="faq-item">
               <summary>Czy przyjmujecie kompletne PC-ety?</summary>
               <p>Tak, przyjmujemy kompletne komputery stacjonarne (PC), ale wyłącznie przy osobistym przywiezieniu i odbiorze sprzętu — w przypadku całych zestawów nie wchodzi w grę ani odbiór door-to-door, ani wysyłka Paczkomatem (zbyt duże ryzyko uszkodzenia obudowy, chłodzenia lub karty graficznej w transporcie).</p>
             </details>
@@ -2491,39 +2564,39 @@
   </div>
 
   <!-- FOOTER -->
- <footer class="bn-footer">
-  <div class="bn-footer-top">
-    <div class="bn-footer-brand">
-      <div class="bn-footer-title">
-        <strong>BRAND <span class="bn-accent">NEW</span></strong>
-        <span>— Żeby Twój sprzęt znów poczuł się jak BRAND NEW</span>
+  <footer class="bn-footer">
+    <div class="bn-footer-top">
+      <div class="bn-footer-brand">
+        <div class="bn-footer-title">
+          <strong>BRAND <span class="bn-accent">NEW</span></strong>
+          <span>— Żeby Twój sprzęt znów poczuł się jak BRAND NEW</span>
+        </div>
+        <div class="bn-footer-sub">
+          Myślenice (odbiór 0 zł) • Wysyłka Paczkomat InPost cała Polska • Partner:
+          <a href="#perfect-phone" class="bn-partner-link" data-switch-view="partner">Perfect-Phone</a>
+        </div>
       </div>
-      <div class="bn-footer-sub">
-        Myślenice (odbiór 0 zł) • Wysyłka Paczkomat InPost cała Polska • Partner:
-        <a href="#partner">Perfect-Phone</a>
+
+      <div class="bn-footer-contact">
+        <div class="bn-footer-line">
+          <span>Telefon / SMS: <a href="tel:+48730963314">+48 730 963 314</a></span>
+          <span>E-mail: <a href="mailto:serwis.brandnew@gmail.com">serwis.brandnew@gmail.com</a></span>
+        </div>
+        <div class="bn-footer-line">
+          <span>Instagram: <a href="https://www.instagram.com/brandnew.pc/" target="_blank" rel="noopener noreferrer">BrandNewPC</a></span>
+          <span>Facebook: <a href="https://www.facebook.com/profile.php?id=61597084910406&locale=pl_PL" target="_blank" rel="noopener noreferrer">BrandNewPC</a></span>
+        </div>
       </div>
     </div>
 
-    <div class="bn-footer-contact">
-      <div class="bn-footer-line">
-        <span>Telefon / SMS: <a href="tel:+48730963314">+48 730 963 314</a></span>
-        <span>E-mail: <a href="mailto:serwis.brandnew@gmail.com">serwis.brandnew@gmail.com</a></span>
-      </div>
-      <div class="bn-footer-line">
-        <span>Instagram: <a href="https://instagram.com/brandnew.pc" target="_blank" rel="noopener noreferrer">BrandNewPC</a></span>
-        <span>Facebook: <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">BrandNewPC</a></span>
-      </div>
+    <div class="bn-footer-bottom">
+      <span>© 2026 BrandNew PC</span>
+      <span>•</span>
+      <a href="regulamin.html">Regulamin</a>
+      <span>•</span>
+      <a href="polityka-prywatnosci.html">Polityka prywatności (RODO)</a>
     </div>
-  </div>
-
-  <div class="bn-footer-bottom">
-    <span>© 2026 BrandNew PC</span>
-    <span>•</span>
-    <a href="regulamin.html">Regulamin</a>
-    <span>•</span>
-    <a href="polityka-prywatnosci.html">Polityka prywatności (RODO)</a>
-  </div>
-</footer>
+  </footer>
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -2639,7 +2712,7 @@
       }
 
       // =======================================================================
-      // 3. KARUZELA 3-W-1 (WYSYŁKA / MATERIAŁY / REALIZACJA)
+      // 3. KARUZELA 4-W-1 (WYSYŁKA / MATERIAŁY / REALIZACJA / SOFTWARE)
       // =======================================================================
       const slides = document.querySelectorAll(".info-slide");
       const pills = document.querySelectorAll(".info-pill-btn");
@@ -2727,7 +2800,7 @@
         phoneDisplay: "+48 730 963 314",
         phoneRaw: "+48730963314",
         email: "serwis.brandnew@gmail.com",
-        instagramLabel:"BrandNewPC",
+        instagramLabel: "BrandNewPC",
         instagramUrl: "https://www.instagram.com/brandnew.pc/",
         facebookLabel: "BrandNewPC",
         facebookUrl: "https://www.facebook.com/profile.php?id=61597084910406&locale=pl_PL",
@@ -3040,7 +3113,7 @@
       });
 
       // =======================================================================
-      // 7. KANAŁY KONTAKTU I STOPKA
+      // 7. KANAŁY KONTAKTU
       // =======================================================================
       igDirectBtn.href = CONFIG.instagramUrl;
       fbDirectBtn.href = CONFIG.facebookUrl;
@@ -3089,13 +3162,6 @@
               '<span class="contact-value">' + ch.value + '</span>' +
             '</div>' +
           '</a>';
-        }).join("");
-      }
-
-      const footerLinks = document.getElementById("footerLinks");
-      if (footerLinks) {
-        footerLinks.innerHTML = contactChannels.map(function (ch) {
-          return '<a href="' + ch.href + '" ' + (ch.external ? 'target="_blank" rel="noopener"' : '') + '>' + ch.label + ': ' + ch.value + '</a>';
         }).join("");
       }
 
