@@ -2589,12 +2589,12 @@
       </div>
     </div>
 
-    <div class="bn-footer-bottom">
+   <div class="bn-footer-bottom">
       <span>© 2026 BrandNew PC</span>
       <span>•</span>
-      <a href="regulamin.html">Regulamin</a>
+      <a href="#regulamin" data-switch-view="regulamin">Regulamin</a>
       <span>•</span>
-      <a href="polityka-prywatnosci.html">Polityka prywatności (RODO)</a>
+      <a href="#rodo" data-switch-view="rodo">Polityka prywatności (RODO)</a>
     </div>
   </footer>
 
@@ -2646,31 +2646,39 @@
       const menuToggle = document.getElementById("menuToggle");
       const mobileMenu = document.getElementById("mobileMenu");
 
-      function switchPageView(viewName) {
-        const isPartner = viewName === "partner";
+     function switchPageView(viewName) {
+        const validViews = ["service", "partner", "regulamin", "rodo"];
+        const targetView = validViews.includes(viewName) ? viewName : "service";
 
-        const serviceView = document.getElementById("view-service");
-        const partnerView = document.getElementById("view-partner");
-        if (serviceView) serviceView.classList.toggle("active", !isPartner);
-        if (partnerView) partnerView.classList.toggle("active", isPartner);
+        document.querySelectorAll(".page-view").forEach(function (viewEl) {
+          viewEl.classList.toggle("active", viewEl.id === "view-" + targetView);
+        });
 
         document.querySelectorAll(".view-tab-btn").forEach(function (btn) {
-          const active = btn.dataset.view === viewName;
+          const active = btn.dataset.view === targetView;
           btn.classList.toggle("active", active);
           btn.setAttribute("aria-selected", String(active));
         });
 
         const sectionNav = document.getElementById("serviceSectionNav");
         if (sectionNav) {
-          sectionNav.style.visibility = isPartner ? "hidden" : "visible";
+          sectionNav.style.visibility = targetView === "service" ? "visible" : "hidden";
         }
 
         if (mobileMenu) mobileMenu.classList.remove("open");
         if (menuToggle) menuToggle.setAttribute("aria-expanded", "false");
 
-        if (isPartner && window.location.hash !== "#perfect-phone") {
-          history.replaceState(null, "", "#perfect-phone");
-        } else if (!isPartner && window.location.hash === "#perfect-phone") {
+        const viewHashMap = {
+          partner: "#perfect-phone",
+          regulamin: "#regulamin",
+          rodo: "#rodo"
+        };
+
+        if (targetView in viewHashMap) {
+          if (window.location.hash !== viewHashMap[targetView]) {
+            history.replaceState(null, "", viewHashMap[targetView]);
+          }
+        } else if (window.location.hash in viewHashMap) {
           history.replaceState(null, "", window.location.pathname);
         }
 
@@ -2700,8 +2708,19 @@
         });
       }
 
-      if (window.location.hash === "#perfect-phone") {
+     if (window.location.hash === "#perfect-phone") {
         switchPageView("partner");
+      } else if (window.location.hash === "#regulamin") {
+        switchPageView("regulamin");
+      } else if (window.location.hash === "#rodo") {
+        switchPageView("rodo");
+      }
+
+      window.addEventListener("hashchange", function () {
+        if (window.location.hash === "#perfect-phone") switchPageView("partner");
+        else if (window.location.hash === "#regulamin") switchPageView("regulamin");
+        else if (window.location.hash === "#rodo") switchPageView("rodo");
+      });
       }
 
       if (menuToggle && mobileMenu) {
