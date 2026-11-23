@@ -564,13 +564,161 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Legal Paste Container (Regulamin & RODO) */
-    .legal-paste-area {
-      min-height: 260px;
-      white-space: pre-line;
+    /* Legal Documents (Regulamin & RODO) */
+    .legal-doc {
+      max-width: 860px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 22px 18px;
       color: var(--text-body);
       font-size: 14.5px;
-      line-height: 1.7;
+      line-height: 1.68;
+      box-shadow: var(--shadow-card);
+    }
+
+    @media (min-width: 640px) {
+      .legal-doc {
+        padding: 34px 40px;
+        font-size: 15px;
+      }
+    }
+
+    .legal-doc-header {
+      padding-bottom: 18px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--border-strong);
+    }
+
+    .legal-doc-subtitle {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.4;
+    }
+
+    @media (min-width: 640px) {
+      .legal-doc-subtitle {
+        font-size: 17.5px;
+      }
+    }
+
+    .legal-section {
+      padding-top: 24px;
+      margin-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .legal-section:first-of-type {
+      padding-top: 0;
+      margin-top: 0;
+      border-top: none;
+    }
+
+    .legal-section-title {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--text-primary);
+      line-height: 1.35;
+      margin-bottom: 14px;
+    }
+
+    @media (min-width: 640px) {
+      .legal-section-title {
+        font-size: 18.5px;
+      }
+    }
+
+    .legal-sec-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent-secondary-text);
+      background: var(--accent-secondary-soft);
+      border: 1px solid var(--accent-secondary-border);
+      padding: 3px 9px;
+      border-radius: 7px;
+      flex-shrink: 0;
+    }
+
+    .legal-lead {
+      margin-bottom: 10px;
+      color: var(--text-body);
+    }
+
+    .legal-ol {
+      list-style: none;
+      counter-reset: legal-counter;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .legal-ol > li {
+      counter-increment: legal-counter;
+      position: relative;
+      padding-left: 30px;
+    }
+
+    .legal-ol > li::before {
+      content: counter(legal-counter) ".";
+      position: absolute;
+      left: 0;
+      top: 1px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent-secondary-text);
+    }
+
+    .legal-ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 10px;
+      padding-left: 4px;
+    }
+
+    .legal-ul > li {
+      position: relative;
+      padding-left: 18px;
+    }
+
+    .legal-ul > li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 9px;
+      width: 6px;
+      height: 6px;
+      border-radius: 1.5px;
+      background: var(--accent);
+    }
+
+    .legal-doc strong {
+      color: var(--text-primary);
+      font-weight: 700;
+    }
+
+    .legal-doc a {
+      color: var(--accent-secondary-text);
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent-secondary-border);
+      transition: color 0.18s ease, border-color 0.18s ease;
+    }
+
+    .legal-doc a:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
     }
 
     /* Hero */
@@ -2573,7 +2721,7 @@
   </div>
 
   <!-- ======================================================================= -->
-  <!-- VIEW 3: REGULAMIN (MIEJSCE DO RĘCZNEGO WKLEJENIA TREŚCI)                -->
+  <!-- VIEW 3: REGULAMIN                                                       -->
   <!-- ======================================================================= -->
   <div id="view-regulamin" class="page-view">
     <main>
@@ -2588,78 +2736,117 @@
             <button type="button" class="btn-secondary" data-switch-view="service">← Wróć do serwisu</button>
           </div>
 
-          <div class="material-card legal-paste-area">
-            <!-- ========================================================= -->
-            <!-- TUTAJ WKLEJ SWÓJ REGULAMIN (PONIŻEJ TEJ LINII)            -->
-            <!-- ========================================================= -->
+          <article class="legal-doc">
+            <header class="legal-doc-header">
+              <p class="legal-doc-subtitle">Regulamin świadczenia usług serwisowych — BrandNew PC</p>
+            </header>
 
-Regulamin świadczenia usług serwisowych — BrandNew PC
+            <section class="legal-section">
+              <h2 class="legal-section-title">
+                <span class="legal-sec-badge">§ 1</span>
+                <span>Postanowienia ogólne</span>
+              </h2>
+              <ol class="legal-ol">
+                <li>
+                  Regulamin określa zasady świadczenia usług serwisowych pod nazwą <strong>BrandNew PC</strong> przez Imię i Nazwisko, zamieszkałego/prowadzącego działalność pod adresem: ul. ..., 32-400 Myślenice (dalej: <strong>„Serwis”</strong>), w ramach działalności nierejestrowanej zgodnie z art. 5 ustawy – Prawo przedsiębiorców (bez wpisu do CEIDG, bez rejestracji jako czynny podatnik VAT oraz bez obowiązkowego opłacania składek ZUS z tytułu tej działalności).
+                </li>
+                <li>
+                  Serwis prowadzi działalność w miejscowości <strong>Myślenice</strong> oraz za pośrednictwem strony internetowej <a href="https://www.brandnewpc.pl" target="_blank" rel="noopener">https://www.brandnewpc.pl</a>.
+                </li>
+                <li>
+                  Kontakt z Serwisem odbywa się telefonicznie pod numerem <a href="tel:+48730963314">+48 730 963 314</a>, za pośrednictwem komunikatorów i profili społecznościowych (m.in. Instagram: <a href="https://www.instagram.com/brandnew.pc/" target="_blank" rel="noopener">@brandnew.pc</a>, <a href="https://www.facebook.com/profile.php?id=61597084910406&locale=pl_PL" target="_blank" rel="noopener">Facebook</a>) lub poczty elektronicznej powiązanej z domeną <strong>brandnewpc.pl</strong>.
+                </li>
+                <li>
+                  Regulamin jest udostępniany Klientowi nieodpłatnie przed zawarciem umowy (w tym przed przekazaniem lub nadaniem sprzętu do Serwisu) na stronie <a href="https://www.brandnewpc.pl" target="_blank" rel="noopener">https://www.brandnewpc.pl</a> lub w wiadomości elektronicznej. Zlecenie usługi po zapoznaniu się z Regulaminem oznacza akceptację jego postanowień.
+                </li>
+              </ol>
+            </section>
 
-§ 1. Postanowienia ogólne
+            <section class="legal-section">
+              <h2 class="legal-section-title">
+                <span class="legal-sec-badge">§ 2</span>
+                <span>Zakres usług, zasady przekazywania sprzętu i umowy zawierane na odległość</span>
+              </h2>
+              <ol class="legal-ol">
+                <li>
+                  BrandNew PC realizuje:
+                  <ul class="legal-ul">
+                    <li>serwis i konserwację układów chłodzenia (w tym czyszczenie, wymianę past termoprzewodzących, padów termicznych, ciekłego metalu lub mat/sheetów termicznych) w laptopach, kartach graficznych (GPU), komputerach stacjonarnych (PC) oraz handheldach PC,</li>
+                    <li>instalację, konfigurację i optymalizację systemów operacyjnych Windows 10, Windows 11 oraz dystrybucji Linux.</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Diagnoza i wycena wynoszą 0 zł</strong> — pomiary temperatur i ocena stanu układu chłodzenia odbywają się bez zobowiązań, a ewentualne koszty materiałów i usługi są przedstawiane Klientowi przed przystąpieniem do właściwych prac.
+                </li>
+                <li>
+                  Sposoby przekazania i zwrotu sprzętu:
+                  <ul class="legal-ul">
+                    <li><strong>Myślenice:</strong> odbiór i zwrot sprzętu <strong>0 zł</strong> (na ustalonych warunkach lokalnych),</li>
+                    <li><strong>Wysyłka (Paczkomat / kurier):</strong> dostępna dla wybranych urządzeń (m.in. laptopów, kart GPU, handheldów). Wysyłka sprzętu do Serwisu odbywa się na koszt i ryzyko nadawcy (Klienta), z obowiązkiem solidnego zapakowania sprzętu (ochrona ESD, unieruchomienie wewnątrz paczki, sztywny karton, odpowiednie ubezpieczenie przesyłki). Przesyłka zwrotna od Serwisu do Klienta jest ubezpieczana przez Serwis do wartości zadeklarowanej przez Klienta przed wysyłką,</li>
+                    <li><strong>Kompletne komputery stacjonarne (PC):</strong> przyjmowane i wydawane wyłącznie osobiście (bez wysyłki Paczkomatem i bez odbioru kurierskiego door-to-door ze względu na wysokie ryzyko uszkodzeń mechanicznych w transporcie).</li>
+                  </ul>
+                </li>
+                <li>
+                  W przypadku umów zawieranych na odległość (np. przy zleceniu usługi przez internet, telefon lub komunikator z wysyłką sprzętu) Klient będący konsumentem (lub przedsiębiorcą na prawach konsumenta) ma prawo odstąpić od umowy w terminie <strong>14 dni</strong> od jej zawarcia bez podawania przyczyny. Jeżeli Klient żąda rozpoczęcia prac serwisowych przed upływem 14-dniowego terminu, składa wyraźne oświadczenie w tym zakresie (np. w korespondencji przed wysyłką sprzętu) i przyjmuje do wiadomości, że po pełnym wykonaniu usługi traci prawo do odstąpienia od umowy (art. 38 ust. 1 pkt 1 ustawy o prawach konsumenta).
+                </li>
+              </ol>
+            </section>
 
-    Regulamin określa zasady świadczenia usług serwisowych pod nazwą BrandNew PC przez Imię i Nazwisko, zamieszkałego/prowadzącego działalność pod adresem: ul. ..., 32-400 Myślenice (dalej: „Serwis”), w ramach działalności nierejestrowanej zgodnie z art. 5 ustawy – Prawo przedsiębiorców (bez wpisu do CEIDG, bez rejestracji jako czynny podatnik VAT oraz bez obowiązkowego opłacania składek ZUS z tytułu tej działalności).
+            <section class="legal-section">
+              <h2 class="legal-section-title">
+                <span class="legal-sec-badge">§ 3</span>
+                <span>Odpowiedzialność, dane na dyskach i nieodebranie sprzętu</span>
+              </h2>
+              <ol class="legal-ol">
+                <li>
+                  Klient przed przekazaniem urządzenia powinien samodzielnie wykonać kopię zapasową (backup) ważnych danych. Serwis dokłada należytej staranności podczas prac, jednak nie ponosi odpowiedzialności za utratę danych wynikającą z wcześniejszej awarii nośnika lub wad fabrycznych sprzętu.
+                </li>
+                <li>
+                  W przypadku urządzeń już uszkodzonych, przegrzewających się od dłuższego czasu, po zalaniu, po nieudanych próbach ingerencji osób trzecich lub z wadami ukrytymi płyt głównych, matryc, zawiasów, złączy czy akumulatorów — Serwis informuje Klienta o ryzykach przed wykonaniem czynności.
+                </li>
+                <li>
+                  Jeżeli w trakcie diagnozy lub prac wyjdą na jaw dodatkowe usterki niezwiązane bezpośrednio z pierwotnym zgłoszeniem albo wymagające zmiany wyceny, Serwis kontaktuje się z Klientem w celu uzyskania akceptacji dalszych kroków.
+                </li>
+                <li>
+                  Klient powinien odebrać sprzęt w terminie <strong>14 dni</strong> od dnia otrzymania informacji o zakończeniu usługi lub przedstawieniu wyceny (w przypadku rezygnacji z naprawy).
+                </li>
+                <li>
+                  Jeżeli sprzęt nie zostanie odebrany w powyższym terminie, Serwis wyznacza dodatkowy termin <strong>30 dni</strong> na odbiór (wraz z przypomnieniem/wezwaniem oraz informacją o naliczaniu opłaty po jego upływie). Po bezskutecznym upływie obu terminów (<strong>łącznie 44 dni</strong>) Serwis ma prawo naliczać opłatę za przechowanie sprzętu w wysokości <strong>5 zł za każdy rozpoczęty dzień zwłoki</strong>.
+                </li>
+                <li>
+                  Serwis może odstąpić od naliczenia lub częściowo zmniejszyć opłatę, o której mowa w ust. 5, jeżeli Klient poinformuje o przyczynie opóźnienia przed upływem wyznaczonego terminu i przedstawi uzasadniony powód. W przypadku zdarzeń losowych lub ważnych powodów życiowych Klient powinien skontaktować się z Serwisem przed końcem terminu w celu ustalenia nowego terminu odbioru lub wysyłki.
+                </li>
+              </ol>
+            </section>
 
-    Serwis prowadzi działalność w miejscowości Myślenice oraz za pośrednictwem strony internetowej https://www.brandnewpc.pl.
-
-    Kontakt z Serwisem odbywa się telefonicznie pod numerem +48 730 963 314, za pośrednictwem komunikatorów i profili społecznościowych (m.in. Instagram: @brandnew.pc, Facebook) lub poczty elektronicznej powiązanej z domeną brandnewpc.pl.
-
-    Regulamin jest udostępniany Klientowi nieodpłatnie przed zawarciem umowy (w tym przed przekazaniem lub nadaniem sprzętu do Serwisu) na stronie https://www.brandnewpc.pl lub w wiadomości elektronicznej. Zlecenie usługi po zapoznaniu się z Regulaminem oznacza akceptację jego postanowień.
-
-§ 2. Zakres usług, zasady przekazywania sprzętu i umowy zawierane na odległość
-
-    BrandNew PC realizuje:
-
-        serwis i konserwację układów chłodzenia (w tym czyszczenie, wymianę past termoprzewodzących, padów termicznych, ciekłego metalu lub mat/sheetów termicznych) w laptopach, kartach graficznych (GPU), komputerach stacjonarnych (PC) oraz handheldach PC,
-
-        instalację, konfigurację i optymalizację systemów operacyjnych Windows 10, Windows 11 oraz dystrybucji Linux.
-
-    Diagnoza i wycena wynoszą 0 zł — pomiary temperatur i ocena stanu układu chłodzenia odbywają się bez zobowiązań, a ewentualne koszty materiałów i usługi są przedstawiane Klientowi przed przystąpieniem do właściwych prac.
-
-    Sposoby przekazania i zwrotu sprzętu:
-
-        Myślenice: odbiór i zwrot sprzętu 0 zł (na ustalonych warunkach lokalnych),
-
-        Wysyłka (Paczkomat / kurier): dostępna dla wybranych urządzeń (m.in. laptopów, kart GPU, handheldów). Wysyłka sprzętu do Serwisu odbywa się na koszt i ryzyko nadawcy (Klienta), z obowiązkiem solidnego zapakowania sprzętu (ochrona ESD, unieruchomienie wewnątrz paczki, sztywny karton, odpowiednie ubezpieczenie przesyłki). Przesyłka zwrotna od Serwisu do Klienta jest ubezpieczana przez Serwis do wartości zadeklarowanej przez Klienta przed wysyłką,
-
-        Kompletne komputery stacjonarne (PC): przyjmowane i wydawane wyłącznie osobiście (bez wysyłki Paczkomatem i bez odbioru kurierskiego door-to-door ze względu na wysokie ryzyko uszkodzeń mechanicznych w transporcie).
-
-    W przypadku umów zawieranych na odległość (np. przy zleceniu usługi przez internet, telefon lub komunikator z wysyłką sprzętu) Klient będący konsumentem (lub przedsiębiorcą na prawach konsumenta) ma prawo odstąpić od umowy w terminie 14 dni od jej zawarcia bez podawania przyczyny. Jeżeli Klient żąda rozpoczęcia prac serwisowych przed upływem 14-dniowego terminu, składa wyraźne oświadczenie w tym zakresie (np. w korespondencji przed wysyłką sprzętu) i przyjmuje do wiadomości, że po pełnym wykonaniu usługi traci prawo do odstąpienia od umowy (art. 38 ust. 1 pkt 1 ustawy o prawach konsumenta).
-
-§ 3. Odpowiedzialność, dane na dyskach i nieodebranie sprzętu
-
-    Klient przed przekazaniem urządzenia powinien samodzielnie wykonać kopię zapasową (backup) ważnych danych. Serwis dokłada należytej staranności podczas prac, jednak nie ponosi odpowiedzialności za utratę danych wynikającą z wcześniejszej awarii nośnika lub wad fabrycznych sprzętu.
-
-    W przypadku urządzeń już uszkodzonych, przegrzewających się od dłuższego czasu, po zalaniu, po nieudanych próbach ingerencji osób trzecich lub z wadami ukrytymi płyt głównych, matryc, zawiasów, złączy czy akumulatorów — Serwis informuje Klienta o ryzykach przed wykonaniem czynności.
-
-    Jeżeli w trakcie diagnozy lub prac wyjdą na jaw dodatkowe usterki niezwiązane bezpośrednio z pierwotnym zgłoszeniem albo wymagające zmiany wyceny, Serwis kontaktuje się z Klientem w celu uzyskania akceptacji dalszych kroków.
-
-    Klient powinien odebrać sprzęt w terminie 14 dni od dnia otrzymania informacji o zakończeniu usługi lub przedstawieniu wyceny (w przypadku rezygnacji z naprawy).
-
-    Jeżeli sprzęt nie zostanie odebrany w powyższym terminie, Serwis wyznacza dodatkowy termin 30 dni na odbiór (wraz z przypomnieniem/wezwaniem oraz informacją o naliczaniu opłaty po jego upływie). Po bezskutecznym upływie obu terminów (łącznie 44 dni) Serwis ma prawo naliczać opłatę za przechowanie sprzętu w wysokości 5 zł za każdy rozpoczęty dzień zwłoki.
-
-    Serwis może odstąpić od naliczenia lub częściowo zmniejszyć opłatę, o której mowa w ust. 5, jeżeli Klient poinformuje o przyczynie opóźnienia przed upływem wyznaczonego terminu i przedstawi uzasadniony powód. W przypadku zdarzeń losowych lub ważnych powodów życiowych Klient powinien skontaktować się z Serwisem przed końcem terminu w celu ustalenia nowego terminu odbioru lub wysyłki.
-
-§ 4. Rozliczenia, reklamacje i postanowienia końcowe
-
-    Wynagrodzenie za usługę oraz użyte materiały eksploatacyjne rozliczane jest zgodnie z wyceną zaakceptowaną przez Klienta (z uwzględnieniem ewentualnych promocji lub rabatów obowiązujących w chwili zgłoszenia).
-
-    Jako podmiot prowadzący działalność nierejestrowaną, Serwis nie wystawia faktur VAT; rozliczenie następuje na zasadach właściwych dla działalności nierejestrowanej (w tym na podstawie rachunku wystawianego na żądanie Klienta zgodnie z obowiązującymi przepisami).
-
-    Wszelkie reklamacje dotyczące wykonanej usługi Klient może zgłaszać telefonicznie, mailowo lub za pośrednictwem komunikatorów wskazanych w § 1 ust. 3, podając opis zauważonej nieprawidłowości i warunki pracy urządzenia. Serwis rozpatruje reklamację i udziela odpowiedzi (na piśmie lub innym trwałym nośniku, np. e-mail) w terminie do 14 dni od dnia jej otrzymania.
-
-    W sprawach nieuregulowanych Regulaminem zastosowanie mają odpowiednie przepisy prawa polskiego, w szczególności Kodeksu cywilnego oraz ustawy o prawach konsumenta.
-
-            <!-- ========================================================= -->
-            <!-- KONIEC MIEJSCA NA REGULAMIN                               -->
-            <!-- ========================================================= -->
-          </div>
+            <section class="legal-section">
+              <h2 class="legal-section-title">
+                <span class="legal-sec-badge">§ 4</span>
+                <span>Rozliczenia, reklamacje i postanowienia końcowe</span>
+              </h2>
+              <ol class="legal-ol">
+                <li>
+                  Wynagrodzenie za usługę oraz użyte materiały eksploatacyjne rozliczane jest zgodnie z wyceną zaakceptowaną przez Klienta (z uwzględnieniem ewentualnych promocji lub rabatów obowiązujących w chwili zgłoszenia).
+                </li>
+                <li>
+                  Jako podmiot prowadzący działalność nierejestrowaną, Serwis nie wystawia faktur VAT; rozliczenie następuje na zasadach właściwych dla działalności nierejestrowanej (w tym na podstawie rachunku wystawianego na żądanie Klienta zgodnie z obowiązującymi przepisami).
+                </li>
+                <li>
+                  Wszelkie reklamacje dotyczące wykonanej usługi Klient może zgłaszać telefonicznie, mailowo lub za pośrednictwem komunikatorów wskazanych w § 1 ust. 3, podając opis zauważonej nieprawidłowości i warunki pracy urządzenia. Serwis rozpatruje reklamację i udziela odpowiedzi (na piśmie lub innym trwałym nośniku, np. e-mail) w terminie do <strong>14 dni</strong> od dnia jej otrzymania.
+                </li>
+                <li>
+                  W sprawach nieuregulowanych Regulaminem zastosowanie mają odpowiednie przepisy prawa polskiego, w szczególności Kodeksu cywilnego oraz ustawy o prawach konsumenta.
+                </li>
+              </ol>
+            </section>
+          </article>
         </div>
       </section>
     </main>
   </div>
 
   <!-- ======================================================================= -->
-  <!-- VIEW 4: POLITYKA PRYWATNOŚCI / RODO (MIEJSCE DO RĘCZNEGO WKLEJENIA)     -->
+  <!-- VIEW 4: POLITYKA PRYWATNOŚCI / RODO                                     -->
   <!-- ======================================================================= -->
   <div id="view-rodo" class="page-view">
     <main>
@@ -2674,68 +2861,101 @@ Regulamin świadczenia usług serwisowych — BrandNew PC
             <button type="button" class="btn-secondary" data-switch-view="service">← Wróć do serwisu</button>
           </div>
 
-          <div class="material-card legal-paste-area">
-            <!-- ========================================================= -->
-            <!-- TUTAJ WKLEJ SWOJE RODO (PONIŻEJ TEJ LINII)                -->
-            <!-- ========================================================= -->
+          <article class="legal-doc">
+            <header class="legal-doc-header">
+              <p class="legal-doc-subtitle">Polityka prywatności i plików cookies (RODO) — brandnewpc.pl</p>
+            </header>
 
-Polityka prywatności i plików cookies (RODO) — brandnewpc.pl
+            <section class="legal-section">
+              <h2 class="legal-section-title">
+                <span class="legal-sec-badge">§ 1</span>
+                <span>Administrator danych osobowych</span>
+              </h2>
+              <ol class="legal-ol">
+                <li>
+                  Administratorem danych osobowych przetwarzanych w związku z funkcjonowaniem serwisu <a href="https://www.brandnewpc.pl" target="_blank" rel="noopener">https://www.brandnewpc.pl</a> oraz realizacją usług serwisowych <strong>BrandNew PC</strong> jest Imię i Nazwisko, zamieszkały/prowadzący działalność nierejestrowaną pod adresem: ul. ..., 32-400 Myślenice (dalej: <strong>„Administrator”</strong>).
+                </li>
+                <li>
+                  Kontakt z Administratorem w sprawach dotyczących danych osobowych i prywatności: telefon <a href="tel:+48730963314">+48 730 963 314</a>, profil Instagram <a href="https://www.instagram.com/brandnew.pc/" target="_blank" rel="noopener">@brandnew.pc</a> lub adres e-mail wskazany na stronie <a href="https://www.brandnewpc.pl" target="_blank" rel="noopener">https://www.brandnewpc.pl</a>.
+                </li>
+              </ol>
+            </section>
 
-§ 1. Administrator danych osobowych
+            <section class="legal-section">
+              <h2 class="legal-section-title">
+                <span class="legal-sec-badge">§ 2</span>
+                <span>Cele, podstawy prawne oraz dobrowolność podania danych</span>
+              </h2>
+              <ol class="legal-ol">
+                <li>
+                  Dane osobowe (takie jak imię i nazwisko lub nick, numer telefonu, adres e-mail, adres do wysyłki/odbioru sprzętu, dane zawarte w korespondencji lub protokole przyjęcia sprzętu) przetwarzane są wyłącznie w zakresie niezbędnym do:
+                  <ul class="legal-ul">
+                    <li>przygotowania wyceny, kontaktu i realizacji usługi serwisowej (<strong>art. 6 ust. 1 lit. b RODO</strong> — podjęcie działań na żądanie osoby, której dane dotyczą, lub wykonanie umowy),</li>
+                    <li>wypełnienia obowiązków prawnych i podatkowych ciążących na Administratorze, w tym prowadzenia uproszczonej ewidencji sprzedaży oraz wystawiania rachunków w ramach działalności nierejestrowanej (<strong>art. 6 ust. 1 lit. c RODO</strong>),</li>
+                    <li>ustalenia, dochodzenia lub obrony przed roszczeniami oraz bieżącej komunikacji z Klientem (<strong>art. 6 ust. 1 lit. f RODO</strong> — prawnie uzasadniony interes Administratora).</li>
+                  </ul>
+                </li>
+                <li>
+                  Podanie danych osobowych jest <strong>dobrowolne</strong>, jednak niezbędne do przygotowania wyceny, kontaktu, przyjęcia i zwrotu sprzętu oraz realizacji usługi serwisowej (a w przypadku żądania wystawienia rachunku — również do spełnienia wymogów przepisów podatkowych). Niepodanie tych danych uniemożliwi realizację usługi lub wystawienie rachunku.
+                </li>
+              </ol>
+            </section>
 
-    Administratorem danych osobowych przetwarzanych w związku z funkcjonowaniem serwisu https://www.brandnewpc.pl oraz realizacją usług serwisowych BrandNew PC jest Imię i Nazwisko, zamieszkały/prowadzący działalność nierejestrowaną pod adresem: ul. ..., 32-400 Myślenice (dalej: „Administrator”).
+            <section class="legal-section">
+              <h2 class="legal-section-title">
+                <span class="legal-sec-badge">§ 3</span>
+                <span>Czas przechowywania danych, odbiorcy oraz przekazywanie poza EOG</span>
+              </h2>
+              <ol class="legal-ol">
+                <li>
+                  Dane związane z realizacją usługi i uproszczoną ewidencją sprzedaży przechowywane są przez okres wymagany przepisami prawa podatkowego (co do zasady <strong>5 lat</strong> licząc od końca roku kalendarzowego, w którym powstał obowiązek podatkowy) oraz przez czas niezbędny do obsługi ewentualnych reklamacji lub roszczeń.
+                </li>
+                <li>
+                  Dane z bieżącej korespondencji, która nie zakończyła się realizacją zlecenia, są usuwane po zakończeniu kontaktu, o ile nie istnieje podstawa prawna do ich dalszego przechowywania.
+                </li>
+                <li>
+                  Odbiorcami danych mogą być wyłącznie podmioty wspierające realizację usługi lub funkcjonowanie strony: operatorzy pocztowi, kurierscy i paczkomatowi (przy wysyłce sprzętu) oraz dostawcy hostingu, poczty elektronicznej i komunikatorów (np. Meta Platforms — Facebook/Instagram — przy kontakcie przez te kanały) wyłącznie w zakresie niezbędnym do obsługi zgłoszenia.
+                </li>
+                <li>
+                  W związku z korzystaniem z komunikatorów należących do Meta Platforms (Facebook, Instagram) dane osobowe mogą być przekazywane poza Europejski Obszar Gospodarczy (do USA). Podstawą takiego transferu jest decyzja Komisji Europejskiej stwierdzająca odpowiedni stopień ochrony danych osobowych w ramach programu <strong>EU-US Data Privacy Framework</strong> (oraz standardowe klauzule umowne).
+                </li>
+              </ol>
+            </section>
 
-    Kontakt z Administratorem w sprawach dotyczących danych osobowych i prywatności: telefon +48 730 963 314, profil Instagram @brandnew.pc lub adres e-mail wskazany na stronie https://www.brandnewpc.pl.
+            <section class="legal-section">
+              <h2 class="legal-section-title">
+                <span class="legal-sec-badge">§ 4</span>
+                <span>Prawa osoby, której dane dotyczą</span>
+              </h2>
+              <p class="legal-lead">Każdej osobie, której dane dotyczą, przysługuje prawo do:</p>
+              <ul class="legal-ul">
+                <li><strong>dostępu</strong> do swoich danych oraz otrzymania ich kopii,</li>
+                <li><strong>sprostowania</strong> (poprawiania) nieprawidłowych lub niekompletnych danych,</li>
+                <li><strong>żądania usunięcia</strong> danych lub <strong>ograniczenia</strong> ich przetwarzania (w przypadkach przewidzianych przez RODO),</li>
+                <li><strong>wniesienia sprzeciwu</strong> wobec przetwarzania opartego na art. 6 ust. 1 lit. f RODO,</li>
+                <li><strong>przenoszenia danych</strong> (w zakresie określonym w RODO),</li>
+                <li><strong>wniesienia skargi</strong> do organu nadzorczego — <strong>Prezesa Urzędu Ochrony Danych Osobowych</strong> (ul. Stawki 2, 00-193 Warszawa).</li>
+              </ul>
+            </section>
 
-§ 2. Cele, podstawy prawne oraz dobrowolność podania danych
-
-    Dane osobowe (takie jak imię i nazwisko lub nick, numer telefonu, adres e-mail, adres do wysyłki/odbioru sprzętu, dane zawarte w korespondencji lub protokole przyjęcia sprzętu) przetwarzane są wyłącznie w zakresie niezbędnym do:
-
-        przygotowania wyceny, kontaktu i realizacji usługi serwisowej (art. 6 ust. 1 lit. b RODO — podjęcie działań na żądanie osoby, której dane dotyczą, lub wykonanie umowy),
-
-        wypełnienia obowiązków prawnych i podatkowych ciążących na Administratorze, w tym prowadzenia uproszczonej ewidencji sprzedaży oraz wystawiania rachunków w ramach działalności nierejestrowanej (art. 6 ust. 1 lit. c RODO),
-
-        ustalenia, dochodzenia lub obrony przed roszczeniami oraz bieżącej komunikacji z Klientem (art. 6 ust. 1 lit. f RODO — prawnie uzasadniony interes Administratora).
-
-    Podanie danych osobowych jest dobrowolne, jednak niezbędne do przygotowania wyceny, kontaktu, przyjęcia i zwrotu sprzętu oraz realizacji usługi serwisowej (a w przypadku żądania wystawienia rachunku — również do spełnienia wymogów przepisów podatkowych). Niepodanie tych danych uniemożliwi realizację usługi lub wystawienie rachunku.
-
-§ 3. Czas przechowywania danych, odbiorcy oraz przekazywanie poza EOG
-
-    Dane związane z realizacją usługi i uproszczoną ewidencją sprzedaży przechowywane są przez okres wymagany przepisami prawa podatkowego (co do zasady 5 lat licząc od końca roku kalendarzowego, w którym powstał obowiązek podatkowy) oraz przez czas niezbędny do obsługi ewentualnych reklamacji lub roszczeń.
-
-    Dane z bieżącej korespondencji, która nie zakończyła się realizacją zlecenia, są usuwane po zakończeniu kontaktu, o ile nie istnieje podstawa prawna do ich dalszego przechowywania.
-
-    Odbiorcami danych mogą być wyłącznie podmioty wspierające realizację usługi lub funkcjonowanie strony: operatorzy pocztowi, kurierscy i paczkomatowi (przy wysyłce sprzętu) oraz dostawcy hostingu, poczty elektronicznej i komunikatorów (np. Meta Platforms — Facebook/Instagram — przy kontakcie przez te kanały) wyłącznie w zakresie niezbędnym do obsługi zgłoszenia.
-
-    W związku z korzystaniem z komunikatorów należących do Meta Platforms (Facebook, Instagram) dane osobowe mogą być przekazywane poza Europejski Obszar Gospodarczy (do USA). Podstawą takiego transferu jest decyzja Komisji Europejskiej stwierdzająca odpowiedni stopień ochrony danych osobowych w ramach programu EU-US Data Privacy Framework (oraz standardowe klauzule umowne).
-
-§ 4. Prawa osoby, której dane dotyczą
-Każdej osobie, której dane dotyczą, przysługuje prawo do:
-
-    dostępu do swoich danych oraz otrzymania ich kopii,
-
-    sprostowania (poprawiania) nieprawidłowych lub niekompletnych danych,
-
-    żądania usunięcia danych lub ograniczenia ich przetwarzania (w przypadkach przewidzianych przez RODO),
-
-    wniesienia sprzeciwu wobec przetwarzania opartego na art. 6 ust. 1 lit. f RODO,
-
-    przenoszenia danych (w zakresie określonym w RODO),
-
-    wniesienia skargi do organu nadzorczego — Prezesa Urzędu Ochrony Danych Osobowych (ul. Stawki 2, 00-193 Warszawa).
-
-§ 5. Pliki cookies i logi techniczne
-
-    Strona https://www.brandnewpc.pl wykorzystuje wyłącznie pliki cookies oraz mechanizmy pamięci przeglądarki (np. localStorage) niezbędne do prawidłowego działania witryny (m.in. obsługi elementów interfejsu, kalkulatora wyceny czy przełączania sekcji). Strona nie wykorzystuje cookies marketingowych ani zewnętrznych narzędzi śledzących.
-
-    Serwer hostingowy może zapisywać standardowe logi techniczne (np. adres IP, czas żądania, typ przeglądarki) w celach bezpieczeństwa, diagnostyki i utrzymania stabilności serwisu.
-
-    Użytkownik może w każdej chwili zmienić ustawienia dotyczące plików cookies w swojej przeglądarce (np. zablokować je lub usunąć), przy czym wyłączenie niezbędnych mechanizmów może wpłynąć na prawidłowe działanie funkcji strony.
-
-            <!-- ========================================================= -->
-            <!-- KONIEC MIEJSCA NA RODO                                    -->
-            <!-- ========================================================= -->
-          </div>
+            <section class="legal-section">
+              <h2 class="legal-section-title">
+                <span class="legal-sec-badge">§ 5</span>
+                <span>Pliki cookies i logi techniczne</span>
+              </h2>
+              <ol class="legal-ol">
+                <li>
+                  Strona <a href="https://www.brandnewpc.pl" target="_blank" rel="noopener">https://www.brandnewpc.pl</a> wykorzystuje wyłącznie pliki cookies oraz mechanizmy pamięci przeglądarki (np. <code>localStorage</code>) niezbędne do prawidłowego działania witryny (m.in. obsługi elementów interfejsu, kalkulatora wyceny czy przełączania sekcji). Strona nie wykorzystuje cookies marketingowych ani zewnętrznych narzędzi śledzących.
+                </li>
+                <li>
+                  Serwer hostingowy może zapisywać standardowe logi techniczne (np. adres IP, czas żądania, typ przeglądarki) w celach bezpieczeństwa, diagnostyki i utrzymania stabilności serwisu.
+                </li>
+                <li>
+                  Użytkownik może w każdej chwili zmienić ustawienia dotyczące plików cookies w swojej przeglądarce (np. zablokować je lub usunąć), przy czym wyłączenie niezbędnych mechanizmów może wpłynąć na prawidłowe działanie funkcji strony.
+                </li>
+              </ol>
+            </section>
+          </article>
         </div>
       </section>
     </main>
