@@ -2133,6 +2133,7 @@
         <span id="wysylka"></span>
         <span id="materialy"></span>
         <span id="proces"></span>
+        <span id="sofware"></span>
 
         <div class="container">
           <div class="info-hub-controls" role="region" aria-label="Przełącznik informacji">
@@ -2142,6 +2143,7 @@
               <button type="button" class="info-pill-btn active" data-slide-target="0">Wysyłka</button>
               <button type="button" class="info-pill-btn" data-slide-target="1">Materiały</button>
               <button type="button" class="info-pill-btn" data-slide-target="2">Realizacja</button>
+              <button type="button" class="info-pill-btn" data-slide-target="3">Software</button>
             </div>
 
             <button type="button" class="info-arrow-btn" id="infoNextBtn" aria-label="Następna sekcja">&#8594;</button>
@@ -2242,6 +2244,39 @@
                   <p>Otrzymujesz zdjęcia z prac oraz zrzuty temperatur z HWiNFO64 / FurMark, a sprzęt wraca zabezpieczony antystatycznie (ESD).</p>
                 </div>
               </div>
+              <!-- SLAJD 4: Software -->
+            <div class="info-slide" data-slide-index="1">
+              <div class="section-header">
+                <h2>Systemy operacyjne i optymalizacja softu</h2>
+                <p>Zajmujemy się również warstwą programową — oto <strong>4 główne obszary</strong>, w których stawiamy system na nogi i wyciskamy z niego pełną responsywność.</p>
+              </div>
+
+              <div class="materials-grid">
+                <div class="material-card">
+                  <span class="material-tag">01 / WINDOWS 10 I 11</span>
+                  <h3>Czysta instalacja i pełne sterowniki</h3>
+                  <p>Stawiamy świeży system bez fabrycznego syfu (bloatware), dobieramy sprawdzone sterowniki chipsetu, GPU i sieci oraz ustawiamy pełną aktualizację pod stabilną pracę na co dzień i w grach.</p>
+                </div>
+
+                <div class="material-card">
+                  <span class="material-tag">02 / SYSTEM LINUX</span>
+                  <h3>Instalacja i konfiguracja pingwina</h3>
+                  <p>Dobieramy i instalujemy dystrybucję Linuksa pod Twój sprzęt i sposób korzystania — od lekkich środowisk na starsze maszyny po codzienne stanowisko pracy, dev lub gaming na Protonie.</p>
+                </div>
+
+                <div class="material-card">
+                  <span class="material-tag">03 / OPTYMALIZACJA</span>
+                  <h3>Mniej zbędnych procesów i lepsze klatki</h3>
+                  <p>Czyścimy autostart, harmonogramy i zbędne usługi w tle, ograniczamy narzut systemowy oraz porządkujemy plany zasilania, żeby sprzęt szybciej reagował i mniej grzał się pod obciążeniem.</p>
+                </div>
+
+                <div class="material-card">
+                  <span class="material-tag">04 / BEZPIECZEŃSTWO I DANE</span>
+                  <h3>Porządek przed startem i kopia zapasowa</h3>
+                  <p>Przed reinstalacją pomagamy zabezpieczyć ważne pliki i dane użytkownika, a po wdrożeniu konfigurujemy podstawy bezpieczeństwa, aby system działał czysto i przewidywalnie.</p>
+                </div>
+              </div>
+            </div>
             </div>
           </div>
         </div>
@@ -2258,6 +2293,10 @@
             <details class="faq-item">
               <summary>Jakie handheldy przyjmujecie na serwis chłodzenia?</summary>
               <p>Serwisujemy wyłącznie przenośne komputery PC (handheldy PC): Steam Deck (LCD oraz OLED), ASUS ROG Ally / Ally X, Lenovo Legion Go oraz MSI Claw. Nie przyjmujemy konsol Nintendo Switch ani podobnych zamkniętych konsol.</p>
+            </details>
+           <details class="faq-item">
+              <summary>Czy przyjmujecie kompletne PC-ety?</summary>
+              <p>Tak, przyjmujemy kompletne komputery stacjonarne (PC), ale wyłącznie przy osobistym przywiezieniu i odbiorze sprzętu — w przypadku całych zestawów nie wchodzi w grę ani odbiór door-to-door, ani wysyłka Paczkomatem (zbyt duże ryzyko uszkodzenia obudowy, chłodzenia lub karty graficznej w transporcie).</p>
             </details>
             <details class="faq-item">
               <summary>Skąd mam pewność, jakie materiały zostały użyte w środku?</summary>
@@ -2619,14 +2658,14 @@
         }, { passive: true });
       }
 
-      const hashMap = { "#wysylka": 0, "#materialy": 1, "#proces": 2 };
+      const hashMap = { "#wysylka": 0, "#materialy": 1, "#proces": 2, "#sofware": 3 };
       function syncFromHash() {
         if (window.location.hash in hashMap) {
           showInfoSlide(hashMap[window.location.hash]);
         }
       }
       window.addEventListener("hashchange", syncFromHash);
-      document.querySelectorAll('a[href="#wysylka"], a[href="#materialy"], a[href="#proces"]').forEach(function (link) {
+      document.querySelectorAll('a[href="#wysylka"], a[href="#materialy"], a[href="#proces"], a[href="#software"]').forEach(function (link) {
         link.addEventListener("click", function () {
           const target = link.getAttribute("href");
           if (target in hashMap) showInfoSlide(hashMap[target]);
